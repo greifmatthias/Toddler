@@ -1,0 +1,28 @@
+package be.greifmatthias.toddler.Activities;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+
+import be.greifmatthias.toddler.R;
+import be.greifmatthias.toddler.Theme;
+
+public class SettingsActivity extends Activity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_settings);
+
+        Theme.setStatusbarWhite(getWindow(), true);
+
+        findViewById(R.id.llAbout).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent aboutIntent = new Intent(getApplicationContext(), AboutActivity.class);
+                startActivity(aboutIntent);
+            }
+        });
+    }
+}

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.AboutActivity"
+    android:background="@color/colorLight">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padNormal"
+            android:background="@color/colorAccent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_twotone_child_care"
+                android:tint="@color/colorLight"
+                android:layout_marginTop="@dimen/padBig"
+                android:layout_marginBottom="@dimen/padNormal"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Toddler"
+                android:textColor="@color/colorLight"
+                android:textSize="@dimen/textInsane"
+                android:textAllCaps="true"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1.0.0 ~ 20181009"
+                android:textColor="@color/colorLight"
+                android:layout_marginTop="@dimen/padThin"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/border"
+            android:backgroundTint="@color/colorDark_mintrans">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="The guys behind this great app"
+                android:paddingRight="@dimen/padNormal"
+                android:paddingTop="@dimen/padNormal"
+                android:textSize="@dimen/textSmall"
+                android:textColor="@color/colorDark_semitrans"
+                android:textAlignment="textEnd"/>
+
+            <!-- GREIF MATTHIAS-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/padNormal"
+                android:paddingBottom="@dimen/padNormal"
+                android:paddingRight="@dimen/padNormal"
+                android:orientation="horizontal">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/matthiasgreif"
+                    android:layout_marginLeft="@dimen/padNormal"
+                    android:layout_gravity="center"
+                    app:civ_border_width="0dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/padSmaller"
+                    android:paddingRight="@dimen/padNormal"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Greif Matthias"
+                        android:textColor="@color/colorDark"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/textNormal"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/padThin"
+                        android:text="A web/appdeveloper based in Belgium, love to code and design."
+                        android:textColor="@color/colorDark_semitrans"
+                        android:textSize="@dimen/textSmall"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- JARI MATHE -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/padNormal"
+                android:paddingRight="@dimen/padNormal"
+                android:orientation="horizontal">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/jarimathe"
+                    android:layout_marginLeft="@dimen/padNormal"
+                    android:layout_gravity="center"
+                    app:civ_border_width="0dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/padSmaller"
+                    android:paddingRight="@dimen/padNormal"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Mathe Jari"
+                        android:textColor="@color/colorDark"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/textNormal"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/padThin"
+                        android:text="I am gay and very proud about that, love to spread my gay words and anus across the globe."
+                        android:textColor="@color/colorDark_semitrans"
+                        android:textSize="@dimen/textSmall"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</ScrollView>
