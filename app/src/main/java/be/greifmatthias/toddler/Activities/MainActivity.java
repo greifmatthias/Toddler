@@ -16,6 +16,8 @@ import java.util.HashMap;
 import java.util.List;
 
 import be.greifmatthias.toddler.DataHandler;
+import be.greifmatthias.toddler.Models.Class;
+import be.greifmatthias.toddler.Models.User;
 import be.greifmatthias.toddler.R;
 import be.greifmatthias.toddler.Theme;
 
@@ -41,67 +43,36 @@ public class MainActivity extends Activity {
             }
         });
 
-//        Load studs
-        List<String> listDataHeader = new ArrayList<String>();
-        HashMap<String, List<String>> listDataChild = new HashMap<String, List<String>>();
+//        Load data
+        HashMap<String, List<User>> data = new HashMap<>();
 
-        // Adding child data
-        listDataHeader.add("Top 250");
-        listDataHeader.add("Now Showing");
-        listDataHeader.add("Coming Soon..");
+        for(Class c : Class.get()){
+            List<User> usersinclass = new ArrayList<>();
+            usersinclass.add(new User(0, "Matthias", "Greif", true));
 
-        // Adding child data
-        List<String> top250 = new ArrayList<String>();
-        top250.add("The Shawshank Redemption");
-        top250.add("The Godfather");
-        top250.add("The Godfather: Part II");
-        top250.add("Pulp Fiction");
-        top250.add("The Good, the Bad and the Ugly");
-        top250.add("The Dark Knight");
-        top250.add("12 Angry Men");
-
-        List<String> nowShowing = new ArrayList<String>();
-        nowShowing.add("The Conjuring");
-        nowShowing.add("Despicable Me 2");
-        nowShowing.add("Turbo");
-        nowShowing.add("Grown Ups 2");
-        nowShowing.add("Red 2");
-        nowShowing.add("The Wolverine");
-
-        List<String> comingSoon = new ArrayList<String>();
-        comingSoon.add("2 Guns");
-        comingSoon.add("The Smurfs 2");
-        comingSoon.add("The Spectacular Now");
-        comingSoon.add("The Canyons");
-        comingSoon.add("Europa Report");
-
-        listDataChild.put(listDataHeader.get(0), top250); // Header, Child data
-        listDataChild.put(listDataHeader.get(1), nowShowing);
-        listDataChild.put(listDataHeader.get(2), comingSoon);
+            data.put(c.getName(), usersinclass);
+        }
 
 //        Setup list
         ExpandableListView elvStuds = findViewById(R.id.elvStuds);
-        StudsAdapter adapter = new StudsAdapter(this, listDataHeader, listDataChild);
+        StudsAdapter adapter = new StudsAdapter(this, Class.get(), data);
         elvStuds.setAdapter(adapter);
     }
 
     private class StudsAdapter extends BaseExpandableListAdapter {
         private Context _context;
-        private List<String> _listDataHeader; // header titles
-        // child data in format of header title, child title
-        private HashMap<String, List<String>> _listDataChild;
+        private List<Class> _headers;
+        private HashMap<String, List<User>> _data;
 
-        public StudsAdapter(Context context, List<String> listDataHeader,
-                            HashMap<String, List<String>> listChildData) {
+        public StudsAdapter(Context context, List<Class> classes, HashMap<String, List<User>> data) {
             this._context = context;
-            this._listDataHeader = listDataHeader;
-            this._listDataChild = listChildData;
+            this._headers = classes;
+            this._data = data;
         }
 
         @Override
         public Object getChild(int groupPosition, int childPosititon) {
-            return this._listDataChild.get(this._listDataHeader.get(groupPosition))
-                    .get(childPosititon);
+            return this._data.get(this._headers.get(groupPosition).getName()).get(childPosititon);
         }
 
         @Override
@@ -113,7 +84,7 @@ public class MainActivity extends Activity {
         public View getChildView(int groupPosition, final int childPosition,
                                  boolean isLastChild, View convertView, ViewGroup parent) {
 
-            final String childText = (String) getChild(groupPosition, childPosition);
+            User u = (User) getChild(groupPosition, childPosition);
 
             if (convertView == null) {
                 LayoutInflater infalInflater = (LayoutInflater) this._context
@@ -123,24 +94,23 @@ public class MainActivity extends Activity {
 
             TextView txtListChild = (TextView) convertView.findViewById(R.id.tvName);
 
-            txtListChild.setText(childText);
+            txtListChild.setText(u.getName() + " " + u.getFamname());
             return convertView;
         }
 
         @Override
         public int getChildrenCount(int groupPosition) {
-            return this._listDataChild.get(this._listDataHeader.get(groupPosition))
-                    .size();
+            return this._data.get(this._headers.get(groupPosition).getName()).size();
         }
 
         @Override
         public Object getGroup(int groupPosition) {
-            return this._listDataHeader.get(groupPosition);
+            return this._headers.get(groupPosition);
         }
 
         @Override
         public int getGroupCount() {
-            return this._listDataHeader.size();
+            return this._headers.size();
         }
 
         @Override
@@ -149,9 +119,9 @@ public class MainActivity extends Activity {
         }
 
         @Override
-        public View getGroupView(int groupPosition, boolean isExpanded,
-                                 View convertView, ViewGroup parent) {
-            String headerTitle = (String) getGroup(groupPosition);
+        public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
+            Class c = (Class)getGroup(groupPosition);
+
             if (convertView == null) {
                 LayoutInflater infalInflater = (LayoutInflater) this._context
                         .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -159,7 +129,7 @@ public class MainActivity extends Activity {
             }
 
             TextView lblListHeader = (TextView) convertView.findViewById(R.id.tvName);
-            lblListHeader.setText(headerTitle);
+            lblListHeader.setText(c.getName());
 
             return convertView;
         }

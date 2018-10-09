@@ -12,8 +12,24 @@ import be.greifmatthias.toddler.DataHandler;
 public class Class {
 //    Members
     private int _id;
-    private int _name;
-    private List<Group> groups;
+    private String _name;
+
+    private List<User> _studs;
+
+    public Class(int id, String name){
+        this._id = id;
+        this._name = name;
+
+        this._studs = new ArrayList<>();
+    }
+
+    public int getId(){
+        return this._id;
+    }
+
+    public String getName(){
+        return this._name;
+    }
 
 //
     private static final String dataname = "data_classes";
@@ -22,7 +38,7 @@ public class Class {
     private static List<Class> _classes;
 
 //    Public get all classes
-    public List<Class> get(){
+    public static List<Class> get(){
         if(_classes == null){
             _classes = load();
 
@@ -31,11 +47,12 @@ public class Class {
             }
         }
 
+        _classes.add(new Class(0, "U mama"));
         return _classes;
     }
 
 //    Private data loader
-    private List<Class> load(){
+    private static List<Class> load(){
         Gson gson = new GsonBuilder().create();
         List<Class> output = new ArrayList<>();
 

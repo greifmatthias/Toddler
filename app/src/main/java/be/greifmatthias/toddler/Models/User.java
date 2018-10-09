@@ -8,6 +8,13 @@ public class User {
     private String _famname;
     private boolean _isboy;
 
+    public User(int id, String name, String famname, boolean isboy){
+        this._id = id;
+        this._name = name;
+        this._famname = famname;
+        this._isboy = isboy;
+    }
+
     public int getId(){
         return this._id;
     }
