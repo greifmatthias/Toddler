@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import be.greifmatthias.toddler.DataHandler;
 import be.greifmatthias.toddler.R;
 import be.greifmatthias.toddler.Theme;
 
@@ -25,16 +26,13 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+//        Load theme
         Theme.setStatusbarWhite(getWindow(), true);
-//
-//        findViewById(R.id.btn).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent exerciseIntent = new Intent(getApplicationContext(), ExerciseActivity.class);
-//                startActivity(exerciseIntent);
-//            }
-//        });
 
+//        Init handlers
+        DataHandler.getInstance(this);
+
+//        Setup click for settings
         findViewById(R.id.ivMore).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
