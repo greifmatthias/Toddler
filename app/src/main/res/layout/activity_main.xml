@@ -11,17 +11,20 @@
         android:id="@+id/llHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:weightSum="1">
+        android:weightSum="1"
+        android:background="@drawable/gradient_bottomtop"
+        android:backgroundTint="@color/colorDark_mintrans">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="Hi there"
             android:padding="@dimen/padNormal"
-            android:text="Hello there"
-            android:textColor="@color/colorDark"
-            android:textSize="@dimen/textBigger"
             android:textStyle="bold"
-            android:layout_weight="1" />
+            android:textSize="@dimen/textBigger"
+            android:textColor="@color/colorDark"
+            android:layout_weight="1"/>
+
 
         <ImageView
             android:id="@+id/ivMore"
@@ -34,17 +37,12 @@
 
     </LinearLayout>
 
-    <ListView
-        android:layout_width="match_parent"
+    <ExpandableListView
+        android:id="@+id/elvStuds"
         android:layout_height="match_parent"
-        android:layout_below="@id/llHeader"
-        android:layout_above="@id/btnStart"></ListView>
-
-    <Button
-        android:id="@+id/btnStart"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:text="Start"/>
+        android:layout_below="@id/llHeader"
+        android:background="@drawable/border"
+        android:backgroundTint="@color/colorDark_mintrans"/>
 
 </RelativeLayout>

@@ -18,7 +18,12 @@
         </activity>
         <activity android:name=".Activities.ExerciseActivity" />
         <activity android:name=".Activities.SettingsActivity" />
-        <activity android:name=".Activities.AboutActivity" android:theme="@style/StatusbarAccent"></activity>
+        <activity
+            android:name=".Activities.AboutActivity"
+            android:theme="@style/StatusbarAccent" />
+        <activity
+            android:name=".Activities.ManagerActivity"
+            android:label="@string/title_activity_manager"></activity>
     </application>
 
 </manifest>

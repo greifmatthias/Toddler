@@ -17,6 +17,14 @@ public class SettingsActivity extends Activity {
 
         Theme.setStatusbarWhite(getWindow(), true);
 
+        findViewById(R.id.llManager).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent managerIntent = new Intent(getApplicationContext(), ManagerActivity.class);
+                startActivity(managerIntent);
+            }
+        });
+
         findViewById(R.id.llAbout).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

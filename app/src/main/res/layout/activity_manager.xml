@@ -1,29 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.ExerciseActivity"
-    android:background="@color/colorLight">
+    tools:context=".Activities.ManagerActivity">
 
     <TextView
         android:id="@+id/tvWord"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Duikbril"
+        android:text="Manager"
         android:padding="@dimen/padNormal"
         android:textStyle="bold"
         android:textSize="@dimen/textBigger"
         android:textColor="@color/colorDark"
         android:background="@drawable/gradient_bottomtop"
         android:backgroundTint="@color/colorDark_mintrans"/>
-
-    <FrameLayout
-        android:id="@+id/flContent"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/tvWord"></FrameLayout>
 
 </RelativeLayout>

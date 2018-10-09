@@ -16,7 +16,9 @@
         android:padding="@dimen/padNormal"
         android:textStyle="bold"
         android:textSize="@dimen/textBigger"
-        android:textColor="@color/colorDark"/>
+        android:textColor="@color/colorDark"
+        android:background="@drawable/gradient_bottomtop"
+        android:backgroundTint="@color/colorDark_mintrans"/>
 
     <ScrollView
         android:layout_below="@id/tvHeader"
