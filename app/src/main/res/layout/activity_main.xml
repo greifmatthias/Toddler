@@ -45,4 +45,64 @@
         android:background="@drawable/border"
         android:backgroundTint="@color/colorDark_mintrans" />
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/llHeader">
+
+        <LinearLayout
+            android:id="@+id/llNotif"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/padNormal"
+            android:background="@drawable/border"
+            android:backgroundTint="@color/colorDark_mintrans">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_round_class"
+                android:tint="@color/colorDark_mintrans"
+                android:layout_marginTop="@dimen/padSmaller"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:textColor="@color/colorDark_semitrans"
+                    android:textSize="@dimen/textNormal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/padSmaller"
+                    android:text="It looks like there are no groups made yet, Let's get started by creating one."/>
+
+                <TextView
+                    android:textColor="@color/colorDark_semitrans"
+                    android:textSize="@dimen/textSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/padSmaller"
+                    android:paddingTop="@dimen/padSmall"
+                    android:text="(Use the manager shortcut below to get started)"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabManager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_round_class"
+        android:tint="@color/colorLight"
+        android:backgroundTint="@color/colorAccent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/padNormal"/>
+
 </RelativeLayout>

@@ -23,6 +23,8 @@ import be.greifmatthias.toddler.Theme;
 
 public class MainActivity extends Activity {
 
+    private ExpandableListView _elvStuds;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +36,9 @@ public class MainActivity extends Activity {
 //        Init handlers
         DataHandler.getInstance(this);
 
+//        Get controls
+        this._elvStuds = findViewById(R.id.elvStuds);
+
 //        Setup click for settings
         findViewById(R.id.ivMore).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,22 +47,38 @@ public class MainActivity extends Activity {
                 startActivity(settingsIntent);
             }
         });
+
+//        Setup click for manager
+        findViewById(R.id.fabManager).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent managerIntent = new Intent(getApplicationContext(), ManagerActivity.class);
+                startActivity(managerIntent);
+            }
+        });
     }
 
     @Override
     protected void onResume() {
         super.onResume();
 
+        if (Class.get().size() > 0) {
 //        Load data
-        HashMap<String, List<User>> data = new HashMap<>();
-        for(Class c : Class.get()){
-            data.put(c.getName(), c.getStuds());
-        }
+            HashMap<String, List<User>> data = new HashMap<>();
+            for (Class c : Class.get()) {
+                data.put(c.getName(), c.getStuds());
+            }
 
 //        Setup list
-        ExpandableListView elvStuds = findViewById(R.id.elvStuds);
-        StudsAdapter adapter = new StudsAdapter(this, Class.get(), data);
-        elvStuds.setAdapter(adapter);
+            StudsAdapter adapter = new StudsAdapter(this, Class.get(), data);
+            this._elvStuds.setAdapter(adapter);
+
+            this._elvStuds.setVisibility(View.VISIBLE);
+            findViewById(R.id.llNotif).setVisibility(View.GONE);
+        }else{
+            this._elvStuds.setVisibility(View.GONE);
+            findViewById(R.id.llNotif).setVisibility(View.VISIBLE);
+        }
     }
 
     private class StudsAdapter extends BaseExpandableListAdapter {
