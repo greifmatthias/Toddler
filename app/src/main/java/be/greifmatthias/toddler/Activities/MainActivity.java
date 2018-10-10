@@ -42,15 +42,16 @@ public class MainActivity extends Activity {
                 startActivity(settingsIntent);
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
 
 //        Load data
         HashMap<String, List<User>> data = new HashMap<>();
-
         for(Class c : Class.get()){
-            List<User> usersinclass = new ArrayList<>();
-            usersinclass.add(new User(0, "Matthias", "Greif", true));
-
-            data.put(c.getName(), usersinclass);
+            data.put(c.getName(), c.getStuds());
         }
 
 //        Setup list

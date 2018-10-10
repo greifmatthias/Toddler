@@ -23,7 +23,8 @@
             android:theme="@style/StatusbarAccent" />
         <activity
             android:name=".Activities.ManagerActivity"
-            android:label="@string/title_activity_manager"></activity>
+            android:label="@string/title_activity_manager" />
+        <activity android:name=".Activities.StudDetail"></activity>
     </application>
 
 </manifest>

@@ -29,13 +29,18 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/padSmaller">
 
+            <!-- MANAGER -->
             <LinearLayout
                 android:id="@+id/llManager"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/padNormal"
+                android:paddingLeft="@dimen/padNormal"
+                android:paddingRight="@dimen/padNormal"
+                android:paddingTop="@dimen/padSmaller"
+                android:paddingBottom="@dimen/padSmaller"
                 android:orientation="vertical">
 
                 <TextView
@@ -53,11 +58,15 @@
 
             </LinearLayout>
 
+            <!-- ABOUT -->
             <LinearLayout
                 android:id="@+id/llAbout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/padNormal"
+                android:paddingLeft="@dimen/padNormal"
+                android:paddingRight="@dimen/padNormal"
+                android:paddingTop="@dimen/padSmaller"
+                android:paddingBottom="@dimen/padSmaller"
                 android:orientation="vertical">
 
                 <TextView

@@ -31,6 +31,10 @@ public class Class {
         return this._name;
     }
 
+    public List<User> getStuds(){
+        return this._studs;
+    }
+
 //
     private static final String dataname = "data_classes";
 
@@ -47,7 +51,6 @@ public class Class {
             }
         }
 
-        _classes.add(new Class(0, "U mama"));
         return _classes;
     }
 
@@ -62,6 +65,10 @@ public class Class {
 //                Convert
                 Class entry = gson.fromJson(s, Class.class);
 
+                if(entry._studs == null){
+                    entry._studs = new ArrayList<>();
+                }
+
                 output.add(entry);
             }
         }
@@ -69,16 +76,25 @@ public class Class {
         return output;
     }
 
-//    Public add class + save
-    public void add(Class entry){
-        Gson gson = new GsonBuilder().create();
-
+//    Public add class
+    public static void add(Class entry){
 //        Prepare data
         List<Class> classes = get();
 
         _classes.add(entry);
+    }
 
+//    Public add student
+    public void addStud(User user){
+        this._studs.add(user);
+
+        save();
+    }
+
+    private void save(){
+        Gson gson = new GsonBuilder().create();
         List<String> output = new ArrayList<>();
+
         for(Class c : _classes){
             output.add(gson.toJson(c));
         }

@@ -14,18 +14,10 @@
             android:layout_height="wrap_content"
             android:textColor="@color/colorDark"
             android:textSize="@dimen/textNormal"
+            android:paddingRight="@dimen/padSmall"
             android:paddingTop="@dimen/padSmall"
-            android:paddingBottom="@dimen/padSmall"
-            android:paddingLeft="@dimen/padBig" />
+            android:paddingBottom="@dimen/padSmall"/>
 
-        <TextView
-            android:visibility="gone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padThin"
-            android:text="A web/appdeveloper based in Belgium, love to code and design."
-            android:textColor="@color/colorDark_semitrans"
-            android:textSize="@dimen/textSmall"/>
     </LinearLayout>
 
 </RelativeLayout>
