@@ -82,6 +82,8 @@ public class Class {
         List<Class> classes = get();
 
         _classes.add(entry);
+
+        entry.save();
     }
 
 //    Public add student
