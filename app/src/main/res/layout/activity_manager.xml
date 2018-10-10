@@ -10,151 +10,219 @@
     android:background="@color/colorLight">
 
     <!--HEADER-->
-    <TextView
-        android:id="@+id/tvHeader"
+    <LinearLayout
+        android:id="@+id/llHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Manager"
-        android:padding="@dimen/padNormal"
-        android:textStyle="bold"
-        android:textSize="@dimen/textBigger"
-        android:textColor="@color/colorDark"
+        android:orientation="horizontal"
         android:background="@drawable/gradient_bottomtop"
-        android:backgroundTint="@color/colorDark_mintrans"/>
+        android:backgroundTint="@color/colorDark_mintrans"
+        android:gravity="center"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Manager"
+            android:padding="@dimen/padNormal"
+            android:textStyle="bold"
+            android:textSize="@dimen/textBigger"
+            android:textColor="@color/colorDark"
+            android:layout_weight="1"/>
+
+        <Spinner
+            android:id="@+id/spToddlers"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padExtrasmall"></Spinner>
+
+    </LinearLayout>
 
     <!--MAIN-->
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/tvHeader">
-
-        <LinearLayout
+    <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+        android:layout_below="@id/llHeader">
 
+            <!--NOTIFIER-->
             <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/llNotif"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingLeft="@dimen/padNormal"
-                android:paddingRight="@dimen/padNormal"
-                android:paddingTop="@dimen/padSmaller"
-                android:paddingBottom="@dimen/padSmaller"
-                android:background="@color/colorDark_mintrans">
+                android:orientation="horizontal"
+                android:padding="@dimen/padNormal"
+                android:background="@drawable/border"
+                android:backgroundTint="@color/colorDark_mintrans">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/textSmall"
-                    android:text="Manage the toddlers for a class" />
-
-                <Spinner
-                    android:id="@+id/spToddlers"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/padExtrasmall"></Spinner>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="@color/colorAccent_dark">
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_round_add"
+                    android:tint="@color/colorDark_mintrans"
+                    android:layout_marginTop="@dimen/padSmaller"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:weightSum="1">
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:textColor="@color/colorDark_semitrans"
+                        android:textSize="@dimen/textNormal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="@dimen/padSmaller"
+                        android:text="Create a first class, so you can add toddlers to them later."/>
+
+                    <TextView
+                        android:textColor="@color/colorDark_semitrans"
+                        android:textSize="@dimen/textSmall"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="@dimen/padSmaller"
+                        android:paddingTop="@dimen/padSmall"
+                        android:text="(Use the button beneath to add a new class)"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llManager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border"
+                    android:backgroundTint="@color/colorDark_mintrans"
+                    android:paddingTop="@dimen/padSmaller"
+                    android:paddingBottom="@dimen/padSmaller"
+                    android:paddingLeft="@dimen/padNormal"
+                    android:paddingRight="@dimen/padNormal">
+
+                    <ImageView
+                        android:id="@+id/ivEdit"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_round_edit"
+                        android:layout_marginRight="@dimen/padSmaller"/>
+
+                    <ImageView
+                        android:id="@+id/ivDelete"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_round_delete"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@color/colorAccent_dark">
 
                     <LinearLayout
-                        android:id="@+id/llAddToddler"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:paddingTop="@dimen/padSmaller"
-                        android:paddingBottom="@dimen/padSmaller"
-                        android:paddingLeft="@dimen/padNormal">
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:weightSum="1">
 
-                        <ImageView
-                            android:id="@+id/ivAddToddlerCollapseIcon"
-                            android:layout_width="18dp"
-                            android:layout_height="18dp"
-                            android:src="@drawable/ic_round_add"
-                            android:tint="@color/colorLight"/>
-
-                        <TextView
+                        <LinearLayout
+                            android:id="@+id/llAddToddler"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Add a toddler"
-                            android:textSize="@dimen/textSmall"
-                            android:textColor="@color/colorLight"
-                            android:layout_marginLeft="@dimen/padSmall"/>
+                            android:layout_weight="1"
+                            android:paddingTop="@dimen/padSmaller"
+                            android:paddingBottom="@dimen/padSmaller"
+                            android:paddingLeft="@dimen/padNormal"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:id="@+id/ivAddToddlerCollapseIcon"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/ic_round_add"
+                                android:tint="@color/colorLight"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Add a toddler"
+                                android:textColor="@color/colorLight"
+                                android:layout_marginLeft="@dimen/padSmall"/>
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/rlAddToddlerAccept"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0"
+                            android:paddingRight="@dimen/padNormal"
+                            android:paddingLeft="@dimen/padNormal"
+                            android:visibility="gone">
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/ic_round_check"
+                                android:tint="@color/colorLight"/>
+
+                        </RelativeLayout>
 
                     </LinearLayout>
 
-                    <RelativeLayout
-                        android:id="@+id/rlAddToddlerAccept"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0"
-                        android:paddingRight="@dimen/padNormal"
+                    <LinearLayout
+                        android:id="@+id/llAddToddlerContainer"
+                        android:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:paddingLeft="@dimen/padNormal"
-                        android:visibility="gone">
+                        android:paddingRight="@dimen/padNormal"
+                        android:paddingTop="@dimen/padSmaller"
+                        android:paddingBottom="@dimen/padNormal"
+                        android:orientation="vertical"
+                        android:background="@color/colorAccent">
 
-                        <ImageView
-                            android:layout_width="18dp"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/ic_round_check"
-                            android:tint="@color/colorLight"/>
+                        <EditText
+                            android:id="@+id/etName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Name"
+                            android:textSize="@dimen/textNormal"
+                            android:textColor="@color/colorLight"
+                            android:backgroundTint="@color/colorLight"
+                            android:textColorHint="@color/colorLight"/>
 
-                    </RelativeLayout>
+                        <EditText
+                            android:id="@+id/etFamname"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Family name"
+                            android:textSize="@dimen/textNormal"
+                            android:textColor="@color/colorLight"
+                            android:backgroundTint="@color/colorLight"
+                            android:textColorHint="@color/colorLight"
+                            android:layout_marginTop="@dimen/padSmall"/>
 
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/llAddToddlerContainer"
-                    android:visibility="gone"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="@dimen/padNormal"
-                    android:paddingRight="@dimen/padNormal"
-                    android:paddingTop="@dimen/padSmaller"
-                    android:paddingBottom="@dimen/padNormal"
-                    android:orientation="vertical"
-                    android:background="@color/colorAccent">
-
-                    <EditText
-                        android:id="@+id/etName"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Name"
-                        android:textSize="@dimen/textNormal"
-                        android:textColor="@color/colorLight"
-                        android:backgroundTint="@color/colorLight"
-                        android:textColorHint="@color/colorLight"/>
-
-                    <EditText
-                        android:id="@+id/etFamname"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Family name"
-                        android:textSize="@dimen/textNormal"
-                        android:textColor="@color/colorLight"
-                        android:backgroundTint="@color/colorLight"
-                        android:textColorHint="@color/colorLight"
-                        android:layout_marginTop="@dimen/padSmall"/>
+                    </LinearLayout>
 
                 </LinearLayout>
 
             </LinearLayout>
 
-        </LinearLayout>
+            <ListView
+                android:id="@+id/lvStuds"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></ListView>
 
-    </ScrollView>
+        </LinearLayout>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fabAddClass"

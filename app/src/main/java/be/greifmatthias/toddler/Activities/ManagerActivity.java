@@ -88,7 +88,11 @@ public class ManagerActivity extends Activity {
 //                Update
                 _toddleradapter.notifyDataSetChanged();
 
+//                Close window
                 _popupWindow.dismiss();
+
+//                Check ui
+                check();
             }
         });
 
@@ -168,6 +172,26 @@ public class ManagerActivity extends Activity {
         this._toddleradapter = new ToddlerAdapter(this, R.layout.classes_class_default, R.id.tvName, Class.get());
         this._toddleradapter.setDropDownViewResource(R.layout.classes_class);
         this._spToddlers.setAdapter(this._toddleradapter);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        check();
+    }
+
+    private void check(){
+        if(Class.get().size() > 0){
+            findViewById(R.id.llManager).setVisibility(View.VISIBLE);
+            findViewById(R.id.llNotif).setVisibility(View.GONE);
+
+//            Select latest
+            _spToddlers.setSelection(_toddleradapter._classes.size() - 1);
+        }else{
+            findViewById(R.id.llManager).setVisibility(View.GONE);
+            findViewById(R.id.llNotif).setVisibility(View.VISIBLE);
+        }
     }
 
     private void toggleToddlerAdded(boolean close){

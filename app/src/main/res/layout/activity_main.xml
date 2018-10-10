@@ -50,6 +50,7 @@
         android:layout_height="match_parent"
         android:layout_below="@id/llHeader">
 
+        <!--NOTIFIER-->
         <LinearLayout
             android:id="@+id/llNotif"
             android:visibility="gone"
