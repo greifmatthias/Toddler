@@ -42,6 +42,8 @@ public class ManagerActivity extends Activity {
 
     private PopupWindow _popupWindow;
 
+    private ToddlerAdapter _toddleradapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,6 +84,9 @@ public class ManagerActivity extends Activity {
 //                Save class
                 Class.add(new Class(0, ((EditText)customView.findViewById(R.id.etClassName)).getText().toString()));
                 ((EditText)customView.findViewById(R.id.etClassName)).setText("");
+
+//                Update
+                _toddleradapter.notifyDataSetChanged();
 
                 _popupWindow.dismiss();
             }
@@ -124,7 +129,12 @@ public class ManagerActivity extends Activity {
         findViewById(R.id.rlAddToddlerAccept).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+//                Save
                 ((Class)_spToddlers.getSelectedItem()).addStud(new User(0, _etName.getText().toString(), _etFamname.getText().toString(), true));
+
+//                Reset views
+                _etName.setText("");
+                _etFamname.setText("");
             }
         });
 
@@ -155,9 +165,9 @@ public class ManagerActivity extends Activity {
         });
 
 //        Set adapter
-        ToddlerAdapter adapter = new ToddlerAdapter(this, R.layout.classes_class_default, R.id.tvName, Class.get());
-        adapter.setDropDownViewResource(R.layout.classes_class);
-        this._spToddlers.setAdapter(adapter);
+        this._toddleradapter = new ToddlerAdapter(this, R.layout.classes_class_default, R.id.tvName, Class.get());
+        this._toddleradapter.setDropDownViewResource(R.layout.classes_class);
+        this._spToddlers.setAdapter(this._toddleradapter);
     }
 
     private void toggleToddlerAdded(boolean close){
