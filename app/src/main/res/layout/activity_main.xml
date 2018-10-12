@@ -28,7 +28,7 @@
 
         <ImageView
             android:id="@+id/ivMore"
-            android:src="@drawable/ic_round_more_vert"
+            android:src="@drawable/ic_round_menu"
             android:paddingLeft="@dimen/padNormal"
             android:paddingRight="@dimen/padNormal"
             android:layout_width="wrap_content"

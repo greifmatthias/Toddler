@@ -32,13 +32,14 @@
                 android:layout_height="wrap_content"
                 android:text="Toddler"
                 android:textColor="@color/colorLight"
-                android:textSize="@dimen/textInsane"
-                android:textAllCaps="true"/>
+                android:textSize="@dimen/textExtrabig"
+                android:textAllCaps="true"
+                android:textStyle="bold"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="1.0.0 ~ 20181009"
+                android:text="1.0.0 ~ 20181012"
                 android:textColor="@color/colorLight"
                 android:layout_marginTop="@dimen/padThin"/>
 
@@ -129,7 +130,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/padThin"
-                        android:text="I am gay and very proud about that, love to spread my gay words and anus across the globe."
+                        android:text="I like to put fishdicks in my mouth? So I must be a gay fish?!"
                         android:textColor="@color/colorDark_semitrans"
                         android:textSize="@dimen/textSmall"/>
                 </LinearLayout>
