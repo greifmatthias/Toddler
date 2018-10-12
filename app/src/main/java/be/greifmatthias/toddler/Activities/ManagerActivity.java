@@ -106,7 +106,7 @@ public class ManagerActivity extends Activity {
             }
         });
 
-        //        Toddler toggler
+//        Toddler toggler
         View.OnClickListener addtoddlertoggler = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -139,7 +139,6 @@ public class ManagerActivity extends Activity {
                 }
             }
         };
-
         _etName.addTextChangedListener(watcher);
         _etFamname.addTextChangedListener(watcher);
 
@@ -149,7 +148,7 @@ public class ManagerActivity extends Activity {
             public void onClick(View view) {
 //                Save
                 Class c = ((Class) _spToddlers.getSelectedItem());
-                c.addStud(new User(0, _etName.getText().toString(), _etFamname.getText().toString(), true));
+                c.addStud(new User(Class.getNextToddlerId(), _etName.getText().toString(), _etFamname.getText().toString(), true));
 
 //                Reset views
                 _etName.setText("");

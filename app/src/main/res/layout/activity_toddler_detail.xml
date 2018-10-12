@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.ToddlerDetailActivity"
+    android:background="@color/colorLight">
+
+    <LinearLayout
+        android:id="@+id/llHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:background="@drawable/gradient_bottomtop"
+        android:backgroundTint="@color/colorDark_mintrans">
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padNormal"
+            android:textStyle="bold"
+            android:textSize="@dimen/textBigger"
+            android:textColor="@color/colorDark"
+            android:layout_weight="1"/>
+
+
+        <ImageView
+            android:id="@+id/ivMore"
+            android:src="@drawable/ic_round_more_vert"
+            android:paddingLeft="@dimen/padNormal"
+            android:paddingRight="@dimen/padNormal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/llHeader">
+
+        <RelativeLayout
+            android:id="@+id/rlOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorDark_semitrans"
+            android:visibility="gone"></RelativeLayout>
+
+        <!-- ACTIONS -->
+        <LinearLayout
+            android:id="@+id/llActions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/padNormal"
+            android:background="@color/colorLight"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_round_delete"
+                    android:tint="@color/colorDark_mintrans"/>
+
+                <TextView
+                    android:textColor="@color/colorDark_semitrans"
+                    android:textSize="@dimen/textNormal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/padSmaller"
+                    android:text="Delete this toddler"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabManager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_round_class"
+        android:tint="@color/colorLight"
+        android:backgroundTint="@color/colorAccent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/padNormal"/>
+
+</RelativeLayout>

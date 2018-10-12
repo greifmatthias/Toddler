@@ -24,6 +24,7 @@ import be.greifmatthias.toddler.Theme;
 public class MainActivity extends Activity {
 
     private ExpandableListView _elvStuds;
+    private StudsAdapter _adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +57,19 @@ public class MainActivity extends Activity {
                 startActivity(managerIntent);
             }
         });
+
+//        Setup click for list child clicks
+        this._elvStuds.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+
+                Intent toddlerIntent = new Intent(getApplicationContext(), ToddlerDetailActivity.class);
+                toddlerIntent.putExtra("toddlerId", _adapter.getChild(groupPosition, childPosition).getId());
+                startActivity(toddlerIntent);
+                return false;
+            }
+        });
     }
 
     @Override
@@ -70,8 +84,8 @@ public class MainActivity extends Activity {
             }
 
 //        Setup list
-            StudsAdapter adapter = new StudsAdapter(this, Class.get(), data);
-            this._elvStuds.setAdapter(adapter);
+            this._adapter = new StudsAdapter(this, Class.get(), data);
+            this._elvStuds.setAdapter(this._adapter);
 
             this._elvStuds.setVisibility(View.VISIBLE);
             findViewById(R.id.llNotif).setVisibility(View.GONE);
@@ -93,7 +107,7 @@ public class MainActivity extends Activity {
         }
 
         @Override
-        public Object getChild(int groupPosition, int childPosititon) {
+        public User getChild(int groupPosition, int childPosititon) {
             return this._data.get(this._headers.get(groupPosition).getName()).get(childPosititon);
         }
 
@@ -126,7 +140,7 @@ public class MainActivity extends Activity {
         }
 
         @Override
-        public Object getGroup(int groupPosition) {
+        public Class getGroup(int groupPosition) {
             return this._headers.get(groupPosition);
         }
 

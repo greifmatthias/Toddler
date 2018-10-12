@@ -35,6 +35,19 @@ public class Class {
         return this._studs;
     }
 
+    public static int getNextToddlerId(){
+        int max = 0;
+        for(Class c : get()){
+            for(User u : c.getStuds()){
+                if(max < u.getId()){
+                    max = u.getId();
+                }
+            }
+        }
+
+        return max + 1;
+    }
+
 //
     private static final String dataname = "data_classes";
 

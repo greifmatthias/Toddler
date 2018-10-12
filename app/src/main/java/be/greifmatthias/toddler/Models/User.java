@@ -1,5 +1,6 @@
 package be.greifmatthias.toddler.Models;
 
+import java.util.Date;
 import java.util.List;
 
 public class User {
@@ -13,6 +14,10 @@ public class User {
         this._name = name;
         this._famname = famname;
         this._isboy = isboy;
+    }
+
+    public User(String name, String famname, boolean isboy){
+        this(Class.getNextToddlerId(), name, famname, isboy);
     }
 
     public int getId(){
@@ -29,5 +34,19 @@ public class User {
 
     public boolean isBoy(){
         return this._isboy;
+    }
+
+    public static User get(int id){
+        List<Class> classes = Class.get();
+
+        for(Class c : classes){
+            for(User u : c.getStuds()){
+                if(u.getId() == id){
+                    return u;
+                }
+            }
+        }
+
+        return null;
     }
 }
