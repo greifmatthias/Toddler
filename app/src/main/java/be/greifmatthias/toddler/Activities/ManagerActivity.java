@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -44,9 +45,10 @@ public class ManagerActivity extends Activity {
 
     private PopupWindow _popupWindow;
 
-    private ClassAdapter _toddleradapter;
+    private ClassAdapter _classadapter;
 
     private ListView _lvToddlers;
+    private ToddlerAdapter _toddleradapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +68,7 @@ public class ManagerActivity extends Activity {
 
 //        Generate popup
         LayoutInflater inflater = (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
-        final View customView = inflater.inflate(R.layout.popup_manager_addclass,null);
+        final View customView = inflater.inflate(R.layout.popup_manager_addclass, null);
 
         _popupWindow = new PopupWindow(
                 customView,
@@ -87,13 +89,13 @@ public class ManagerActivity extends Activity {
             @Override
             public void onClick(View view) {
 //                Save class
-                String classname = ((EditText)customView.findViewById(R.id.etClassName)).getText().toString();
-                if(!classname.equals("")) {
+                String classname = ((EditText) customView.findViewById(R.id.etClassName)).getText().toString();
+                if (!classname.equals("")) {
                     Class.add(new Class(0, classname));
                     ((EditText) customView.findViewById(R.id.etClassName)).setText("");
 
 //                Update
-                    _toddleradapter.notifyDataSetChanged();
+                    _classadapter.notifyDataSetChanged();
 
 //                Close window
                     _popupWindow.dismiss();
@@ -105,30 +107,34 @@ public class ManagerActivity extends Activity {
         });
 
         //        Toddler toggler
-        (findViewById(R.id.llAddToddler)).setOnClickListener(new View.OnClickListener() {
+        View.OnClickListener addtoddlertoggler = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(_llAddToddlerContainer.getVisibility() == View.VISIBLE){
+                if (_llAddToddlerContainer.getVisibility() == View.VISIBLE) {
                     toggleToddlerAdded(true);
-                }else{
+                } else {
                     toggleToddlerAdded(false);
                 }
             }
-        });
+        };
+        (findViewById(R.id.llAddToddler)).setOnClickListener(addtoddlertoggler);
+        findViewById(R.id.rlOverlay).setOnClickListener(addtoddlertoggler);
 
 //        Set input listeners
         TextWatcher watcher = new TextWatcher() {
             @Override
-            public void afterTextChanged(Editable s) {}
+            public void afterTextChanged(Editable s) {
+            }
 
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(!_etName.getText().toString().equals("") && !_etFamname.getText().toString().equals("")){
+                if (!_etName.getText().toString().equals("") && !_etFamname.getText().toString().equals("")) {
                     _fabAcceptAddToddler.setVisibility(View.VISIBLE);
-                }else{
+                } else {
                     _fabAcceptAddToddler.setVisibility(View.GONE);
                 }
             }
@@ -142,18 +148,22 @@ public class ManagerActivity extends Activity {
             @Override
             public void onClick(View view) {
 //                Save
-                ((Class)_spToddlers.getSelectedItem()).addStud(new User(0, _etName.getText().toString(), _etFamname.getText().toString(), true));
+                Class c = ((Class) _spToddlers.getSelectedItem());
+                c.addStud(new User(0, _etName.getText().toString(), _etFamname.getText().toString(), true));
 
 //                Reset views
                 _etName.setText("");
                 _etFamname.setText("");
+
+                reloadToddlers(c);
             }
         });
 
+//        Show popup
         findViewById(R.id.fabAddClass).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                _popupWindow.showAtLocation(findViewById(R.id.rlRoot), Gravity.CENTER,0,0);
+                _popupWindow.showAtLocation(findViewById(R.id.rlRoot), Gravity.CENTER, 0, 0);
             }
         });
     }
@@ -162,22 +172,26 @@ public class ManagerActivity extends Activity {
     protected void onStart() {
         super.onStart();
 
-        //        Setup spinner
+//        Setup spinner
         this._spToddlers.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 toggleToddlerAdded(true);
+
+//                Load toddlers
+                reloadToddlers(_classadapter._classes.get(position));
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> parentView) { }
+            public void onNothingSelected(AdapterView<?> parentView) {
+            }
 
         });
 
 //        Set adapter
-        this._toddleradapter = new ClassAdapter(this, R.layout.classes_class_default, R.id.tvName, Class.get());
-        this._toddleradapter.setDropDownViewResource(R.layout.classes_class);
-        this._spToddlers.setAdapter(this._toddleradapter);
+        this._classadapter = new ClassAdapter(this, R.layout.classes_class_default, R.id.tvName, Class.get());
+        this._classadapter.setDropDownViewResource(R.layout.classes_class);
+        this._spToddlers.setAdapter(this._classadapter);
     }
 
     @Override
@@ -187,34 +201,50 @@ public class ManagerActivity extends Activity {
         check();
     }
 
-    private void check(){
-        if(Class.get().size() > 0){
+    @Override
+    public void onBackPressed() {
+        if(this._popupWindow.isShowing()){
+            this._popupWindow.dismiss();
+        }else{
+            if(this._llAddToddlerContainer.getVisibility() == View.VISIBLE){
+                toggleToddlerAdded(true);
+            }else{
+                super.onBackPressed();
+            }
+        }
+    }
+
+    private void check() {
+        if (Class.get().size() > 0) {
             findViewById(R.id.llManager).setVisibility(View.VISIBLE);
             findViewById(R.id.llNotif).setVisibility(View.GONE);
 
 //            Select latest
-            _spToddlers.setSelection(_toddleradapter._classes.size() - 1);
+            _spToddlers.setSelection(_classadapter._classes.size() - 1);
 
-//            Load toddlers
-
-        }else{
+        } else {
             findViewById(R.id.llManager).setVisibility(View.GONE);
             findViewById(R.id.llNotif).setVisibility(View.VISIBLE);
         }
     }
 
-    private void toggleToddlerAdded(boolean close){
+    private void reloadToddlers(Class c){
+        _toddleradapter = new ToddlerAdapter(getApplicationContext(), R.layout.studs_stud, R.id.tvName, c.getStuds());
+        _lvToddlers.setAdapter(_toddleradapter);
+    }
+
+    private void toggleToddlerAdded(boolean close) {
         _etFamname.setText("");
         _etName.setText("");
 
-        if(close){
-           this._llAddToddlerContainer.setVisibility(View.GONE);
-            ((ImageView)findViewById(R.id.ivAddToddlerCollapseIcon)).setImageResource(R.drawable.ic_round_add);
+        if (close) {
+            this._llAddToddlerContainer.setVisibility(View.GONE);
+            ((ImageView) findViewById(R.id.ivAddToddlerCollapseIcon)).setImageResource(R.drawable.ic_round_add);
             findViewById(R.id.rlOverlay).setVisibility(View.GONE);
             findViewById(R.id.fabAddClass).setVisibility(View.VISIBLE);
-        }else{
+        } else {
             this._llAddToddlerContainer.setVisibility(View.VISIBLE);
-            ((ImageView)findViewById(R.id.ivAddToddlerCollapseIcon)).setImageResource(R.drawable.ic_round_expand_less);
+            ((ImageView) findViewById(R.id.ivAddToddlerCollapseIcon)).setImageResource(R.drawable.ic_round_expand_less);
             findViewById(R.id.rlOverlay).setVisibility(View.VISIBLE);
             findViewById(R.id.fabAddClass).setVisibility(View.GONE);
         }
@@ -231,17 +261,17 @@ public class ManagerActivity extends Activity {
         }
 
         @Override
-        public int getCount(){
+        public int getCount() {
             return this._classes.size();
         }
 
         @Override
-        public Class getItem(int position){
+        public Class getItem(int position) {
             return this._classes.get(position);
         }
 
         @Override
-        public long getItemId(int position){
+        public long getItemId(int position) {
             return position;
         }
 
@@ -249,15 +279,50 @@ public class ManagerActivity extends Activity {
         public View getView(int position, View convertView, ViewGroup parent) {
             View v = super.getView(position, convertView, parent);
 
-            ((TextView)v.findViewById(R.id.tvName)).setText(this._classes.get(position).getName());
+            ((TextView) v.findViewById(R.id.tvName)).setText(this._classes.get(position).getName());
 
             return v;
         }
 
         @Override
         public View getDropDownView(int position, View convertView, ViewGroup parent) {
-            View v =  super.getDropDownView(position, convertView, parent);
-            ((TextView)v.findViewById(R.id.tvName)).setText(this._classes.get(position).getName());
+            View v = super.getDropDownView(position, convertView, parent);
+            ((TextView) v.findViewById(R.id.tvName)).setText(this._classes.get(position).getName());
+
+            return v;
+        }
+    }
+
+    private class ToddlerAdapter extends ArrayAdapter<User> {
+
+        private List<User> _toddlers;
+
+        public ToddlerAdapter(Context context, int View, int TextView, List<User> toddlers) {
+            super(context, View, TextView, toddlers);
+
+            this._toddlers = toddlers;
+        }
+
+        @Override
+        public int getCount() {
+            return this._toddlers.size();
+        }
+
+        @Override
+        public User getItem(int position) {
+            return this._toddlers.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            View v = super.getView(position, convertView, parent);
+
+            ((TextView) v.findViewById(R.id.tvName)).setText(this._toddlers.get(position).getFamname() + " " + this._toddlers.get(position).getName());
 
             return v;
         }

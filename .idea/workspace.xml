@@ -16,6 +16,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6419a912-f37a-4103-8bf8-f234e4fc138f" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Activities/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Activities/MainActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Activities/ManagerActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Activities/ManagerActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_manager.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_manager.xml" afterDir="false" />
     </list>
@@ -55,15 +56,36 @@
       <file leaf-file-name="ManagerActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Activities/ManagerActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="172" column="70" selection-start-line="172" selection-start-column="70" selection-end-line="172" selection-end-column="70" />
+            <state relative-caret-position="153">
+              <caret line="209" column="39" selection-start-line="209" selection-start-column="39" selection-end-line="209" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2721#3405#0" expanded="true" />
-                <element signature="e#3404#3405#0" expanded="true" />
-                <element signature="class#ClassAdapter#0;class#ManagerActivity#0" />
-                <element signature="method#ToddlerAdapter#0;class#ToddlerAdapter#0;class#ManagerActivity#0" />
+                <element signature="e#2976#3660#0" expanded="true" />
+                <element signature="e#3659#3660#0" expanded="true" />
+                <element signature="e#3747#4080#0" expanded="true" />
+                <element signature="e#4079#4080#0" expanded="true" />
+                <element signature="e#8406#8407#0" expanded="true" />
+                <element signature="e#8457#8458#0" expanded="true" />
+                <element signature="e#8521#8522#0" expanded="true" />
+                <element signature="e#8579#8580#0" expanded="true" />
+                <element signature="e#8644#8645#0" expanded="true" />
+                <element signature="e#8683#8684#0" expanded="true" />
+                <element signature="e#9656#9657#0" expanded="true" />
+                <element signature="e#9707#9708#0" expanded="true" />
+                <element signature="e#9771#9772#0" expanded="true" />
+                <element signature="e#9829#9830#0" expanded="true" />
+                <element signature="e#9894#9895#0" expanded="true" />
+                <element signature="e#9933#9934#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Activities/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="231">
+              <caret line="121" selection-start-line="121" selection-end-line="121" />
             </state>
           </provider>
         </entry>
@@ -72,7 +94,7 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Models/Class.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
-              <caret line="22" column="40" lean-forward="true" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
+              <caret line="22" column="40" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -83,8 +105,8 @@
       <file leaf-file-name="activity_manager.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_manager.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="184" column="47" selection-start-line="184" selection-start-column="47" selection-end-line="184" selection-end-column="47" />
+            <state relative-caret-position="459">
+              <caret line="79" column="67" selection-start-line="79" selection-start-column="67" selection-end-line="79" selection-end-column="67" />
               <folding>
                 <element signature="e#989#1007#0" expanded="true" />
                 <element signature="e#1074#1093#0" expanded="true" />
@@ -135,6 +157,8 @@
     <findStrings>
       <find>_listDataChild</find>
       <find>rl</find>
+      <find>ClassAdapter</find>
+      <find>famn</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -2423,11 +2447,11 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/classes_class.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/roundcorners.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/popup_manager_addclass.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Activities/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/classes_class_default.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Models/Class.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_manager.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Activities/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Activities/ManagerActivity.java" />
       </list>
     </option>
@@ -3119,13 +3143,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Activities/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="86" column="5" lean-forward="true" selection-start-line="86" selection-start-column="5" selection-end-line="86" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Activities/ListenExercise.java">
       <provider selected="true" editor-type-id="text-editor">
         <state />
@@ -3157,16 +3174,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Models/Class.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="22" column="40" lean-forward="true" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
@@ -3179,8 +3186,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_manager.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="184" column="47" selection-start-line="184" selection-start-column="47" selection-end-line="184" selection-end-column="47" />
+        <state relative-caret-position="459">
+          <caret line="79" column="67" selection-start-line="79" selection-start-column="67" selection-end-line="79" selection-end-column="67" />
           <folding>
             <element signature="e#989#1007#0" expanded="true" />
             <element signature="e#1074#1093#0" expanded="true" />
@@ -3214,16 +3221,45 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Activities/ManagerActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Models/Class.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="172" column="70" selection-start-line="172" selection-start-column="70" selection-end-line="172" selection-end-column="70" />
+        <state relative-caret-position="300">
+          <caret line="22" column="40" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2721#3405#0" expanded="true" />
-            <element signature="e#3404#3405#0" expanded="true" />
-            <element signature="class#ClassAdapter#0;class#ManagerActivity#0" />
-            <element signature="method#ToddlerAdapter#0;class#ToddlerAdapter#0;class#ManagerActivity#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Activities/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="121" selection-start-line="121" selection-end-line="121" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Activities/ManagerActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="209" column="39" selection-start-line="209" selection-start-column="39" selection-end-line="209" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2976#3660#0" expanded="true" />
+            <element signature="e#3659#3660#0" expanded="true" />
+            <element signature="e#3747#4080#0" expanded="true" />
+            <element signature="e#4079#4080#0" expanded="true" />
+            <element signature="e#8406#8407#0" expanded="true" />
+            <element signature="e#8457#8458#0" expanded="true" />
+            <element signature="e#8521#8522#0" expanded="true" />
+            <element signature="e#8579#8580#0" expanded="true" />
+            <element signature="e#8644#8645#0" expanded="true" />
+            <element signature="e#8683#8684#0" expanded="true" />
+            <element signature="e#9656#9657#0" expanded="true" />
+            <element signature="e#9707#9708#0" expanded="true" />
+            <element signature="e#9771#9772#0" expanded="true" />
+            <element signature="e#9829#9830#0" expanded="true" />
+            <element signature="e#9894#9895#0" expanded="true" />
+            <element signature="e#9933#9934#0" expanded="true" />
           </folding>
         </state>
       </provider>

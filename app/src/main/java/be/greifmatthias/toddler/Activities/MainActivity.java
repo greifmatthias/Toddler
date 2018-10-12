@@ -116,7 +116,7 @@ public class MainActivity extends Activity {
 
             TextView txtListChild = (TextView) convertView.findViewById(R.id.tvName);
 
-            txtListChild.setText(u.getName() + " " + u.getFamname());
+            txtListChild.setText(u.getFamname() + " " + u.getName());
             return convertView;
         }
 
