@@ -123,8 +123,7 @@ public class MainActivity extends Activity {
             User u = (User) getChild(groupPosition, childPosition);
 
             if (convertView == null) {
-                LayoutInflater infalInflater = (LayoutInflater) this._context
-                        .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                LayoutInflater infalInflater = (LayoutInflater) this._context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 convertView = infalInflater.inflate(R.layout.studs_stud, null);
             }
 

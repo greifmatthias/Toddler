@@ -228,8 +228,17 @@ public class ManagerActivity extends Activity {
     }
 
     private void reloadToddlers(Class c){
-        _toddleradapter = new ToddlerAdapter(getApplicationContext(), R.layout.studs_stud, R.id.tvName, c.getStuds());
-        _lvToddlers.setAdapter(_toddleradapter);
+        if(c.getStuds().size() > 0) {
+            _toddleradapter = new ToddlerAdapter(getApplicationContext(), R.layout.studs_stud, R.id.tvName, c.getStuds());
+            _lvToddlers.setAdapter(_toddleradapter);
+
+            findViewById(R.id.llNotifToddlers).setVisibility(View.GONE);
+
+        }else{
+            _lvToddlers.setAdapter(null);
+
+            findViewById(R.id.llNotifToddlers).setVisibility(View.VISIBLE);
+        }
     }
 
     private void toggleToddlerAdded(boolean close) {
@@ -238,7 +247,7 @@ public class ManagerActivity extends Activity {
 
         if (close) {
             this._llAddToddlerContainer.setVisibility(View.GONE);
-            ((ImageView) findViewById(R.id.ivAddToddlerCollapseIcon)).setImageResource(R.drawable.ic_round_add);
+            ((ImageView) findViewById(R.id.ivAddToddlerCollapseIcon)).setImageResource(R.drawable.ic_twotone_child_care);
             findViewById(R.id.rlOverlay).setVisibility(View.GONE);
             findViewById(R.id.fabAddClass).setVisibility(View.VISIBLE);
         } else {

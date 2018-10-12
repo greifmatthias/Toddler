@@ -45,7 +45,7 @@
             android:orientation="vertical"
         android:layout_below="@id/llHeader">
 
-            <!--NOTIFIER-->
+            <!-- NOTIF: No classes yet -->
             <LinearLayout
                 android:visibility="gone"
                 android:id="@+id/llNotif"
@@ -122,7 +122,7 @@
                                 android:id="@+id/ivAddToddlerCollapseIcon"
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
-                                android:src="@drawable/ic_round_add"
+                                android:src="@drawable/ic_twotone_child_care"
                                 android:tint="@color/colorLight"/>
 
                             <TextView
@@ -176,6 +176,49 @@
                 </LinearLayout>
 
             </LinearLayout>
+
+        <!-- NOTIF: No toddlers in class-->
+        <LinearLayout
+            android:id="@+id/llNotifToddlers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/padNormal"
+            android:background="@drawable/border"
+            android:backgroundTint="@color/colorDark_mintrans">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_twotone_child_care"
+                android:tint="@color/colorDark_mintrans"
+                android:layout_marginTop="@dimen/padSmaller"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:textColor="@color/colorDark_semitrans"
+                    android:textSize="@dimen/textNormal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/padSmaller"
+                    android:text="It's a bit too quite in here, isn't it? Time to add some toddlers to this class."/>
+
+                <TextView
+                    android:textColor="@color/colorDark_semitrans"
+                    android:textSize="@dimen/textSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/padSmaller"
+                    android:paddingTop="@dimen/padSmall"
+                    android:text="(Use the button above to add a new toddler)"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
