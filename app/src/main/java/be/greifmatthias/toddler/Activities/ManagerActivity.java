@@ -8,6 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.app.Activity;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Gravity;
@@ -19,6 +20,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
@@ -38,11 +40,13 @@ public class ManagerActivity extends Activity {
     private LinearLayout _llAddToddlerContainer;
     private EditText _etName;
     private EditText _etFamname;
-    private RelativeLayout _rlAddToddlerAccept;
+    private View _fabAcceptAddToddler;
 
     private PopupWindow _popupWindow;
 
-    private ToddlerAdapter _toddleradapter;
+    private ClassAdapter _toddleradapter;
+
+    private ListView _lvToddlers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +61,8 @@ public class ManagerActivity extends Activity {
         this._llAddToddlerContainer = findViewById(R.id.llAddToddlerContainer);
         this._etName = findViewById(R.id.etName);
         this._etFamname = findViewById(R.id.etFamname);
-        this._rlAddToddlerAccept = findViewById(R.id.rlAddToddlerAccept);
+        this._fabAcceptAddToddler = findViewById(R.id.fabAcceptAddToddler);
+        this._lvToddlers = findViewById(R.id.lvToddlers);
 
 //        Generate popup
         LayoutInflater inflater = (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
@@ -82,17 +87,20 @@ public class ManagerActivity extends Activity {
             @Override
             public void onClick(View view) {
 //                Save class
-                Class.add(new Class(0, ((EditText)customView.findViewById(R.id.etClassName)).getText().toString()));
-                ((EditText)customView.findViewById(R.id.etClassName)).setText("");
+                String classname = ((EditText)customView.findViewById(R.id.etClassName)).getText().toString();
+                if(!classname.equals("")) {
+                    Class.add(new Class(0, classname));
+                    ((EditText) customView.findViewById(R.id.etClassName)).setText("");
 
 //                Update
-                _toddleradapter.notifyDataSetChanged();
+                    _toddleradapter.notifyDataSetChanged();
 
 //                Close window
-                _popupWindow.dismiss();
+                    _popupWindow.dismiss();
 
 //                Check ui
-                check();
+                    check();
+                }
             }
         });
 
@@ -119,9 +127,9 @@ public class ManagerActivity extends Activity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if(!_etName.getText().toString().equals("") && !_etFamname.getText().toString().equals("")){
-                    _rlAddToddlerAccept.setVisibility(View.VISIBLE);
+                    _fabAcceptAddToddler.setVisibility(View.VISIBLE);
                 }else{
-                    _rlAddToddlerAccept.setVisibility(View.GONE);
+                    _fabAcceptAddToddler.setVisibility(View.GONE);
                 }
             }
         };
@@ -130,7 +138,7 @@ public class ManagerActivity extends Activity {
         _etFamname.addTextChangedListener(watcher);
 
 //        Add
-        findViewById(R.id.rlAddToddlerAccept).setOnClickListener(new View.OnClickListener() {
+        this._fabAcceptAddToddler.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 //                Save
@@ -162,14 +170,12 @@ public class ManagerActivity extends Activity {
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> parentView) {
-                // your code here
-            }
+            public void onNothingSelected(AdapterView<?> parentView) { }
 
         });
 
 //        Set adapter
-        this._toddleradapter = new ToddlerAdapter(this, R.layout.classes_class_default, R.id.tvName, Class.get());
+        this._toddleradapter = new ClassAdapter(this, R.layout.classes_class_default, R.id.tvName, Class.get());
         this._toddleradapter.setDropDownViewResource(R.layout.classes_class);
         this._spToddlers.setAdapter(this._toddleradapter);
     }
@@ -188,6 +194,9 @@ public class ManagerActivity extends Activity {
 
 //            Select latest
             _spToddlers.setSelection(_toddleradapter._classes.size() - 1);
+
+//            Load toddlers
+
         }else{
             findViewById(R.id.llManager).setVisibility(View.GONE);
             findViewById(R.id.llNotif).setVisibility(View.VISIBLE);
@@ -199,19 +208,23 @@ public class ManagerActivity extends Activity {
         _etName.setText("");
 
         if(close){
-           this. _llAddToddlerContainer.setVisibility(View.GONE);
+           this._llAddToddlerContainer.setVisibility(View.GONE);
             ((ImageView)findViewById(R.id.ivAddToddlerCollapseIcon)).setImageResource(R.drawable.ic_round_add);
+            findViewById(R.id.rlOverlay).setVisibility(View.GONE);
+            findViewById(R.id.fabAddClass).setVisibility(View.VISIBLE);
         }else{
             this._llAddToddlerContainer.setVisibility(View.VISIBLE);
             ((ImageView)findViewById(R.id.ivAddToddlerCollapseIcon)).setImageResource(R.drawable.ic_round_expand_less);
+            findViewById(R.id.rlOverlay).setVisibility(View.VISIBLE);
+            findViewById(R.id.fabAddClass).setVisibility(View.GONE);
         }
     }
 
-    private class ToddlerAdapter extends ArrayAdapter<Class> {
+    private class ClassAdapter extends ArrayAdapter<Class> {
 
         private List<Class> _classes;
 
-        public ToddlerAdapter(Context context, int View, int TextView, List<Class> classes) {
+        public ClassAdapter(Context context, int View, int TextView, List<Class> classes) {
             super(context, View, TextView, classes);
 
             this._classes = classes;

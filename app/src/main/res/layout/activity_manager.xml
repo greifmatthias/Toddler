@@ -98,31 +98,6 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border"
-                    android:backgroundTint="@color/colorDark_mintrans"
-                    android:paddingTop="@dimen/padSmaller"
-                    android:paddingBottom="@dimen/padSmaller"
-                    android:paddingLeft="@dimen/padNormal"
-                    android:paddingRight="@dimen/padNormal">
-
-                    <ImageView
-                        android:id="@+id/ivEdit"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:src="@drawable/ic_round_edit"
-                        android:layout_marginRight="@dimen/padSmaller"/>
-
-                    <ImageView
-                        android:id="@+id/ivDelete"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:src="@drawable/ic_round_delete"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:background="@color/colorAccent_dark">
 
@@ -159,36 +134,15 @@
 
                         </LinearLayout>
 
-                        <RelativeLayout
-                            android:id="@+id/rlAddToddlerAccept"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_weight="0"
-                            android:paddingRight="@dimen/padNormal"
-                            android:paddingLeft="@dimen/padNormal"
-                            android:visibility="gone">
-
-                            <ImageView
-                                android:layout_width="18dp"
-                                android:layout_height="match_parent"
-                                android:src="@drawable/ic_round_check"
-                                android:tint="@color/colorLight"/>
-
-                        </RelativeLayout>
-
                     </LinearLayout>
 
                     <LinearLayout
                         android:id="@+id/llAddToddlerContainer"
-                        android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingLeft="@dimen/padNormal"
-                        android:paddingRight="@dimen/padNormal"
-                        android:paddingTop="@dimen/padSmaller"
-                        android:paddingBottom="@dimen/padNormal"
                         android:orientation="vertical"
-                        android:background="@color/colorAccent">
+                        android:background="@color/colorAccent"
+                        android:visibility="gone">
 
                         <EditText
                             android:id="@+id/etName"
@@ -198,7 +152,10 @@
                             android:textSize="@dimen/textNormal"
                             android:textColor="@color/colorLight"
                             android:backgroundTint="@color/colorLight"
-                            android:textColorHint="@color/colorLight"/>
+                            android:textColorHint="@color/colorLight"
+                            android:layout_marginLeft="@dimen/padNormal"
+                            android:layout_marginRight="@dimen/padNormal"
+                            android:paddingTop="@dimen/padNormal"/>
 
                         <EditText
                             android:id="@+id/etFamname"
@@ -209,7 +166,10 @@
                             android:textColor="@color/colorLight"
                             android:backgroundTint="@color/colorLight"
                             android:textColorHint="@color/colorLight"
-                            android:layout_marginTop="@dimen/padSmall"/>
+                            android:layout_marginLeft="@dimen/padNormal"
+                            android:layout_marginRight="@dimen/padNormal"
+                            android:layout_marginBottom="@dimen/padNormal"
+                            android:paddingTop="@dimen/padNormal"/>
 
                     </LinearLayout>
 
@@ -217,10 +177,24 @@
 
             </LinearLayout>
 
-            <ListView
-                android:id="@+id/lvStuds"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"></ListView>
+                android:layout_height="wrap_content">
+
+                <ListView
+                    android:id="@+id/lvToddlers"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"></ListView>
+
+                <RelativeLayout
+                    android:id="@+id/rlOverlay"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorDark_semitrans"
+                    android:visibility="gone"></RelativeLayout>
+
+            </RelativeLayout>
+
 
         </LinearLayout>
 
@@ -234,5 +208,17 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_margin="@dimen/padNormal"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabAcceptAddToddler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_round_check"
+        android:tint="@color/colorAccent"
+        android:backgroundTint="@color/colorLight"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/padNormal"
+        android:visibility="gone"/>
 
 </RelativeLayout>
