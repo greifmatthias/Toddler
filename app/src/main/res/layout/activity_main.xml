@@ -37,48 +37,50 @@
 
     </LinearLayout>
 
-    <ExpandableListView
-        android:id="@+id/elvStuds"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        android:layout_below="@id/llHeader"
-        android:background="@drawable/border"
-        android:backgroundTint="@color/colorDark_mintrans" />
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/llHeader">
 
+        <ExpandableListView
+            android:id="@+id/elvStuds"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:background="@drawable/border"
+            android:backgroundTint="@color/colorDark_mintrans" />
+
         <!--NOTIFIER-->
         <LinearLayout
             android:id="@+id/llNotif"
-            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
             android:padding="@dimen/padNormal"
             android:background="@drawable/border"
-            android:backgroundTint="@color/colorDark_mintrans">
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/ic_round_class"
-                android:tint="@color/colorDark_mintrans"
-                android:layout_marginTop="@dimen/padSmaller"/>
+            android:backgroundTint="@color/colorDark_mintrans"
+            android:visibility="gone">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingRight="60dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Get you started"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/textNormal"
+                    android:textColor="@color/colorDark"
+                    android:layout_marginBottom="@dimen/padExtrasmall"/>
 
                 <TextView
                     android:textColor="@color/colorDark_semitrans"
                     android:textSize="@dimen/textNormal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="@dimen/padSmaller"
                     android:text="It looks like there are no groups made yet, Let's get started by creating one."/>
 
                 <TextView
@@ -86,9 +88,8 @@
                     android:textSize="@dimen/textSmall"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="@dimen/padSmaller"
                     android:paddingTop="@dimen/padSmall"
-                    android:text="(Use the manager shortcut below to get started)"/>
+                    android:text="(Use the shortcut at the right)"/>
 
             </LinearLayout>
 

@@ -41,20 +41,76 @@
                 android:paddingRight="@dimen/padNormal"
                 android:paddingTop="@dimen/padSmaller"
                 android:paddingBottom="@dimen/padSmaller"
-                android:orientation="vertical">
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
 
-                <TextView
+                <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_round_class"
+                android:tint="@color/colorDark_mintrans"
+                    android:layout_marginRight="@dimen/padSmaller"/>
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Manage toddlers"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/textNormal"
-                    android:textColor="@color/colorDark"/>
+                    android:orientation="vertical">
 
-                <TextView
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Manage toddlers"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/textNormal"
+                        android:textColor="@color/colorDark"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Manage classes, groups and those toddlers."/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- DATA -->
+            <LinearLayout
+                android:id="@+id/llData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/padNormal"
+                android:paddingRight="@dimen/padNormal"
+                android:paddingTop="@dimen/padSmaller"
+                android:paddingBottom="@dimen/padSmaller"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_round_folder"
+                    android:tint="@color/colorDark_mintrans"
+                    android:layout_marginRight="@dimen/padSmaller"/>
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Manage classes, groups and those toddlers."/>
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Data"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/textNormal"
+                        android:textColor="@color/colorDark"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Tools to export, import data in this app like classes and toddlers"/>
+
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -67,20 +123,37 @@
                 android:paddingRight="@dimen/padNormal"
                 android:paddingTop="@dimen/padSmaller"
                 android:paddingBottom="@dimen/padSmaller"
-                android:orientation="vertical">
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/border"
+                android:backgroundTint="@color/colorDark_mintrans">
 
-                <TextView
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_round_favorite"
+                    android:tint="@color/colorDark_mintrans"
+                    android:layout_marginRight="@dimen/padSmaller"/>
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="About"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/textNormal"
-                    android:textColor="@color/colorDark"/>
+                    android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="What is this all about."/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="What is this for crazyness"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/textNormal"
+                        android:textColor="@color/colorDark"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Check out who's behind, and what this all made possible by"/>
+
+                </LinearLayout>
 
             </LinearLayout>
 

@@ -63,8 +63,8 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="ic_round_menu" />
-                            <entry key="sourceFile" value="D:\DOWNLOADS\icons\round-menu-24px.svg" />
+                            <entry key="outputName" value="ic_round_folder" />
+                            <entry key="sourceFile" value="D:\DOWNLOADS\icons\round-folder-24px.svg" />
                           </map>
                         </option>
                       </PersistentState>
