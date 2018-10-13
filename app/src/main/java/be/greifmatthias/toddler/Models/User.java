@@ -1,9 +1,11 @@
 package be.greifmatthias.toddler.Models;
 
+import android.support.annotation.NonNull;
+
 import java.util.Date;
 import java.util.List;
 
-public class User {
+public class User implements Comparable<User> {
     private int _id;
     private String _name;
     private String _famname;
@@ -48,5 +50,10 @@ public class User {
         }
 
         return null;
+    }
+
+    @Override
+    public int compareTo(@NonNull User user) {
+        return this.getFamname().compareTo(user.getFamname());
     }
 }

@@ -179,6 +179,7 @@
 
         <!-- NOTIF: No toddlers in class-->
         <LinearLayout
+            android:visibility="gone"
             android:id="@+id/llNotifToddlers"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

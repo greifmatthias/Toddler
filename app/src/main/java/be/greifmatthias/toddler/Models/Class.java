@@ -1,15 +1,18 @@
 package be.greifmatthias.toddler.Models;
 
+import android.support.annotation.NonNull;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
 import be.greifmatthias.toddler.DataHandler;
 
-public class Class {
+public class Class implements Comparable<Class> {
 //    Members
     private int _id;
     private String _name;
@@ -23,6 +26,17 @@ public class Class {
         this._studs = new ArrayList<>();
     }
 
+    public Class(String name){
+        int max = 0;
+        for(Class c : _classes){
+            if(max < c.getId()){
+                max = c.getId();
+            }
+        }
+        this._id = max + 1;
+        this._name = name;
+    }
+
     public int getId(){
         return this._id;
     }
@@ -32,6 +46,15 @@ public class Class {
     }
 
     public List<User> getStuds(){
+        if(this._studs == null){
+            this._studs = new ArrayList<>();
+        }
+
+        if(this._studs.size() > 0) {
+//        Sort
+            Collections.sort(this._studs);
+        }
+
         return this._studs;
     }
 
@@ -63,6 +86,8 @@ public class Class {
                 _classes = new ArrayList<>();
             }
         }
+
+        Collections.sort(_classes);
 
         return _classes;
     }
@@ -115,5 +140,18 @@ public class Class {
         }
 
         DataHandler.getInstance().write(dataname, output);
+    }
+
+    @Override
+    public int compareTo(@NonNull Class aClass) {
+        if(this.getId() > aClass.getId()){
+            return -1;
+        }
+
+        if(this.getId() == aClass.getId()){
+            return 0;
+        }
+
+        return 1;
     }
 }

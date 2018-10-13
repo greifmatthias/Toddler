@@ -28,6 +28,7 @@ import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
+import java.util.Collections;
 import java.util.List;
 
 import be.greifmatthias.toddler.Models.Class;
@@ -91,7 +92,7 @@ public class ManagerActivity extends Activity {
 //                Save class
                 String classname = ((EditText) customView.findViewById(R.id.etClassName)).getText().toString();
                 if (!classname.equals("")) {
-                    Class.add(new Class(0, classname));
+                    Class.add(new Class(classname));
                     ((EditText) customView.findViewById(R.id.etClassName)).setText("");
 
 //                Update
@@ -219,7 +220,7 @@ public class ManagerActivity extends Activity {
             findViewById(R.id.llNotif).setVisibility(View.GONE);
 
 //            Select latest
-            _spToddlers.setSelection(_classadapter._classes.size() - 1);
+            _spToddlers.setSelection(0);
 
         } else {
             findViewById(R.id.llManager).setVisibility(View.GONE);
@@ -228,16 +229,18 @@ public class ManagerActivity extends Activity {
     }
 
     private void reloadToddlers(Class c){
-        if(c.getStuds().size() > 0) {
-            _toddleradapter = new ToddlerAdapter(getApplicationContext(), R.layout.studs_stud, R.id.tvName, c.getStuds());
-            _lvToddlers.setAdapter(_toddleradapter);
+        if(c != null) {
+            if (c.getStuds().size() > 0) {
+                _toddleradapter = new ToddlerAdapter(getApplicationContext(), R.layout.studs_stud, R.id.tvName, c.getStuds());
+                _lvToddlers.setAdapter(_toddleradapter);
 
-            findViewById(R.id.llNotifToddlers).setVisibility(View.GONE);
+                findViewById(R.id.llNotifToddlers).setVisibility(View.GONE);
 
-        }else{
-            _lvToddlers.setAdapter(null);
+            } else {
+                _lvToddlers.setAdapter(null);
 
-            findViewById(R.id.llNotifToddlers).setVisibility(View.VISIBLE);
+                findViewById(R.id.llNotifToddlers).setVisibility(View.VISIBLE);
+            }
         }
     }
 
