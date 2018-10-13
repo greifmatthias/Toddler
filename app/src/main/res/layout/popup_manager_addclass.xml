@@ -6,18 +6,11 @@
     android:background="@color/colorDark_semitrans">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/padNormal"
-        android:background="@drawable/roundcorners"
-        android:backgroundTint="@color/colorLight"
-        android:layout_centerInParent="true"
+        android:background="@color/colorLight"
         android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -29,22 +22,24 @@
                 android:layout_marginBottom="@dimen/padSmaller"
                 android:paddingRight="@dimen/padInsane"/>
 
-            <ImageView
-                android:id="@+id/ivAccept"
-                android:layout_width="18dp"
-                android:layout_height="18dp"
-                android:src="@drawable/ic_round_check"/>
-
-        </LinearLayout>
-
         <EditText
             android:id="@+id/etClassName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Name"
             android:backgroundTint="@color/colorDark"
-            android:textColor="@color/colorDark"/>
-
+            android:textColor="@color/colorDark" />
     </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabAddClassAccept"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_round_check"
+        android:tint="@color/colorAccent"
+        android:backgroundTint="@color/colorLight"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/padNormal"/>
 
 </RelativeLayout>

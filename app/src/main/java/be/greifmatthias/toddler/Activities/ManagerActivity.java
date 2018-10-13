@@ -68,7 +68,7 @@ public class ManagerActivity extends Activity {
         this._lvToddlers = findViewById(R.id.lvToddlers);
 
 //        Generate popup
-        LayoutInflater inflater = (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater = this.getLayoutInflater();
         final View customView = inflater.inflate(R.layout.popup_manager_addclass, null);
 
         _popupWindow = new PopupWindow(
@@ -86,7 +86,7 @@ public class ManagerActivity extends Activity {
             }
         });
 
-        customView.findViewById(R.id.ivAccept).setOnClickListener(new View.OnClickListener() {
+        customView.findViewById(R.id.fabAddClassAccept).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 //                Save class
