@@ -32,10 +32,20 @@ public class ToddlerDetailActivity extends Activity {
         this._llActions = findViewById(R.id.llActions);
         this._rlOverlay = findViewById(R.id.rlOverlay);
 
+//        Toggle actions
         this._ivMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 toggleActions(_llActions.getVisibility() == View.VISIBLE);
+            }
+        });
+
+//        Actions
+        findViewById(R.id.llDelete).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                _toddler.delete();
+                finish();
             }
         });
     }

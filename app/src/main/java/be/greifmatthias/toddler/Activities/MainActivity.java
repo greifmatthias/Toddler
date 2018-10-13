@@ -63,7 +63,6 @@ public class MainActivity extends Activity {
 
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-
                 Intent toddlerIntent = new Intent(getApplicationContext(), ToddlerDetailActivity.class);
                 toddlerIntent.putExtra("toddlerId", _adapter.getChild(groupPosition, childPosition).getId());
                 startActivity(toddlerIntent);

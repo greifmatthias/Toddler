@@ -52,6 +52,18 @@ public class User implements Comparable<User> {
         return null;
     }
 
+    public void delete(){
+        List<Class> classes = Class.get();
+
+        for(Class c : classes){
+            for(User u : c.getStuds()){
+                if(u.getId() == this.getId()){
+                    c.getStuds().remove(u);
+                }
+            }
+        }
+    }
+
     @Override
     public int compareTo(@NonNull User user) {
         return this.getFamname().compareTo(user.getFamname());
