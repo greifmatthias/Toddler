@@ -5,13 +5,6 @@
     android:layout_height="match_parent"
     android:background="@color/colorDark_semitrans">
 
-    <RelativeLayout
-        android:id="@+id/rlOverlay"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorDark_semitrans"
-        android:visibility="gone"></RelativeLayout>
-
     <!-- ACTIONS -->
     <LinearLayout
         android:layout_width="match_parent"

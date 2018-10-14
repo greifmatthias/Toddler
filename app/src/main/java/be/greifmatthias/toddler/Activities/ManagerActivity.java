@@ -157,7 +157,7 @@ public class ManagerActivity extends Activity {
         customView.findViewById(R.id.rlBackground).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                _classpopup.dismiss();
+                _addpopup.dismiss();
             }
         });
 
