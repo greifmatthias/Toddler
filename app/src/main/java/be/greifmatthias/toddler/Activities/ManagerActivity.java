@@ -106,9 +106,10 @@ public class ManagerActivity extends Activity {
     @Override
     public void onBackPressed() {
 //        Check if opened popups
-        if(this._classpopup.isShowing() || this._toddlerpopup.isShowing()){
+        if(this._classpopup.isShowing() || this._toddlerpopup.isShowing() || this._addpopup.isShowing()){
             this._classpopup.dismiss();
             this._toddlerpopup.dismiss();
+            this._addpopup.dismiss();
         }else{
             super.onBackPressed();
         }
@@ -117,8 +118,10 @@ public class ManagerActivity extends Activity {
     private void check() {
         if (Class.get().size() > 0) {
             findViewById(R.id.llNotif).setVisibility(View.GONE);
+            _addpopup.getContentView().findViewById(R.id.llAddToddler).setVisibility(View.VISIBLE);
         } else {
             findViewById(R.id.llNotif).setVisibility(View.VISIBLE);
+            _addpopup.getContentView().findViewById(R.id.llAddToddler).setVisibility(View.GONE);
         }
     }
 
@@ -150,6 +153,13 @@ public class ManagerActivity extends Activity {
         );
         this._addpopup.setFocusable(true);
         this._addpopup.update();
+
+        customView.findViewById(R.id.rlBackground).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                _classpopup.dismiss();
+            }
+        });
 
         customView.findViewById(R.id.llAddClass).setOnClickListener(new View.OnClickListener() {
             @Override

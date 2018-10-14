@@ -16,14 +16,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6419a912-f37a-4103-8bf8-f234e4fc138f" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/popup_manager_add.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/popup_manager_addtoddler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Activities/ManagerActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Activities/ManagerActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Activities/ToddlerDetailActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Activities/ToddlerDetailActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_manager.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_manager.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/popup_manager_addclass.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/popup_manager_addclass.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_settings.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -46,33 +42,81 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ManagerActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ManagerActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Activities/ManagerActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="457">
-              <caret line="86" column="71" selection-start-line="86" selection-start-column="71" selection-end-line="86" selection-end-column="71" />
+            <state relative-caret-position="287">
+              <caret line="162" selection-start-line="162" selection-end-line="162" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#setupAddPopup#0;class#ManagerActivity#0" />
-                <element signature="e#4876#5354#0" expanded="true" />
-                <element signature="e#5353#5354#0" expanded="true" />
-                <element signature="e#5428#5618#0" expanded="true" />
-                <element signature="e#5617#5618#0" expanded="true" />
+                <element signature="e#5119#5277#0" expanded="true" />
+                <element signature="e#5276#5277#0" expanded="true" />
+                <element signature="e#5357#5607#0" expanded="true" />
+                <element signature="e#5606#5607#0" expanded="true" />
+                <element signature="e#5681#5933#0" expanded="true" />
+                <element signature="e#5932#5933#0" expanded="true" />
                 <element signature="method#setupClassPopup#0;class#ManagerActivity#0" />
-                <element signature="e#6172#6330#0" expanded="true" />
-                <element signature="e#6329#6330#0" expanded="true" />
-                <element signature="e#6409#7089#0" expanded="true" />
-                <element signature="e#7088#7089#0" expanded="true" />
+                <element signature="e#6478#6636#0" expanded="true" />
+                <element signature="e#6635#6636#0" expanded="true" />
+                <element signature="e#6715#7537#0" expanded="true" />
+                <element signature="e#7536#7537#0" expanded="true" />
                 <element signature="method#setupToddlerPopup#0;class#ManagerActivity#0" />
                 <element signature="class#6622:7286" />
-                <element signature="e#8746#8906#0" expanded="true" />
-                <element signature="e#8905#8906#0" expanded="true" />
-                <element signature="e#8810#9412#0" expanded="true" />
-                <element signature="e#9411#9412#0" expanded="true" />
+                <element signature="e#9194#9354#0" expanded="true" />
+                <element signature="e#9353#9354#0" expanded="true" />
+                <element signature="e#9435#10047#0" expanded="true" />
+                <element signature="e#10046#10047#0" expanded="true" />
                 <element signature="class#ClassAdapter#0;class#ManagerActivity#0" />
                 <element signature="class#ToddlerAdapter#0;class#ManagerActivity#0" />
               </folding>
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_settings.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_settings.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="334">
+              <caret line="44" column="49" lean-forward="true" selection-start-line="44" selection-start-column="49" selection-end-line="44" selection-end-column="49" />
+              <folding>
+                <element signature="e#594#612#0" expanded="true" />
+                <element signature="e#671#690#0" expanded="true" />
+                <element signature="e#1238#1257#0" expanded="true" />
+                <element signature="e#1500#1518#0" expanded="true" />
+                <element signature="e#1556#1574#0" expanded="true" />
+                <element signature="e#1610#1629#0" expanded="true" />
+                <element signature="e#1668#1687#0" expanded="true" />
+                <element signature="e#2185#2204#0" expanded="true" />
+                <element signature="e#2700#2719#0" expanded="true" />
+                <element signature="e#3316#3334#0" expanded="true" />
+                <element signature="e#3372#3390#0" expanded="true" />
+                <element signature="e#3426#3445#0" expanded="true" />
+                <element signature="e#3484#3503#0" expanded="true" />
+                <element signature="e#3897#3916#0" expanded="true" />
+                <element signature="e#4401#4420#0" expanded="true" />
+                <element signature="e#5043#5061#0" expanded="true" />
+                <element signature="e#5099#5117#0" expanded="true" />
+                <element signature="e#5153#5172#0" expanded="true" />
+                <element signature="e#5211#5230#0" expanded="true" />
+                <element signature="e#5747#5766#0" expanded="true" />
+                <element signature="e#6273#6292#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_main.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="441">
+              <caret line="109" column="17" selection-start-line="109" selection-start-column="17" selection-end-line="109" selection-end-column="17" />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2">
+            <state />
           </provider>
         </entry>
       </file>
@@ -205,8 +249,8 @@
       <find>fabAcceptAddToddler</find>
       <find>_popupWindow</find>
       <find>fabaddt</find>
-      <find>llNotifT</find>
       <find>fabAddToddlerAccept</find>
+      <find>llNotifT</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -2500,15 +2544,15 @@
         <option value="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Activities/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Models/User.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_toddler_detail.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_settings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/popup_manager_addclass.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/popup_manager_addtoddler.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_manager.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Activities/ToddlerDetailActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/popup_manager_add.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Activities/ManagerActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_settings.xml" />
       </list>
     </option>
   </component>
@@ -2817,7 +2861,7 @@
       <window_info id="Build Variants" order="3" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="right" id="Preview" order="4" weight="0.26545843" />
+      <window_info active="true" anchor="right" id="Preview" order="4" visible="true" weight="0.26545843" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Terminal" order="11" />
@@ -2825,7 +2869,7 @@
       <window_info id="Captures" order="4" weight="0.25" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16897655" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16897655" />
       <window_info anchor="bottom" id="Build" order="7" weight="0.32792208" />
       <window_info anchor="right" id="Gradle" order="6" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -3166,49 +3210,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_settings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="84" column="48" lean-forward="true" selection-start-line="84" selection-start-column="48" selection-end-line="84" selection-end-column="48" />
-          <folding>
-            <element signature="e#1301#2336#0" />
-            <element signature="e#2064#2083#0" expanded="true" />
-            <element signature="e#2595#2614#0" expanded="true" />
-            <element signature="e#3246#3264#0" expanded="true" />
-            <element signature="e#3302#3320#0" expanded="true" />
-            <element signature="e#3356#3375#0" expanded="true" />
-            <element signature="e#3414#3433#0" expanded="true" />
-            <element signature="e#3826#3845#0" expanded="true" />
-            <element signature="e#4341#4360#0" expanded="true" />
-            <element signature="e#2377#3381#0" />
-            <element signature="e#4959#4977#0" expanded="true" />
-            <element signature="e#5015#5033#0" expanded="true" />
-            <element signature="e#5069#5088#0" expanded="true" />
-            <element signature="e#5127#5146#0" expanded="true" />
-            <element signature="e#5663#5682#0" expanded="true" />
-            <element signature="e#6189#6208#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="98" column="4" lean-forward="true" selection-start-line="98" selection-start-column="4" selection-end-line="107" selection-end-column="50" />
-          <folding>
-            <element signature="e#1914#3733#0" />
-            <element signature="e#3151#3170#0" expanded="true" />
-            <element signature="e#3291#3313#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -3296,6 +3297,16 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="109" column="17" selection-start-line="109" selection-start-column="17" selection-end-line="109" selection-end-column="17" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Activities/ToddlerDetailActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -3305,30 +3316,64 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Activities/ManagerActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="457">
-          <caret line="86" column="71" selection-start-line="86" selection-start-column="71" selection-end-line="86" selection-end-column="71" />
+        <state relative-caret-position="287">
+          <caret line="162" selection-start-line="162" selection-end-line="162" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#setupAddPopup#0;class#ManagerActivity#0" />
-            <element signature="e#4876#5354#0" expanded="true" />
-            <element signature="e#5353#5354#0" expanded="true" />
-            <element signature="e#5428#5618#0" expanded="true" />
-            <element signature="e#5617#5618#0" expanded="true" />
+            <element signature="e#5119#5277#0" expanded="true" />
+            <element signature="e#5276#5277#0" expanded="true" />
+            <element signature="e#5357#5607#0" expanded="true" />
+            <element signature="e#5606#5607#0" expanded="true" />
+            <element signature="e#5681#5933#0" expanded="true" />
+            <element signature="e#5932#5933#0" expanded="true" />
             <element signature="method#setupClassPopup#0;class#ManagerActivity#0" />
-            <element signature="e#6172#6330#0" expanded="true" />
-            <element signature="e#6329#6330#0" expanded="true" />
-            <element signature="e#6409#7089#0" expanded="true" />
-            <element signature="e#7088#7089#0" expanded="true" />
+            <element signature="e#6478#6636#0" expanded="true" />
+            <element signature="e#6635#6636#0" expanded="true" />
+            <element signature="e#6715#7537#0" expanded="true" />
+            <element signature="e#7536#7537#0" expanded="true" />
             <element signature="method#setupToddlerPopup#0;class#ManagerActivity#0" />
             <element signature="class#6622:7286" />
-            <element signature="e#8746#8906#0" expanded="true" />
-            <element signature="e#8905#8906#0" expanded="true" />
-            <element signature="e#8810#9412#0" expanded="true" />
-            <element signature="e#9411#9412#0" expanded="true" />
+            <element signature="e#9194#9354#0" expanded="true" />
+            <element signature="e#9353#9354#0" expanded="true" />
+            <element signature="e#9435#10047#0" expanded="true" />
+            <element signature="e#10046#10047#0" expanded="true" />
             <element signature="class#ClassAdapter#0;class#ManagerActivity#0" />
             <element signature="class#ToddlerAdapter#0;class#ManagerActivity#0" />
           </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_settings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="44" column="49" lean-forward="true" selection-start-line="44" selection-start-column="49" selection-end-line="44" selection-end-column="49" />
+          <folding>
+            <element signature="e#594#612#0" expanded="true" />
+            <element signature="e#671#690#0" expanded="true" />
+            <element signature="e#1238#1257#0" expanded="true" />
+            <element signature="e#1500#1518#0" expanded="true" />
+            <element signature="e#1556#1574#0" expanded="true" />
+            <element signature="e#1610#1629#0" expanded="true" />
+            <element signature="e#1668#1687#0" expanded="true" />
+            <element signature="e#2185#2204#0" expanded="true" />
+            <element signature="e#2700#2719#0" expanded="true" />
+            <element signature="e#3316#3334#0" expanded="true" />
+            <element signature="e#3372#3390#0" expanded="true" />
+            <element signature="e#3426#3445#0" expanded="true" />
+            <element signature="e#3484#3503#0" expanded="true" />
+            <element signature="e#3897#3916#0" expanded="true" />
+            <element signature="e#4401#4420#0" expanded="true" />
+            <element signature="e#5043#5061#0" expanded="true" />
+            <element signature="e#5099#5117#0" expanded="true" />
+            <element signature="e#5153#5172#0" expanded="true" />
+            <element signature="e#5211#5230#0" expanded="true" />
+            <element signature="e#5747#5766#0" expanded="true" />
+            <element signature="e#6273#6292#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
   </component>
