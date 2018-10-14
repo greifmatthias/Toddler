@@ -12,26 +12,35 @@
         android:background="@color/colorLight"
         android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Add a new class"
-                android:textColor="@color/colorDark"
-                android:textSize="@dimen/textNormal"
-                android:textStyle="bold"
-                android:layout_marginBottom="@dimen/padSmaller" />
-
-        <EditText
-            android:id="@+id/etClassName"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Name"
+            android:text="Add a new toddler"
+            android:textColor="@color/colorDark"
+            android:textSize="@dimen/textNormal"
+            android:textStyle="bold"
+            android:layout_marginBottom="@dimen/padSmaller" />
+
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="First name"
             android:backgroundTint="@color/colorDark"
             android:textColor="@color/colorDark" />
+
+        <EditText
+            android:id="@+id/etFamname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Last name"
+            android:backgroundTint="@color/colorDark"
+            android:textColor="@color/colorDark"
+            android:layout_marginTop="@dimen/padSmall"/>
     </LinearLayout>
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fabAddClassAccept"
+        android:id="@+id/fabAddToddlerAccept"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_round_check"

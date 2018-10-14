@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import be.greifmatthias.toddler.Models.User;
 import be.greifmatthias.toddler.R;
+import be.greifmatthias.toddler.Theme;
 
 public class ToddlerDetailActivity extends Activity {
 
@@ -23,6 +24,9 @@ public class ToddlerDetailActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_toddler_detail);
+
+//        Set theme
+        Theme.setStatusbarWhite(getWindow(), true);
 
         this._toddler = User.get(this.getIntent().getIntExtra("toddlerId", 0));
 

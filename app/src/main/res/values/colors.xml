@@ -6,6 +6,9 @@
     <color name="colorAccent_light">#EDE7F6</color>
     <color name="colorAccent_dark">#4f09ff</color>
 
+    <color name="colorClass">#30c4ff</color>
+    <color name="colorToddler">#c4ff30</color>
+
     <color name="colorLight">#FFFFFF</color>
     <color name="colorLight_semitrans">#AAFFFFFF</color>
     <color name="colorDark">#151515</color>

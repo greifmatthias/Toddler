@@ -31,7 +31,7 @@
             android:layout_weight="1"/>
 
         <Spinner
-            android:id="@+id/spToddlers"
+            android:id="@+id/spClasses"
             android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padExtrasmall"></Spinner>
@@ -84,94 +84,6 @@
                         android:paddingLeft="@dimen/padSmaller"
                         android:paddingTop="@dimen/padSmall"
                         android:text="(Use the button beneath to add a new class)"/>
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/llManager"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@color/colorAccent_dark">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical"
-                        android:weightSum="1">
-
-                        <LinearLayout
-                            android:id="@+id/llAddToddler"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:paddingTop="@dimen/padSmaller"
-                            android:paddingBottom="@dimen/padSmaller"
-                            android:paddingLeft="@dimen/padNormal"
-                            android:gravity="center_vertical">
-
-                            <ImageView
-                                android:id="@+id/ivAddToddlerCollapseIcon"
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:src="@drawable/ic_twotone_child_care"
-                                android:tint="@color/colorLight"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Add a toddler"
-                                android:textColor="@color/colorLight"
-                                android:layout_marginLeft="@dimen/padSmall"/>
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/llAddToddlerContainer"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:background="@color/colorAccent"
-                        android:visibility="gone">
-
-                        <EditText
-                            android:id="@+id/etName"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Name"
-                            android:textSize="@dimen/textNormal"
-                            android:textColor="@color/colorLight"
-                            android:backgroundTint="@color/colorLight"
-                            android:textColorHint="@color/colorLight"
-                            android:layout_marginLeft="@dimen/padNormal"
-                            android:layout_marginRight="@dimen/padNormal"
-                            android:paddingTop="@dimen/padNormal"/>
-
-                        <EditText
-                            android:id="@+id/etFamname"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Family name"
-                            android:textSize="@dimen/textNormal"
-                            android:textColor="@color/colorLight"
-                            android:backgroundTint="@color/colorLight"
-                            android:textColorHint="@color/colorLight"
-                            android:layout_marginLeft="@dimen/padNormal"
-                            android:layout_marginRight="@dimen/padNormal"
-                            android:layout_marginBottom="@dimen/padNormal"
-                            android:paddingTop="@dimen/padNormal"/>
-
-                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -238,12 +150,10 @@
                     android:visibility="gone"></RelativeLayout>
 
             </RelativeLayout>
-
-
         </LinearLayout>
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fabAddClass"
+        android:id="@+id/fabAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_round_add"
@@ -252,17 +162,5 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_margin="@dimen/padNormal"/>
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fabAcceptAddToddler"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_round_check"
-        android:tint="@color/colorAccent"
-        android:backgroundTint="@color/colorLight"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_margin="@dimen/padNormal"
-        android:visibility="gone"/>
 
 </RelativeLayout>
