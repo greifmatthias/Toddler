@@ -42,6 +42,11 @@
         android:layout_height="match_parent"
         android:layout_below="@id/llHeader">
 
+        <ListView
+            android:id="@+id/lvExercisegroups"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></ListView>
+
         <RelativeLayout
             android:id="@+id/rlOverlay"
             android:layout_width="match_parent"
