@@ -5,8 +5,11 @@ import android.app.Fragment;
 import be.greifmatthias.toddler.Models.User;
 
 public class Exercise {
+    protected String _type;
 
     public Exercise(String word){ }
+
+    public String getType(){ return this._type; }
 
     public String getName(){
         return "";

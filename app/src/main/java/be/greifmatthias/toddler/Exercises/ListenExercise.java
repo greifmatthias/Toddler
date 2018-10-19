@@ -13,12 +13,8 @@ public class ListenExercise extends Exercise {
 
     public ListenExercise(String word) {
         super(word);
-    }
 
-    public ListenExercise(User user, String word) {
-        super(word);
-
-//        TODO : Try to load
+        this._type = "Listen";
     }
 
     @Override
@@ -35,7 +31,6 @@ public class ListenExercise extends Exercise {
         public ListenFragment() {
             // Required empty public constructor
         }
-
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

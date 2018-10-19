@@ -2,14 +2,28 @@ package be.greifmatthias.toddler.Models;
 
 import android.support.annotation.NonNull;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonParseException;
+
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import be.greifmatthias.toddler.DataHandler;
+import be.greifmatthias.toddler.Exercises.Exercise;
+import be.greifmatthias.toddler.Exercises.ExerciseGroup;
+import be.greifmatthias.toddler.Exercises.IntroExercise;
+import be.greifmatthias.toddler.Exercises.ListenExercise;
+import be.greifmatthias.toddler.Exercises.SortingExercise;
 
 public class User implements Comparable<User> {
     private int _id;
     private String _name;
     private String _famname;
     private boolean _isboy;
+
+    private List<ExerciseGroup> _exercises;
 
     public User(int id, String name, String famname, boolean isboy){
         this._id = id;
@@ -62,6 +76,98 @@ public class User implements Comparable<User> {
                 }
             }
         }
+    }
+
+    private String getDataname(){
+        return "data_user_exercises_" + this.getId();
+    }
+
+    public List<ExerciseGroup> getExercises(){
+        if(this._exercises == null){
+//            Try to load exercises of stud
+            Gson gson = new GsonBuilder().create();
+            List<ExerciseGroup> output = new ArrayList<>();
+
+//            Read data
+            List<String> data = DataHandler.getInstance().read(this.getDataname());
+
+//            Convert data
+            if(data.size() > 0) {
+                for (int i = 0; i < data.size(); i++) {
+//                Convert
+                    ExerciseGroup entry = gson.fromJson(data.get(i), ExerciseGroup.class);
+
+                    entry.clearExercises();
+
+//                    Load exercises of group
+                    boolean keepgoing = true;
+                    while(keepgoing){
+                        i = i + 1;
+
+//                        Try to load exercise from json string
+                        Exercise etemp = gson.fromJson(data.get(i), Exercise.class);
+
+                        if(etemp.getType() != null) {
+                            Exercise e = null;
+
+//                            Convert into right exercise
+                            switch (etemp.getType()){
+                                case "Intro":
+                                    e = gson.fromJson(data.get(i), IntroExercise.class);
+                                    break;
+                                case "Listen":
+                                    e = gson.fromJson(data.get(i), ListenExercise.class);
+                                    break;
+                                case "Sorting":
+                                    e = gson.fromJson(data.get(i), SortingExercise.class);
+                                    break;
+                            }
+
+                            entry.addExercise(e);
+                        }else{
+                            keepgoing = false;
+                        }
+
+//                        Last record, end
+                        if(i == data.size() - 1){
+                            keepgoing = false;
+                        }
+                    }
+
+//                    No exercises saved, load defaults
+                    if(entry.getExercises().size() == 0){
+                        entry.loadDefault();
+                    }
+
+                    output.add(entry);
+
+                    i--;
+                }
+
+                this._exercises = output;
+            }else{
+//                Load default state
+                this._exercises = ExerciseGroup.get();
+            }
+        }
+
+        return this._exercises;
+    }
+
+    public void saveExercises(){
+        Gson gson = new GsonBuilder().create();
+        List<String> output = new ArrayList<>();
+
+        for(ExerciseGroup c : this._exercises){
+            output.add(gson.toJson(c));
+
+//            Save exercise of group
+            for(Exercise e : c.getExercises()){
+                output.add(gson.toJson(e));
+            }
+        }
+
+        DataHandler.getInstance().write(this.getDataname(), output);
     }
 
     @Override

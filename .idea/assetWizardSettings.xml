@@ -63,8 +63,8 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="ic_round_sentiment_satisfied" />
-                            <entry key="sourceFile" value="D:\DOWNLOADS\icons\round-sentiment_satisfied-24px.svg" />
+                            <entry key="outputName" value="ic_round_arrow_right_alt" />
+                            <entry key="sourceFile" value="D:\DOWNLOADS\icons\round-arrow_right_alt-24px.svg" />
                           </map>
                         </option>
                       </PersistentState>

@@ -2,10 +2,12 @@ package be.greifmatthias.toddler.Activities;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
@@ -69,11 +71,26 @@ public class ToddlerDetailActivity extends Activity {
             }
         });
 
+
+        findViewById(R.id.fabManager).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                _toddler.saveExercises();
+            }
+        });
+
         //        Load exercisedata
-        this._groups = new ArrayList<>();
-        this._groups.add(new ExerciseGroup("Duikbril"));
-        this._groups.add(new ExerciseGroup("Eend"));
-        this._groups.add(new ExerciseGroup("Kuiken"));
+        this._groups = this._toddler.getExercises();
+
+        this._lvExercisegroups.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent exerciseActivity = new Intent(getApplicationContext(), ExerciseActivity.class);
+                exerciseActivity.putExtra("toddlerId", _toddler.getId());
+                exerciseActivity.putExtra("group", i);
+                startActivity(exerciseActivity);
+            }
+        });
     }
 
     @Override
@@ -139,7 +156,7 @@ public class ToddlerDetailActivity extends Activity {
 //            Set content
             tvWord.setText(getItem(position).getWord());
 
-            for(Exercise exercise : getItem(position).getExercises(_toddler)){
+            for(Exercise exercise : getItem(position).getExercises()){
                 llExercises.addView(getRow(exercise));
             }
 
