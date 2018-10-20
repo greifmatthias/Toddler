@@ -42,10 +42,58 @@
         android:layout_height="match_parent"
         android:layout_below="@id/llHeader">
 
+        <!--NOTIFIER-->
+        <LinearLayout
+            android:id="@+id/llNotif"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:padding="@dimen/padNormal"
+            android:background="@drawable/border"
+            android:backgroundTint="@color/colorDark_mintrans"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingRight="60dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Preteaching"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/textNormal"
+                    android:textColor="@color/colorDark"
+                    android:layout_marginBottom="@dimen/padExtrasmall"/>
+
+                <TextView
+                    android:textColor="@color/colorDark_semitrans"
+                    android:textSize="@dimen/textNormal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="This toddler hasn't had a preteaching exercise yet."/>
+
+                <TextView
+                    android:textColor="@color/colorDark_semitrans"
+                    android:textSize="@dimen/textSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/padSmall"
+                    android:text="(Start the test with the button at the right)"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
         <ListView
             android:id="@+id/lvExercisegroups"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"></ListView>
+
+
 
         <RelativeLayout
             android:id="@+id/rlOverlay"
@@ -91,10 +139,11 @@
     </RelativeLayout>
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fabManager"
+        android:id="@+id/fabUtil"
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_round_class"
+        android:src="@drawable/ic_round_arrow_right_alt"
         android:tint="@color/colorLight"
         android:backgroundTint="@color/colorAccent"
         android:layout_alignParentBottom="true"

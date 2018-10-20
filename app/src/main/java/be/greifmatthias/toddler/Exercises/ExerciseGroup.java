@@ -4,33 +4,55 @@ import java.util.ArrayList;
 import java.util.List;
 
 import be.greifmatthias.toddler.Models.User;
+import be.greifmatthias.toddler.R;
 
 public class ExerciseGroup {
     private String _word;
     private List<Exercise> _exercises;
 
-    public ExerciseGroup(String word){
+    private boolean _preteached;
+    private boolean _known;
+
+    private int _image;
+
+    public ExerciseGroup(String word, int imageResource){
         this._word = word;
+        this._image = imageResource;
+
+        this._known = false;
+        this._preteached = false;
     }
 
     public String getWord(){
         return this._word;
     }
 
-//    Get all possible exercisegroups
+    public int getImage(){
+        return this._image;
+    }
+
+    public boolean isPreteached() {
+        return this._preteached;
+    }
+
+    public boolean isKnown() {
+        return this._known;
+    }
+
+    //    Get all possible exercisegroups
     public static List<ExerciseGroup> get(){
         List<ExerciseGroup> groups = new ArrayList<>();
 
-        groups.add(new ExerciseGroup("De duikbril"));
-        groups.add(new ExerciseGroup("Het klimtouw"));
-        groups.add(new ExerciseGroup("Het kroos"));
-        groups.add(new ExerciseGroup("Het riet"));
-        groups.add(new ExerciseGroup("De val"));
-        groups.add(new ExerciseGroup("Het kompas"));
-        groups.add(new ExerciseGroup("Steil"));
-        groups.add(new ExerciseGroup("De zwaan"));
-        groups.add(new ExerciseGroup("Het kamp"));
-        groups.add(new ExerciseGroup("De zaklamp"));
+        groups.add(new ExerciseGroup("De duikbril", R.drawable.duikbril));
+        groups.add(new ExerciseGroup("Het klimtouw", R.drawable.klimtouw));
+        groups.add(new ExerciseGroup("Het kroos", R.drawable.kroos));
+        groups.add(new ExerciseGroup("Het riet", R.drawable.riet));
+        groups.add(new ExerciseGroup("De val", R.drawable.val));
+        groups.add(new ExerciseGroup("Het kompas", R.drawable.kompas));
+        groups.add(new ExerciseGroup("Steil", R.drawable.steil));
+        groups.add(new ExerciseGroup("De zwaan", R.drawable.zwaan));
+        groups.add(new ExerciseGroup("Het kamp", R.drawable.kamp));
+        groups.add(new ExerciseGroup("De zaklamp", R.drawable.zaklamp));
 
         for (ExerciseGroup group : groups){
             group.loadDefault();

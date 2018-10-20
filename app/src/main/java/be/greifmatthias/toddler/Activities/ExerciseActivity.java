@@ -1,6 +1,7 @@
 package be.greifmatthias.toddler.Activities;
 
 import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.widget.FrameLayout;
 import android.widget.TextView;
@@ -53,6 +54,10 @@ public class ExerciseActivity extends Activity {
 
     private void setContent(int position){
         this._content.removeAllViews();
-        this._content.addView(this._toddler.getExercises().get(this._curGroup).getExercises().get(position).getFragment().getView());
+
+        final FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.replace(R.id.flContent, this._toddler.getExercises().get(this._curGroup).getExercises().get(position).getFragment());
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 }

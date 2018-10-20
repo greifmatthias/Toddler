@@ -141,7 +141,9 @@ public class User implements Comparable<User> {
 
                     output.add(entry);
 
-                    i--;
+                    if(i != data.size() - 1) {
+                        i--;
+                    }
                 }
 
                 this._exercises = output;
