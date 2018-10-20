@@ -21,6 +21,7 @@ import java.util.List;
 import be.greifmatthias.toddler.Exercises.Exercise;
 import be.greifmatthias.toddler.Exercises.ExerciseGroup;
 import be.greifmatthias.toddler.Models.User;
+import be.greifmatthias.toddler.PreteachingActivity;
 import be.greifmatthias.toddler.R;
 import be.greifmatthias.toddler.Theme;
 
@@ -29,6 +30,7 @@ public class ToddlerDetailActivity extends Activity {
     private TextView _tvName;
 
     private ImageView _ivMore;
+    private LinearLayout _llNotif;
     private ListView _lvExercisegroups;
     private View _llActions;
     private View _rlOverlay;
@@ -50,6 +52,7 @@ public class ToddlerDetailActivity extends Activity {
 //        Get controls
         this._tvName = findViewById(R.id.tvName);
         this._ivMore = findViewById(R.id.ivMore);
+        this._llNotif = findViewById(R.id.llNotif);
         this._lvExercisegroups = findViewById(R.id.lvExercisegroups);
         this._llActions = findViewById(R.id.llActions);
         this._rlOverlay = findViewById(R.id.rlOverlay);
@@ -72,10 +75,15 @@ public class ToddlerDetailActivity extends Activity {
         });
 
 
-        findViewById(R.id.fabManager).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.fabUtil).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                _toddler.saveExercises();
+                if(_llNotif.getVisibility() == View.VISIBLE){
+//                    Start preteaching
+                    Intent preteachIntent = new Intent(getApplicationContext(), PreteachingActivity.class);
+                    preteachIntent.putExtra("toddlerId", _toddler.getId());
+                    startActivity(preteachIntent);
+                }
             }
         });
 
@@ -102,6 +110,19 @@ public class ToddlerDetailActivity extends Activity {
 //        Set exercise group data
         GroupsAdapter adapter = new GroupsAdapter(this, this._groups);
         this._lvExercisegroups.setAdapter(adapter);
+
+//        Check if already preteached words
+        if(!this._toddler.getExercises().get(0).isPreteached()){
+            this._llNotif.setVisibility(View.VISIBLE);
+            this._lvExercisegroups.setVisibility(View.GONE);
+
+//            Enable fab
+            findViewById(R.id.fabUtil).setVisibility(View.VISIBLE);
+        }else{
+            this._llNotif.setVisibility(View.GONE);
+            this._lvExercisegroups.setVisibility(View.VISIBLE);
+            findViewById(R.id.fabUtil).setVisibility(View.GONE);
+        }
     }
 
     private void toggleActions(boolean close){

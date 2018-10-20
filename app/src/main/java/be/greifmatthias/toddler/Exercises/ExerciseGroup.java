@@ -4,20 +4,70 @@ import java.util.ArrayList;
 import java.util.List;
 
 import be.greifmatthias.toddler.Models.User;
+import be.greifmatthias.toddler.R;
 
 public class ExerciseGroup {
     private String _word;
     private List<Exercise> _exercises;
 
+    private boolean _preteached;
+    private boolean _known;
+
     public ExerciseGroup(String word){
         this._word = word;
+
+        this._known = false;
+        this._preteached = false;
     }
 
     public String getWord(){
         return this._word;
     }
 
-//    Get all possible exercisegroups
+    public int getImage(){
+        switch (this.getWord()){
+            case "De duikbril":
+                return R.drawable.duikbril;
+            case "Het klimtouw":
+                return R.drawable.klimtouw;
+            case "Het kroos":
+                return R.drawable.kroos;
+            case "Het riet":
+                return R.drawable.riet;
+            case "De val":
+                return R.drawable.val;
+            case "Het kompas":
+                return R.drawable.kompas;
+            case "Steil":
+                return R.drawable.steil;
+            case "De zwaan":
+                return R.drawable.zwaan;
+            case "Het kamp":
+                return R.drawable.kamp;
+            case "De zaklamp":
+                return R.drawable.zaklamp;
+                default:
+                    return 0;
+        }
+    }
+
+    public boolean isPreteached() {
+        return this._preteached;
+    }
+
+    public void setPreteached(){
+        this._preteached = true;
+    }
+
+    public void setCorrect(){
+        this._known = true;
+    }
+
+    public boolean isKnown() {
+        return this._known;
+    }
+
+    //    Get all possible exercisegroups
     public static List<ExerciseGroup> get(){
         List<ExerciseGroup> groups = new ArrayList<>();
 
