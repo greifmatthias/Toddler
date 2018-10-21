@@ -27,12 +27,18 @@
         android:layout_below="@id/tvWord"></FrameLayout>
 
     <RelativeLayout
+        android:id="@+id/rlKaatje"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/gradient_bottomtop"
-        android:backgroundTint="@color/colorAccent_light">
+        android:layout_alignParentBottom="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="@drawable/gradient_bottomtop"
+            android:backgroundTint="@color/colorAccent_light"
+            android:layout_alignParentBottom="true"></RelativeLayout>
 
         <ImageView
             android:layout_width="100dp"
@@ -40,7 +46,8 @@
             android:src="@drawable/ic_girl"
             android:layout_marginRight="@dimen/padNormal"
             android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true" />
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true" />
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -48,13 +55,13 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
             android:paddingBottom="@dimen/padBig"
-            android:layout_marginRight="@dimen/padInsane">
+            android:paddingRight="@dimen/padInsane">
 
             <TextView
+                android:id="@+id/tvKaatje"
                 android:layout_width="wrap_content"
-                android:maxWidth="200dp"
+                android:maxWidth="250dp"
                 android:layout_height="wrap_content"
-                android:text="Hallo ik ben kaatje en ik ben gay, pls provide no hate or u will be detroyed immediately"
                 android:textColor="@color/colorDark"
                 android:background="@drawable/roundcorners"
                 android:backgroundTint="@color/colorLight"

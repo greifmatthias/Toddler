@@ -36,8 +36,8 @@ public class SettingsActivity extends Activity {
         findViewById(R.id.llResources).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent aboutIntent = new Intent(getApplicationContext(), AboutActivity.class);
-                startActivity(aboutIntent);
+                Intent resourcesIntent = new Intent(getApplicationContext(), ResourceActivity.class);
+                startActivity(resourcesIntent);
             }
         });
     }

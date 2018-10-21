@@ -7,8 +7,11 @@ import be.greifmatthias.toddler.Models.User;
 
 public class Exercise {
     protected String _type;
+    protected String _word;
 
-    public Exercise(String word){ }
+    public Exercise(String word){
+        this._word = word;
+    }
 
     public String getType(){ return this._type; }
 
@@ -32,9 +35,5 @@ public class Exercise {
         return false;
     }
 
-    public static Exercise load(User user, String word){
-        return null;
-    }
-
-    public void save() { }
+    public String getKaatje(){ return  ""; }
 }

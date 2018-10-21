@@ -47,6 +47,8 @@ public class IntroExercise extends Exercise {
             this._activity = activity;
 
             this._activity.enableNext(false);
+
+            this._activity.setKaatje("Hallo ik ben Kaat. Ik ga vandaag samen met mijn vriendjes naar het bos, op groot avontuur. Klik maar op de bomen als je wilt starten.");
         }
 
         @Override
