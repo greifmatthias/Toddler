@@ -134,6 +134,12 @@ public class Class implements Comparable<Class> {
         save();
     }
 
+    public void removeStud(User user){
+        this._studs.remove(user);
+
+        save();
+    }
+
     private void save(){
         Gson gson = new GsonBuilder().create();
         List<String> output = new ArrayList<>();

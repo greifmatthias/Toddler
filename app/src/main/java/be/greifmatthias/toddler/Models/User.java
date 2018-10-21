@@ -8,6 +8,7 @@ import com.google.gson.JsonParseException;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import be.greifmatthias.toddler.DataHandler;
@@ -69,10 +70,13 @@ public class User implements Comparable<User> {
     public void delete(){
         List<Class> classes = Class.get();
 
-        for(Class c : classes){
-            for(User u : c.getStuds()){
+        Iterator<Class> iter = Class.get().iterator();
+        while (iter.hasNext()) {
+            Class aClass = iter.next();
+
+            for(User u : aClass.getStuds()){
                 if(u.getId() == this.getId()){
-                    c.getStuds().remove(u);
+                    aClass.removeStud(u);
                 }
             }
         }

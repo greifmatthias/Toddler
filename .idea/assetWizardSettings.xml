@@ -63,8 +63,8 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="ic_round_image_search" />
-                            <entry key="sourceFile" value="D:\DOWNLOADS\icons\round-image_search-24px.svg" />
+                            <entry key="outputName" value="ic_round_accessibility_new" />
+                            <entry key="sourceFile" value="D:\DOWNLOADS\icons\round-accessibility_new-24px.svg" />
                           </map>
                         </option>
                       </PersistentState>
