@@ -3,6 +3,7 @@ package be.greifmatthias.toddler.Activities;
 import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
@@ -23,6 +24,7 @@ public class ExerciseActivity extends Activity {
 
     private TextView _tvWord;
     private FrameLayout _content;
+    private View _fabNext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,7 @@ public class ExerciseActivity extends Activity {
 //        Get controls
         this._tvWord = findViewById(R.id.tvWord);
         this._content = findViewById(R.id.flContent);
+        this._fabNext = findViewById(R.id.fabNext);
     }
 
     @Override
@@ -52,12 +55,25 @@ public class ExerciseActivity extends Activity {
         setContent(this._curExercise);
     }
 
+    public void enableNext(boolean enable){
+        if(enable) {
+            this._fabNext.setVisibility(View.VISIBLE);
+        }else{
+            this._fabNext.setVisibility(View.GONE);
+        }
+    }
+
     private void setContent(int position){
         this._content.removeAllViews();
 
         final FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        transaction.replace(R.id.flContent, this._toddler.getExercises().get(this._curGroup).getExercises().get(position).getFragment());
-        transaction.addToBackStack(null);
+        transaction.replace(R.id.flContent, this._toddler.getExercises().get(this._curGroup).getExercises().get(position).getFragment(this));
         transaction.commit();
+    }
+
+    public void goNext() {
+        this._curExercise++;
+
+        setContent(this._curExercise);
     }
 }

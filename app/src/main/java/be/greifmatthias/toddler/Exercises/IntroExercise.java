@@ -1,11 +1,13 @@
 package be.greifmatthias.toddler.Exercises;
 
+import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import be.greifmatthias.toddler.Activities.ExerciseActivity;
 import be.greifmatthias.toddler.R;
 
 public class IntroExercise extends Exercise {
@@ -29,19 +31,37 @@ public class IntroExercise extends Exercise {
     }
 
     @Override
-    public Fragment getFragment() {
-        return new IntroFragment();
+    public Fragment getFragment(ExerciseActivity activity) {
+        return new IntroFragment(activity);
     }
 
     public static class IntroFragment extends Fragment {
+        private ExerciseActivity _activity;
+
         public IntroFragment() {
             // Required empty public constructor
+        }
+
+        @SuppressLint("ValidFragment")
+        public IntroFragment(ExerciseActivity activity){
+            this._activity = activity;
+
+            this._activity.enableNext(false);
         }
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             // Inflate the layout for this fragment
-            return inflater.inflate(R.layout.fragment_intro, container, false);
+            View view = inflater.inflate(R.layout.fragment_intro, container, false);
+
+            view.findViewById(R.id.ivStory).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    _activity.goNext();
+                }
+            });
+
+            return view;
         }
     }
 }

@@ -176,4 +176,8 @@ public class User implements Comparable<User> {
     public int compareTo(@NonNull User user) {
         return this.getFamname().compareTo(user.getFamname());
     }
+
+    public void clearExercises() {
+        this._exercises = null;
+    }
 }

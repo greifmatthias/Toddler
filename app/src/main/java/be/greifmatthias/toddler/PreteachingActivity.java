@@ -100,7 +100,7 @@ public class PreteachingActivity extends Activity {
         this._toddler.getExercises().get(this._currentWord).setPreteached();
 
 //        Set if correct
-        if(view.getTag().equals(this._currentCorrect)){
+        if(view.getTag().equals(Integer.toString(this._currentCorrect))){
             this._toddler.getExercises().get(this._currentWord).setCorrect();
         }
 
@@ -108,6 +108,14 @@ public class PreteachingActivity extends Activity {
         this._currentWord++;
 
 //        Update UI
-        this.setContent();
+        if(this._currentWord == this._toddler.getExercises().size()){
+//            Save and close
+            this._toddler.saveExercises();
+
+            this.finish();
+        }else {
+//            Next image
+            this.setContent();
+        }
     }
 }

@@ -106,6 +106,10 @@ public class Class implements Comparable<Class> {
                     entry._studs = new ArrayList<>();
                 }
 
+                for(User u : entry.getStuds()){
+                    u.clearExercises();
+                }
+
                 output.add(entry);
             }
         }

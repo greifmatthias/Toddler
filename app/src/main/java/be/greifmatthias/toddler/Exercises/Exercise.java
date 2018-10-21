@@ -2,6 +2,7 @@ package be.greifmatthias.toddler.Exercises;
 
 import android.app.Fragment;
 
+import be.greifmatthias.toddler.Activities.ExerciseActivity;
 import be.greifmatthias.toddler.Models.User;
 
 public class Exercise {
@@ -15,7 +16,7 @@ public class Exercise {
         return "";
     }
 
-    public Fragment getFragment(){
+    public Fragment getFragment(ExerciseActivity activity){
         return null;
     }
 

@@ -12,7 +12,6 @@
         android:gravity="center_vertical">
 
         <TextView
-            android:text="Duikbril"
             android:id="@+id/tvWord"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -27,8 +26,7 @@
             android:id="@+id/ivResult"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginRight="@dimen/padNormal"
-            android:src="@drawable/ic_round_sentiment_satisfied" />
+            android:layout_marginRight="@dimen/padNormal" />
 
     </LinearLayout>
 

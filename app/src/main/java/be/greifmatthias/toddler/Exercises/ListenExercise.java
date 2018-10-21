@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import be.greifmatthias.toddler.Activities.ExerciseActivity;
 import be.greifmatthias.toddler.Models.User;
 import be.greifmatthias.toddler.R;
 
@@ -23,7 +24,7 @@ public class ListenExercise extends Exercise {
     }
 
     @Override
-    public Fragment getFragment() {
+    public Fragment getFragment(ExerciseActivity activity) {
         return new ListenFragment();
     }
 

@@ -71,16 +71,16 @@ public class ExerciseGroup {
     public static List<ExerciseGroup> get(){
         List<ExerciseGroup> groups = new ArrayList<>();
 
-        groups.add(new ExerciseGroup("De duikbril", R.drawable.duikbril));
-        groups.add(new ExerciseGroup("Het klimtouw", R.drawable.klimtouw));
-        groups.add(new ExerciseGroup("Het kroos", R.drawable.kroos));
-        groups.add(new ExerciseGroup("Het riet", R.drawable.riet));
-        groups.add(new ExerciseGroup("De val", R.drawable.val));
-        groups.add(new ExerciseGroup("Het kompas", R.drawable.kompas));
-        groups.add(new ExerciseGroup("Steil", R.drawable.steil));
-        groups.add(new ExerciseGroup("De zwaan", R.drawable.zwaan));
-        groups.add(new ExerciseGroup("Het kamp", R.drawable.kamp));
-        groups.add(new ExerciseGroup("De zaklamp", R.drawable.zaklamp));
+        groups.add(new ExerciseGroup("De duikbril"));
+        groups.add(new ExerciseGroup("Het klimtouw"));
+        groups.add(new ExerciseGroup("Het kroos"));
+        groups.add(new ExerciseGroup("Het riet"));
+        groups.add(new ExerciseGroup("De val"));
+        groups.add(new ExerciseGroup("Het kompas"));
+        groups.add(new ExerciseGroup("Steil"));
+        groups.add(new ExerciseGroup("De zwaan"));
+        groups.add(new ExerciseGroup("Het kamp"));
+        groups.add(new ExerciseGroup("De zaklamp"));
 
         for (ExerciseGroup group : groups){
             group.loadDefault();
@@ -109,9 +109,9 @@ public class ExerciseGroup {
         getExercises();
 
 //        Set default
-        Exercise introExercise = new IntroExercise(null);
-        Exercise listenExercise = new ListenExercise(this.getWord());
-        Exercise sortingExercise = new SortingExercise(this.getWord());
+        IntroExercise introExercise = new IntroExercise(null);
+        ListenExercise listenExercise = new ListenExercise(this.getWord());
+        SortingExercise sortingExercise = new SortingExercise(this.getWord());
 
         _exercises.add(introExercise);
         _exercises.add(listenExercise);

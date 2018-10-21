@@ -169,6 +169,7 @@ public class ToddlerDetailActivity extends Activity {
             }
 
 //            Get controls
+            ImageView ivState = view.findViewById(R.id.ivState);
             TextView tvWord = view.findViewById(R.id.tvWord);
             LinearLayout llExercises = view.findViewById(R.id.llExercises);
 
@@ -176,6 +177,12 @@ public class ToddlerDetailActivity extends Activity {
 
 //            Set content
             tvWord.setText(getItem(position).getWord());
+
+            if(getItem(position).isPreteached() && getItem(position).isKnown()) {
+                ivState.setImageResource(R.drawable.ic_round_done);
+            }else{
+                ivState.setImageResource(R.drawable.ic_round_close);
+            }
 
             for(Exercise exercise : getItem(position).getExercises()){
                 llExercises.addView(getRow(exercise));
