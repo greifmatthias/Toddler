@@ -26,6 +26,45 @@
         android:layout_height="match_parent"
         android:layout_below="@id/tvWord"></FrameLayout>
 
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/gradient_bottomtop"
+        android:backgroundTint="@color/colorAccent_light">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_girl"
+            android:layout_marginRight="@dimen/padNormal"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:paddingBottom="@dimen/padBig"
+            android:layout_marginRight="@dimen/padInsane">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:maxWidth="200dp"
+                android:layout_height="wrap_content"
+                android:text="Hallo ik ben kaatje en ik ben gay, pls provide no hate or u will be detroyed immediately"
+                android:textColor="@color/colorDark"
+                android:background="@drawable/roundcorners"
+                android:backgroundTint="@color/colorLight"
+                android:padding="@dimen/padNormal"
+                android:textSize="@dimen/textNormal"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fabNext"
         android:layout_width="wrap_content"

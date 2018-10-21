@@ -32,5 +32,13 @@ public class SettingsActivity extends Activity {
                 startActivity(aboutIntent);
             }
         });
+
+        findViewById(R.id.llResources).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent aboutIntent = new Intent(getApplicationContext(), AboutActivity.class);
+                startActivity(aboutIntent);
+            }
+        });
     }
 }

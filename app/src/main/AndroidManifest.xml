@@ -25,7 +25,8 @@
             android:name=".Activities.ManagerActivity"
             android:label="@string/title_activity_manager" />
         <activity android:name=".Activities.ToddlerDetailActivity" />
-        <activity android:name=".Activities.PreteachingActivity"></activity>
+        <activity android:name=".Activities.PreteachingActivity" />
+        <activity android:name=".ResourceActivity"></activity>
     </application>
 
 </manifest>

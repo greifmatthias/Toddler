@@ -73,9 +73,9 @@
 
             </LinearLayout>
 
-            <!-- DATA : TODO -->
+            <!-- RESOURCES -->
             <LinearLayout
-                android:id="@+id/llData"
+                android:id="@+id/llResources"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="@dimen/padNormal"
@@ -83,13 +83,12 @@
                 android:paddingTop="@dimen/padSmaller"
                 android:paddingBottom="@dimen/padSmaller"
                 android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:visibility="gone">
+                android:gravity="center_vertical">
 
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/ic_round_folder"
+                    android:src="@drawable/ic_round_image_search"
                     android:tint="@color/colorDark_mintrans"
                     android:layout_marginRight="@dimen/padSmaller"/>
 
@@ -101,7 +100,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Data"
+                        android:text="Resources"
                         android:textStyle="bold"
                         android:textSize="@dimen/textNormal"
                         android:textColor="@color/colorDark"/>
@@ -109,7 +108,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Tools to export, import data in this app like classes and toddlers"/>
+                        android:text="Where all these icons and images are coming from."/>
 
                 </LinearLayout>
 
@@ -152,7 +151,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Check out who's behind, and what this all made possible by"/>
+                        android:text="Check out who's behind, and what this all made possible by."/>
 
                 </LinearLayout>
 
