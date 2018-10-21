@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import be.greifmatthias.toddler.Activities.ExerciseActivity;
 import be.greifmatthias.toddler.Models.User;
@@ -69,19 +70,27 @@ public class ListenExercise extends Exercise {
     }
 
     public static class ListenFragment extends Fragment {
+        private Exercise _exercise;
+
         public ListenFragment() {
             // Required empty public constructor
         }
 
         @SuppressLint("ValidFragment")
         public ListenFragment(ExerciseActivity activity, Exercise exercise) {
+            this._exercise = exercise;
+
             activity.setKaatje(exercise.getKaatje());
         }
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             // Inflate the layout for this fragment
-            return inflater.inflate(R.layout.fragment_listen, container, false);
+            View view =  inflater.inflate(R.layout.fragment_listen, container, false);
+
+            ((ImageView)view.findViewById(R.id.ivImage)).setImageResource(ExerciseGroup.getHdImage(_exercise._word));
+
+            return view;
         }
     }
 }

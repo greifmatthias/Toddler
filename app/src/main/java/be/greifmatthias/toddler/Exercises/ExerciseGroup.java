@@ -27,8 +27,8 @@ public class ExerciseGroup {
         return this._word;
     }
 
-    public int getImage(){
-        switch (this.getWord()){
+    public static int getImage(String word){
+        switch (word){
             case "De duikbril":
                 return R.drawable.duikbril;
             case "Het klimtouw":
@@ -49,9 +49,44 @@ public class ExerciseGroup {
                 return R.drawable.kamp;
             case "De zaklamp":
                 return R.drawable.zaklamp;
-                default:
-                    return 0;
+            default:
+                return 0;
         }
+    }
+
+    public int getImage(){
+        return getImage(this.getWord());
+    }
+
+    public static int getHdImage(String word){
+        switch (word){
+            case "De duikbril":
+                return R.drawable.duikbril_hd;
+            case "Het klimtouw":
+                return R.drawable.klimtouw_hd;
+            case "Het kroos":
+                return R.drawable.kroos_hd;
+            case "Het riet":
+                return R.drawable.riet_hd;
+            case "De val":
+                return R.drawable.val_hd;
+            case "Het kompas":
+                return R.drawable.kompas_hd;
+            case "Steil":
+                return R.drawable.steil_hd;
+            case "De zwaan":
+                return R.drawable.zwaan_hd;
+            case "Het kamp":
+                return R.drawable.kamp_hd;
+            case "De zaklamp":
+                return R.drawable.zaklamp_hd;
+            default:
+                return 0;
+        }
+    }
+
+    public int getHdImage(){
+        return getHdImage(this.getWord());
     }
 
     public boolean isPreteached() {
