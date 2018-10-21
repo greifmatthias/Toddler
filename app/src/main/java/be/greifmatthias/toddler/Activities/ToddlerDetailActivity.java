@@ -8,20 +8,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import be.greifmatthias.toddler.Exercises.Exercise;
 import be.greifmatthias.toddler.Exercises.ExerciseGroup;
 import be.greifmatthias.toddler.Models.User;
-import be.greifmatthias.toddler.PreteachingActivity;
 import be.greifmatthias.toddler.R;
 import be.greifmatthias.toddler.Theme;
 
@@ -31,6 +28,8 @@ public class ToddlerDetailActivity extends Activity {
 
     private ImageView _ivMore;
     private LinearLayout _llNotif;
+    private LinearLayout _llExercises;
+    private ImageView _ivTest;
     private ListView _lvExercisegroups;
     private View _llActions;
     private View _rlOverlay;
@@ -53,6 +52,8 @@ public class ToddlerDetailActivity extends Activity {
         this._tvName = findViewById(R.id.tvName);
         this._ivMore = findViewById(R.id.ivMore);
         this._llNotif = findViewById(R.id.llNotif);
+        this._llExercises = findViewById(R.id.llExercises);
+        this._ivTest = findViewById(R.id.ivTest);
         this._lvExercisegroups = findViewById(R.id.lvExercisegroups);
         this._llActions = findViewById(R.id.llActions);
         this._rlOverlay = findViewById(R.id.rlOverlay);
@@ -74,6 +75,15 @@ public class ToddlerDetailActivity extends Activity {
             }
         });
 
+        findViewById(R.id.llStartTest).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent exerciseActivity = new Intent(getApplicationContext(), ExerciseActivity.class);
+                exerciseActivity.putExtra("toddlerId", _toddler.getId());
+                exerciseActivity.putExtra("group", 0);
+                startActivity(exerciseActivity);
+            }
+        });
 
         findViewById(R.id.fabUtil).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,7 +105,7 @@ public class ToddlerDetailActivity extends Activity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent exerciseActivity = new Intent(getApplicationContext(), ExerciseActivity.class);
                 exerciseActivity.putExtra("toddlerId", _toddler.getId());
-                exerciseActivity.putExtra("group", i);
+                exerciseActivity.putExtra("group", i + 1);
                 startActivity(exerciseActivity);
             }
         });
@@ -111,16 +121,23 @@ public class ToddlerDetailActivity extends Activity {
         GroupsAdapter adapter = new GroupsAdapter(this, this._groups);
         this._lvExercisegroups.setAdapter(adapter);
 
+//        Check if test done
+        if(this._toddler.getExercises().get(0).isKnown()){
+            _ivTest.setImageResource(R.drawable.ic_round_assignment_turned_in);
+        }else{
+            _ivTest.setImageResource(R.drawable.ic_round_assignment);
+        }
+
 //        Check if already preteached words
-        if(!this._toddler.getExercises().get(0).isPreteached()){
+        if(!this._toddler.getExercises().get(1).isPreteached()){
             this._llNotif.setVisibility(View.VISIBLE);
-            this._lvExercisegroups.setVisibility(View.GONE);
+            this._llExercises.setVisibility(View.GONE);
 
 //            Enable fab
             findViewById(R.id.fabUtil).setVisibility(View.VISIBLE);
         }else{
             this._llNotif.setVisibility(View.GONE);
-            this._lvExercisegroups.setVisibility(View.VISIBLE);
+            this._llExercises.setVisibility(View.VISIBLE);
             findViewById(R.id.fabUtil).setVisibility(View.GONE);
         }
     }
@@ -142,14 +159,18 @@ public class ToddlerDetailActivity extends Activity {
         private List<ExerciseGroup> _groups;
         private Context _context;
 
+        private int _modificationfactor;
+
         public GroupsAdapter(Context context, List<ExerciseGroup> groups){
             this._context = context;
+
             this._groups = groups;
+            this._modificationfactor = 1;
         }
 
         @Override
         public int getCount() {
-            return this._groups.size();
+            return this._groups.size() - 1;
         }
 
         @Override
@@ -159,7 +180,7 @@ public class ToddlerDetailActivity extends Activity {
 
         @Override
         public long getItemId(int i) {
-            return 0;
+            return i;
         }
 
         @Override
@@ -176,15 +197,15 @@ public class ToddlerDetailActivity extends Activity {
             llExercises.removeAllViews();
 
 //            Set content
-            tvWord.setText(getItem(position).getWord());
+            tvWord.setText(this._groups.get(position + _modificationfactor).getWord());
 
-            if(getItem(position).isPreteached() && getItem(position).isKnown()) {
+            if(this._groups.get(position + _modificationfactor).isPreteached() && this._groups.get(position + _modificationfactor).isKnown()) {
                 ivState.setImageResource(R.drawable.ic_round_done);
             }else{
                 ivState.setImageResource(R.drawable.ic_round_close);
             }
 
-            for(Exercise exercise : getItem(position).getExercises()){
+            for(Exercise exercise : this._groups.get(position + _modificationfactor).getExercises()){
                 llExercises.addView(getRow(exercise));
             }
 

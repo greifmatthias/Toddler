@@ -16,23 +16,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6419a912-f37a-4103-8bf8-f234e4fc138f" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_round_done.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_round_done_all.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_round_assignment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_round_assignment_turned_in.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Activities/ExerciseActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Activities/ExerciseActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Activities/ToddlerDetailActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Activities/ToddlerDetailActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Exercises/Exercise.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Exercises/Exercise.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Exercises/ExerciseGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Exercises/ExerciseGroup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Exercises/IntroExercise.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Exercises/IntroExercise.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Exercises/ListenExercise.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Exercises/ListenExercise.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Models/Class.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Models/Class.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/PreteachingActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/PreteachingActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_intro.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_intro.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/row_exercise.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/row_exercise.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/row_exercisegroups.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/row_exercisegroups.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/ListenFragment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/PreteachingActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Activities/PreteachingActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_preteaching.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_preteaching.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_toddler_detail.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_toddler_detail.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -55,36 +49,58 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ToddlerDetailActivity.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ToddlerDetailActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Activities/ToddlerDetailActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="114" selection-start-line="114" selection-end-line="114" />
+            <state relative-caret-position="436">
+              <caret line="107" column="56" selection-start-line="107" selection-start-column="56" selection-end-line="107" selection-end-column="56" />
               <folding>
                 <element signature="e#1903#2097#0" expanded="true" />
                 <element signature="e#2096#2097#0" expanded="true" />
+                <element signature="e#2479#2879#0" expanded="true" />
+                <element signature="e#2878#2879#0" expanded="true" />
+                <element signature="e#3035#3493#0" expanded="true" />
+                <element signature="e#3492#3493#0" expanded="true" />
+                <element signature="e#5162#5163#0" expanded="true" />
+                <element signature="e#5212#5213#0" expanded="true" />
+                <element signature="e#6151#6152#0" expanded="true" />
+                <element signature="e#6208#6209#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fragment_intro.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_intro.xml">
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
+      <file leaf-file-name="PreteachingActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Activities/PreteachingActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
+            <state relative-caret-position="-442">
+              <caret line="66" column="1" selection-start-line="66" selection-start-column="1" selection-end-line="66" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IntroExercise.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="activity_toddler_detail.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_toddler_detail.xml">
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="299">
+              <caret line="124" column="27" selection-start-line="124" selection-start-column="27" selection-end-line="124" selection-end-column="27" />
+              <folding>
+                <element signature="e#3995#4013#0" expanded="true" />
+                <element signature="e#4822#4841#0" expanded="true" />
+                <element signature="e#5007#5026#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IntroExercise.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Exercises/IntroExercise.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="48" column="43" selection-start-line="48" selection-start-column="43" selection-end-line="48" selection-end-column="43" />
+            <state relative-caret-position="485">
+              <caret line="61" column="15" selection-start-line="61" selection-start-column="15" selection-end-line="61" selection-end-column="15" />
               <folding>
                 <element signature="e#1481#1660#0" expanded="true" />
                 <element signature="e#1659#1660#0" expanded="true" />
@@ -93,11 +109,33 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="ExerciseGroup.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Exercises/ExerciseGroup.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="96" column="18" selection-start-line="96" selection-start-column="18" selection-end-line="96" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="ListenExercise.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Exercises/ListenExercise.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="423">
-              <caret line="38" column="24" lean-forward="true" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
+              <caret line="38" column="24" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Models/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="276">
+              <caret line="90" column="20" selection-start-line="90" selection-start-column="20" selection-end-line="90" selection-end-column="20" />
+              <folding>
+                <element signature="e#5278#5279#0" expanded="true" />
+                <element signature="e#5316#5317#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -105,8 +143,8 @@
       <file leaf-file-name="ExerciseActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Activities/ExerciseActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="69" column="130" selection-start-line="69" selection-start-column="130" selection-end-line="69" selection-end-column="130" />
+            <state relative-caret-position="400">
+              <caret line="74" column="18" selection-start-line="74" selection-start-column="18" selection-end-line="74" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -119,31 +157,6 @@
               <folding>
                 <element signature="e#350#351#0" expanded="true" />
                 <element signature="e#377#378#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Class.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Models/Class.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="109" column="35" selection-start-line="109" selection-start-column="35" selection-end-line="109" selection-end-column="35" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Models/User.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="175" column="12" selection-start-line="175" selection-start-column="12" selection-end-line="175" selection-end-column="12" />
-              <folding>
-                <element signature="e#5278#5279#0" expanded="true" />
-                <element signature="e#5328#5329#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -184,6 +197,9 @@
       <find>llNotifT</find>
       <find>ExerciseAc</find>
       <find>getExer</find>
+      <find>_groups</find>
+      <find>this._groups.get</find>
+      <find>GroupsAdapter</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -2448,7 +2464,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Models/Group.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Models/Exercises/Exercise.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Models/Exercises/ListerExercise.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_listen_exercise.xml" />
@@ -2484,21 +2499,22 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_listen.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_exercise.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Exercises/SortingExercise.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_toddler_detail.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Helpers.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_preteaching.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/row_exercise.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/row_exercisegroups.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Activities/ToddlerDetailActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/PreteachingActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Exercises/ExerciseGroup.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Models/Class.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Models/User.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_intro.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Activities/ExerciseActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Exercises/Exercise.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Exercises/ListenExercise.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Exercises/IntroExercise.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Activities/ExerciseActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Activities/PreteachingActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_toddler_detail.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Exercises/ExerciseGroup.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Activities/ToddlerDetailActivity.java" />
       </list>
     </option>
   </component>
@@ -2828,12 +2844,12 @@
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Terminal" order="11" />
-      <window_info anchor="bottom" id="Logcat" order="10" weight="0.3225108" />
+      <window_info active="true" anchor="bottom" id="Logcat" order="10" visible="true" weight="0.3225108" />
       <window_info id="Captures" order="4" weight="0.25" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="2" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16897655" />
-      <window_info active="true" anchor="bottom" id="Build" order="7" visible="true" weight="0.32792208" />
+      <window_info anchor="bottom" id="Build" order="7" weight="0.32792208" />
       <window_info anchor="right" id="Gradle" order="6" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Device File Explorer" order="5" side_tool="true" />
@@ -2913,18 +2929,6 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Models/User.java</url>
-          <line>107</line>
-          <properties />
-          <option name="timeStamp" value="44" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Models/User.java</url>
-          <line>94</line>
-          <properties />
-          <option name="timeStamp" value="45" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Models/User.java</url>
           <line>151</line>
           <properties />
           <option name="timeStamp" value="46" />
@@ -2937,24 +2941,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Activities/ToddlerDetailActivity.java</url>
-          <line>114</line>
+          <line>131</line>
           <properties />
           <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Activities/ToddlerDetailActivity.java</url>
-          <line>92</line>
+          <line>177</line>
           <properties />
-          <option name="timeStamp" value="51" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Models/User.java</url>
-          <line>85</line>
-          <properties />
-          <option name="timeStamp" value="52" />
+          <option name="timeStamp" value="54" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="53" />
+      <option name="time" value="56" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -3142,13 +3140,6 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Models/Exercises/ListerExercise.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Models/Exercises/Exercise.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Exercises/HearingExercise.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/ListenFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Activities/ManagerActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="281">
@@ -3214,17 +3205,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_toddler_detail.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="92" column="47" selection-start-line="92" selection-start-column="47" selection-end-line="92" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/PreteachingActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Activities/PreteachingActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
           <caret line="55" selection-start-line="55" selection-end-line="55" />
@@ -3248,13 +3229,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Exercises/ExerciseGroup.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="113" column="23" selection-start-line="113" selection-start-column="23" selection-end-line="113" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_preteaching.xml">
       <provider editor-type-id="android-designer2">
         <state />
@@ -3262,13 +3236,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="359">
           <caret line="78" column="16" selection-start-line="78" selection-start-column="16" selection-end-line="79" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/PreteachingActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="103" selection-start-line="103" selection-end-line="103" />
         </state>
       </provider>
     </entry>
@@ -3289,17 +3256,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Models/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="175" column="12" selection-start-line="175" selection-start-column="12" selection-end-line="175" selection-end-column="12" />
-          <folding>
-            <element signature="e#5278#5279#0" expanded="true" />
-            <element signature="e#5328#5329#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/row_exercisegroups.xml">
       <provider editor-type-id="android-designer2">
         <state />
@@ -3313,14 +3269,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Activities/ToddlerDetailActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_exercise.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="114" selection-start-line="114" selection-end-line="114" />
+        <state relative-caret-position="257">
+          <caret line="28" column="4" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Exercises/ListenExercise.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="38" column="24" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Exercises/IntroExercise.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="485">
+          <caret line="61" column="15" selection-start-line="61" selection-start-column="15" selection-end-line="61" selection-end-column="15" />
           <folding>
-            <element signature="e#1903#2097#0" expanded="true" />
-            <element signature="e#2096#2097#0" expanded="true" />
+            <element signature="e#1481#1660#0" expanded="true" />
+            <element signature="e#1659#1660#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/ListenFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
         </state>
       </provider>
     </entry>
@@ -3334,20 +3314,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_exercise.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_toddler_detail.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="28" column="4" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Activities/ExerciseActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="69" column="130" selection-start-line="69" selection-start-column="130" selection-end-line="69" selection-end-column="130" />
+        <state relative-caret-position="299">
+          <caret line="124" column="27" selection-start-line="124" selection-start-column="27" selection-end-line="124" selection-end-column="27" />
+          <folding>
+            <element signature="e#3995#4013#0" expanded="true" />
+            <element signature="e#4822#4841#0" expanded="true" />
+            <element signature="e#5007#5026#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -3362,20 +3340,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Exercises/ListenExercise.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Activities/PreteachingActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="38" column="24" lean-forward="true" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
+        <state relative-caret-position="-442">
+          <caret line="66" column="1" selection-start-line="66" selection-start-column="1" selection-end-line="66" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Exercises/IntroExercise.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Activities/ExerciseActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="48" column="43" selection-start-line="48" selection-start-column="43" selection-end-line="48" selection-end-column="43" />
+        <state relative-caret-position="400">
+          <caret line="74" column="18" selection-start-line="74" selection-start-column="18" selection-end-line="74" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Models/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="90" column="20" selection-start-line="90" selection-start-column="20" selection-end-line="90" selection-end-column="20" />
           <folding>
-            <element signature="e#1481#1660#0" expanded="true" />
-            <element signature="e#1659#1660#0" expanded="true" />
+            <element signature="e#5278#5279#0" expanded="true" />
+            <element signature="e#5316#5317#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Exercises/ExerciseGroup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="96" column="18" selection-start-line="96" selection-start-column="18" selection-end-line="96" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/be/greifmatthias/toddler/Activities/ToddlerDetailActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="436">
+          <caret line="107" column="56" selection-start-line="107" selection-start-column="56" selection-end-line="107" selection-end-column="56" />
+          <folding>
+            <element signature="e#1903#2097#0" expanded="true" />
+            <element signature="e#2096#2097#0" expanded="true" />
+            <element signature="e#2479#2879#0" expanded="true" />
+            <element signature="e#2878#2879#0" expanded="true" />
+            <element signature="e#3035#3493#0" expanded="true" />
+            <element signature="e#3492#3493#0" expanded="true" />
+            <element signature="e#5162#5163#0" expanded="true" />
+            <element signature="e#5212#5213#0" expanded="true" />
+            <element signature="e#6151#6152#0" expanded="true" />
+            <element signature="e#6208#6209#0" expanded="true" />
           </folding>
         </state>
       </provider>

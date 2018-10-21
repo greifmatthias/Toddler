@@ -7,6 +7,7 @@ import be.greifmatthias.toddler.Models.User;
 import be.greifmatthias.toddler.R;
 
 public class ExerciseGroup {
+    private boolean _isTest;
     private String _word;
     private List<Exercise> _exercises;
 
@@ -14,6 +15,8 @@ public class ExerciseGroup {
     private boolean _known;
 
     public ExerciseGroup(String word){
+        this._isTest = false;
+
         this._word = word;
 
         this._known = false;
@@ -71,7 +74,9 @@ public class ExerciseGroup {
     public static List<ExerciseGroup> get(){
         List<ExerciseGroup> groups = new ArrayList<>();
 
-        groups.add(new ExerciseGroup("De duikbril"));
+        ExerciseGroup testExercise = new ExerciseGroup("De duikbril");
+        testExercise.setTest();
+        groups.add(testExercise);
         groups.add(new ExerciseGroup("Het klimtouw"));
         groups.add(new ExerciseGroup("Het kroos"));
         groups.add(new ExerciseGroup("Het riet"));
@@ -89,7 +94,15 @@ public class ExerciseGroup {
         return groups;
     }
 
-//    Get exercises for this group
+    public boolean isTest() {
+        return this._isTest;
+    }
+
+    private void setTest() {
+        this._isTest = true;
+    }
+
+    //    Get exercises for this group
     public List<Exercise> getExercises(){
         if(_exercises == null){
             _exercises = new ArrayList<>();

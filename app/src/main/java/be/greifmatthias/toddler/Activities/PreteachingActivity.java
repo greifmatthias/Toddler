@@ -1,4 +1,4 @@
-package be.greifmatthias.toddler;
+package be.greifmatthias.toddler.Activities;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -9,7 +9,10 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import be.greifmatthias.toddler.Helpers;
 import be.greifmatthias.toddler.Models.User;
+import be.greifmatthias.toddler.R;
+import be.greifmatthias.toddler.Theme;
 
 public class PreteachingActivity extends Activity {
 
@@ -40,7 +43,7 @@ public class PreteachingActivity extends Activity {
 
 //        Load data
         this._toddler = User.get(this.getIntent().getIntExtra("toddlerId", 0));
-        this._currentWord = 0;
+        this._currentWord = 1; // 0 = TestExercise so skip this one
     }
 
     @Override
@@ -77,7 +80,7 @@ public class PreteachingActivity extends Activity {
         int index = -1;
 
         while (index == -1) {
-            index = Helpers.getRandom(0, this._toddler.getExercises().size() - 1);
+            index = Helpers.getRandom(1, this._toddler.getExercises().size() - 1);
 
             boolean isgood = true;
             for(Integer i : exclude){
