@@ -32,6 +32,7 @@ import java.util.Collections;
 import java.util.List;
 
 import be.greifmatthias.toddler.Models.Class;
+import be.greifmatthias.toddler.Models.Group;
 import be.greifmatthias.toddler.Models.User;
 import be.greifmatthias.toddler.R;
 import be.greifmatthias.toddler.Theme;
@@ -193,6 +194,12 @@ public class ManagerActivity extends Activity {
         _classpopup.setFocusable(true);
         _classpopup.update();
 
+//        Set spinner
+        final Spinner spGroups = customView.findViewById(R.id.spGroups);
+        GroupsAdapter adapter = new GroupsAdapter(this, R.layout.classes_class_default, R.id.tvName, Group.getGroups());
+        adapter.setDropDownViewResource(R.layout.classes_class);
+        spGroups.setAdapter(adapter);
+
         customView.findViewById(R.id.rlBackground).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -206,7 +213,7 @@ public class ManagerActivity extends Activity {
 //                Save class
                 String classname = ((EditText) customView.findViewById(R.id.etClassName)).getText().toString();
                 if (!classname.equals("")) {
-                    Class.add(new Class(classname));
+                    Class.add(new Class(classname.trim(), spGroups.getSelectedItemPosition()));
                     ((EditText) customView.findViewById(R.id.etClassName)).setText("");
 
 //                Update
@@ -325,7 +332,7 @@ public class ManagerActivity extends Activity {
         public View getView(int position, View convertView, ViewGroup parent) {
             View v = super.getView(position, convertView, parent);
 
-            ((TextView) v.findViewById(R.id.tvName)).setText(this._classes.get(position).getName());
+            ((TextView) v.findViewById(R.id.tvName)).setText(this._classes.get(position).getName() + " (" + this._classes.get(position).getGroup().getId() + ")");
 
             return v;
         }
@@ -333,7 +340,7 @@ public class ManagerActivity extends Activity {
         @Override
         public View getDropDownView(int position, View convertView, ViewGroup parent) {
             View v = super.getDropDownView(position, convertView, parent);
-            ((TextView) v.findViewById(R.id.tvName)).setText(this._classes.get(position).getName());
+            ((TextView) v.findViewById(R.id.tvName)).setText(this._classes.get(position).getName() + " (" + this._classes.get(position).getGroup().getId() + ")");
 
             return v;
         }
@@ -369,6 +376,49 @@ public class ManagerActivity extends Activity {
             View v = super.getView(position, convertView, parent);
 
             ((TextView) v.findViewById(R.id.tvName)).setText(this._toddlers.get(position).getFamname() + " " + this._toddlers.get(position).getName());
+
+            return v;
+        }
+    }
+
+    private class GroupsAdapter extends ArrayAdapter<Group> {
+
+        private List<Group> _groups;
+
+        public GroupsAdapter(Context context, int View, int TextView, List<Group> groups) {
+            super(context, View, TextView, groups);
+
+            this._groups = groups;
+        }
+
+        @Override
+        public int getCount() {
+            return this._groups.size();
+        }
+
+        @Override
+        public Group getItem(int position) {
+            return this._groups.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            View v = super.getView(position, convertView, parent);
+
+            ((TextView) v.findViewById(R.id.tvName)).setText(this._groups.get(position).getName());
+
+            return v;
+        }
+
+        @Override
+        public View getDropDownView(int position, View convertView, ViewGroup parent) {
+            View v = super.getDropDownView(position, convertView, parent);
+            ((TextView) v.findViewById(R.id.tvName)).setText(this._groups.get(position).getName());
 
             return v;
         }

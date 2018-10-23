@@ -105,35 +105,11 @@ public class ExerciseGroup {
         return this._known;
     }
 
-    //    Get all possible exercisegroups
-    public static List<ExerciseGroup> get(){
-        List<ExerciseGroup> groups = new ArrayList<>();
-
-        ExerciseGroup testExercise = new ExerciseGroup("De duikbril");
-        testExercise.setTest();
-        groups.add(testExercise);
-        groups.add(new ExerciseGroup("Het klimtouw"));
-        groups.add(new ExerciseGroup("Het kroos"));
-        groups.add(new ExerciseGroup("Het riet"));
-        groups.add(new ExerciseGroup("De val"));
-        groups.add(new ExerciseGroup("Het kompas"));
-        groups.add(new ExerciseGroup("Steil"));
-        groups.add(new ExerciseGroup("De zwaan"));
-        groups.add(new ExerciseGroup("Het kamp"));
-        groups.add(new ExerciseGroup("De zaklamp"));
-
-        for (ExerciseGroup group : groups){
-            group.loadDefault();
-        }
-
-        return groups;
-    }
-
     public boolean isTest() {
         return this._isTest;
     }
 
-    private void setTest() {
+    public void setTest() {
         this._isTest = true;
     }
 

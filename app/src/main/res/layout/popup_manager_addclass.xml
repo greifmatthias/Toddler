@@ -28,6 +28,12 @@
             android:hint="Name"
             android:backgroundTint="@color/colorDark"
             android:textColor="@color/colorDark" />
+
+        <Spinner
+            android:id="@+id/spGroups"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padSmaller"></Spinner>
     </LinearLayout>
 
     <android.support.design.widget.FloatingActionButton

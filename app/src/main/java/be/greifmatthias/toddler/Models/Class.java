@@ -16,16 +16,19 @@ public class Class implements Comparable<Class> {
     private int _id;
     private String _name;
 
+    private int _group;
+
     private List<User> _studs;
 
-    public Class(int id, String name){
+    public Class(int id, String name, int group){
         this._id = id;
         this._name = name;
+        this._group = group;
 
         this._studs = new ArrayList<>();
     }
 
-    public Class(String name){
+    public Class(String name, int group){
         int max = 0;
         for(Class c : _classes){
             if(max < c.getId()){
@@ -34,6 +37,7 @@ public class Class implements Comparable<Class> {
         }
         this._id = max + 1;
         this._name = name;
+        this._group = group;
     }
 
     public int getId(){
@@ -43,6 +47,8 @@ public class Class implements Comparable<Class> {
     public String getName(){
         return this._name;
     }
+
+    public Group getGroup() { return Group.getGroups().get(this._group); }
 
     public List<User> getStuds(){
         if(this._studs == null){
@@ -89,6 +95,20 @@ public class Class implements Comparable<Class> {
         Collections.sort(_classes);
 
         return _classes;
+    }
+
+    public static Class getOfuser(User user){
+        get();
+
+        for (Class c : _classes) {
+            for(User u : c.getStuds()){
+                if(u.equals(user)){
+                    return c;
+                }
+            }
+        }
+
+        return null;
     }
 
 //    Private data loader

@@ -153,7 +153,11 @@ public class User implements Comparable<User> {
                 this._exercises = output;
             }else{
 //                Load default state
-                this._exercises = ExerciseGroup.get();
+                this._exercises = new ArrayList<>();
+
+                Group group = Class.getOfuser(this).getGroup();
+
+                this._exercises.addAll(group.getExercises());
             }
         }
 
