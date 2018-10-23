@@ -77,6 +77,19 @@ public class Group {
         return output;
     }
 
+    public static Condition getCondition(int condition){
+        switch (condition){
+            case 0:
+                return Condition.A;
+            case 1:
+                return Condition.B;
+            case 2:
+                return Condition.C;
+        }
+
+        return null;
+    }
+
     public List<WordSet> getWordSet(){
         List<WordSet> output = new ArrayList<>();
 

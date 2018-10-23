@@ -9,15 +9,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.BaseExpandableListAdapter;
+import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import be.greifmatthias.toddler.Exercises.Exercise;
 import be.greifmatthias.toddler.Exercises.ExerciseGroup;
+import be.greifmatthias.toddler.Models.Class;
+import be.greifmatthias.toddler.Models.Group;
 import be.greifmatthias.toddler.Models.User;
 import be.greifmatthias.toddler.R;
 import be.greifmatthias.toddler.Theme;
@@ -30,7 +36,7 @@ public class ToddlerDetailActivity extends Activity {
     private LinearLayout _llNotif;
     private LinearLayout _llExercises;
     private ImageView _ivTest;
-    private ListView _lvExercisegroups;
+    private ExpandableListView _lvExercisegroups;
     private View _llActions;
     private View _rlOverlay;
 
@@ -100,13 +106,16 @@ public class ToddlerDetailActivity extends Activity {
         //        Load exercisedata
         this._groups = this._toddler.getExercises();
 
-        this._lvExercisegroups.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        this._lvExercisegroups.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
                 Intent exerciseActivity = new Intent(getApplicationContext(), ExerciseActivity.class);
                 exerciseActivity.putExtra("toddlerId", _toddler.getId());
-                exerciseActivity.putExtra("group", i + 1);
+                exerciseActivity.putExtra("condition", groupPosition);
                 startActivity(exerciseActivity);
+
+                return false;
             }
         });
     }
@@ -118,7 +127,37 @@ public class ToddlerDetailActivity extends Activity {
         this._tvName.setText(this._toddler.getName() + " " + this._toddler.getFamname());
 
 //        Set exercise group data
-        GroupsAdapter adapter = new GroupsAdapter(this, this._groups);
+        HashMap<String, List<ExerciseGroup>> data = new HashMap<>();
+        String pre = null;
+        List<ExerciseGroup> groups = new ArrayList<>();
+        List<String> headers = new ArrayList<>();
+        for (ExerciseGroup group : this._toddler.getExercises()) {
+            if (!group.getWord().equals("De duikbril")) {
+                if (pre != null && pre.equals(group.getCondition().toString())) {
+                    groups.add(group);
+
+//                    Check if last, then add
+                    if(group.equals(this._toddler.getExercises().get(this._toddler.getExercises().size() - 1))){
+                        data.put(pre, groups);
+                    }
+                } else {
+                    if (pre != null) {
+                        data.put(pre, groups);
+                    } else {
+                        pre = group.getCondition().toString();
+                    }
+
+//                New entry
+                    groups = new ArrayList<>();
+                    groups.add(group);
+                    pre = group.getCondition().toString();
+
+                    headers.add(pre);
+                }
+            }
+        }
+
+        GroupsAdapter adapter = new GroupsAdapter(this, headers, data);
         this._lvExercisegroups.setAdapter(adapter);
 
 //        Check if test done
@@ -154,37 +193,32 @@ public class ToddlerDetailActivity extends Activity {
         }
     }
 
-    private class GroupsAdapter extends BaseAdapter {
-
-        private List<ExerciseGroup> _groups;
+    private class GroupsAdapter extends BaseExpandableListAdapter {
         private Context _context;
+        private List<String> _headers;
+        private HashMap<String, List<ExerciseGroup>> _data;
 
-        private int _modificationfactor;
-
-        public GroupsAdapter(Context context, List<ExerciseGroup> groups){
+        public GroupsAdapter(Context context, List<String> headers, HashMap<String, List<ExerciseGroup>> data) {
             this._context = context;
-
-            this._groups = groups;
-            this._modificationfactor = 1;
+            this._headers = headers;
+            this._data = data;
         }
 
         @Override
-        public int getCount() {
-            return this._groups.size() - 1;
+        public ExerciseGroup getChild(int groupPosition, int childPosititon) {
+            return this._data.get(this._headers.get(groupPosition)).get(childPosititon);
         }
 
         @Override
-        public ExerciseGroup getItem(int position) {
-            return this._groups.get(position);
+        public long getChildId(int groupPosition, int childPosition) {
+            return childPosition;
         }
 
         @Override
-        public long getItemId(int i) {
-            return i;
-        }
+        public View getChildView(int groupPosition, final int childPosition, boolean isLastChild, View view, ViewGroup parent) {
 
-        @Override
-        public View getView(int position, View view, ViewGroup parent) {
+            ExerciseGroup u = (ExerciseGroup) getChild(groupPosition, childPosition);
+
             if (view == null) {
                 view = LayoutInflater.from(this._context).inflate(R.layout.row_exercisegroups, parent, false);
             }
@@ -197,15 +231,15 @@ public class ToddlerDetailActivity extends Activity {
             llExercises.removeAllViews();
 
 //            Set content
-            tvWord.setText(this._groups.get(position + _modificationfactor).getWord());
+            tvWord.setText(u.getWord());
 
-            if(this._groups.get(position + _modificationfactor).isPreteached() && this._groups.get(position + _modificationfactor).isKnown()) {
+            if(u.isPreteached() && u.isKnown()) {
                 ivState.setImageResource(R.drawable.ic_round_done);
             }else{
                 ivState.setImageResource(R.drawable.ic_round_close);
             }
 
-            for(Exercise exercise : this._groups.get(position + _modificationfactor).getExercises()){
+            for(Exercise exercise : u.getExercises()){
                 llExercises.addView(getRow(exercise));
             }
 
@@ -228,6 +262,53 @@ public class ToddlerDetailActivity extends Activity {
             }
 
             return view;
+        }
+
+
+        @Override
+        public int getChildrenCount(int groupPosition) {
+            return this._data.get(this._headers.get(groupPosition)).size();
+        }
+
+        @Override
+        public String getGroup(int groupPosition) {
+            return this._headers.get(groupPosition);
+        }
+
+        @Override
+        public int getGroupCount() {
+            return this._headers.size();
+        }
+
+        @Override
+        public long getGroupId(int groupPosition) {
+            return groupPosition;
+        }
+
+        @Override
+        public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
+            String c = getGroup(groupPosition);
+
+            if (convertView == null) {
+                LayoutInflater infalInflater = (LayoutInflater) this._context
+                        .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                convertView = infalInflater.inflate(R.layout.studs_group, null);
+            }
+
+            TextView lblListHeader = (TextView) convertView.findViewById(R.id.tvName);
+            lblListHeader.setText(c);
+
+            return convertView;
+        }
+
+        @Override
+        public boolean hasStableIds() {
+            return false;
+        }
+
+        @Override
+        public boolean isChildSelectable(int groupPosition, int childPosition) {
+            return true;
         }
     }
 }

@@ -13,15 +13,20 @@ import java.util.List;
 
 import be.greifmatthias.toddler.Exercises.Exercise;
 import be.greifmatthias.toddler.Exercises.ExerciseGroup;
+import be.greifmatthias.toddler.Exercises.IntroExercise;
+import be.greifmatthias.toddler.Models.Group;
 import be.greifmatthias.toddler.Models.User;
 import be.greifmatthias.toddler.R;
 import be.greifmatthias.toddler.Theme;
 
 public class ExerciseActivity extends Activity {
 
+    private List<ExerciseGroup> _exercises;
+
     private User _toddler;
-    private int _curGroup;
+    private int _condition;
     private int _curExercise;
+    private int _curGroup;
 
     private TextView _tvWord;
     private FrameLayout _content;
@@ -40,8 +45,9 @@ public class ExerciseActivity extends Activity {
 
 //        Get stud
         this._toddler = User.get(this.getIntent().getIntExtra("toddlerId", 0));
-        this._curGroup = this.getIntent().getIntExtra("group", 0);
+        this._condition = this.getIntent().getIntExtra("condition", 0);
         this._curExercise = 0;
+        this._curGroup = 0;
 
 //        Get controls
         this._tvWord = findViewById(R.id.tvWord);
@@ -49,14 +55,29 @@ public class ExerciseActivity extends Activity {
         this._fabNext = findViewById(R.id.fabNext);
         this._rlKaatje = findViewById(R.id.rlKaatje);
         this._tvKaatje = findViewById(R.id.tvKaatje);
+
+//        Get exercises
+        this._exercises = new ArrayList<>();
+        for(ExerciseGroup e : this._toddler.getExercises()){
+            if(!e.getWord().equals("De duikbril")) {
+                if (e.getCondition().equals(Group.getCondition(this._condition))) {
+                    this._exercises.add(e);
+                }
+            }else{
+//                Add intro exercise
+                ExerciseGroup exercise = new ExerciseGroup("", Group.Condition.A);
+
+                exercise.clearExercises();
+                exercise.addExercise(new IntroExercise(""));
+
+                this._exercises.add(exercise);
+            }
+        }
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-
-//        Set header
-        this._tvWord.setText(this._toddler.getExercises().get(this._curGroup).getWord() + this._toddler.getExercises().get(this._curGroup).getCondition());
 
         setContent(this._curExercise);
     }
@@ -70,13 +91,29 @@ public class ExerciseActivity extends Activity {
     }
 
     private void setContent(int position){
+//        Set header
+        this._tvWord.setText(this._exercises.get(this._curGroup).getWord() + this._toddler.getExercises().get(this._curGroup).getCondition());
+
+//        Set screen
         final FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        transaction.replace(R.id.flContent, this._toddler.getExercises().get(this._curGroup).getExercises().get(position).getFragment(this));
+        transaction.replace(R.id.flContent, this._exercises.get(this._curGroup).getExercises().get(position).getFragment(this));
         transaction.commit();
     }
 
     public void goNext() {
         this._curExercise++;
+
+        if(this._curExercise == this._exercises.get(_curGroup).getExercises().size()){
+//            Is last so reset for next word
+            this._curExercise = 0;
+            this._curGroup++;
+
+//            Check if last word
+            if(this._curGroup == this._exercises.size()){
+                this.finish();
+                return;
+            }
+        }
 
         setContent(this._curExercise);
     }

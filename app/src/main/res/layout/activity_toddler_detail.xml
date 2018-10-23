@@ -126,14 +126,11 @@
 
             </LinearLayout>
 
-            <ListView
+            <ExpandableListView
                 android:id="@+id/lvExercisegroups"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"></ListView>
-
+                android:layout_height="wrap_content"></ExpandableListView>
         </LinearLayout>
-
-
 
         <RelativeLayout
             android:id="@+id/rlOverlay"

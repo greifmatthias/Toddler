@@ -70,6 +70,7 @@ public class ListenExercise extends Exercise {
     }
 
     public static class ListenFragment extends Fragment {
+        private ExerciseActivity _activity;
         private Exercise _exercise;
 
         public ListenFragment() {
@@ -78,6 +79,7 @@ public class ListenExercise extends Exercise {
 
         @SuppressLint("ValidFragment")
         public ListenFragment(ExerciseActivity activity, Exercise exercise) {
+            this._activity = activity;
             this._exercise = exercise;
 
             activity.setKaatje(exercise.getKaatje());
@@ -89,6 +91,13 @@ public class ListenExercise extends Exercise {
             View view =  inflater.inflate(R.layout.fragment_listen, container, false);
 
             ((ImageView)view.findViewById(R.id.ivImage)).setImageResource(ExerciseGroup.getHdImage(_exercise._word));
+
+            ((ImageView)view.findViewById(R.id.ivImage)).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    _activity.goNext();
+                }
+            });
 
             return view;
         }

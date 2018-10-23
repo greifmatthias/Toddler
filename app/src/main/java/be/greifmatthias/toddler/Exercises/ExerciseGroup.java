@@ -31,7 +31,7 @@ public class ExerciseGroup {
         return this._word;
     }
 
-    public String getCondition() {
+    public String getConditionString() {
         switch (this._condition){
             case A:
                 return "A";
@@ -42,6 +42,10 @@ public class ExerciseGroup {
         }
 
         return "";
+    }
+
+    public Group.Condition getCondition() {
+        return _condition;
     }
 
     public static int getImage(String word){
@@ -150,11 +154,9 @@ public class ExerciseGroup {
         getExercises();
 
 //        Set default
-        IntroExercise introExercise = new IntroExercise(null);
         ListenExercise listenExercise = new ListenExercise(this.getWord());
         SortingExercise sortingExercise = new SortingExercise(this.getWord());
 
-        _exercises.add(introExercise);
         _exercises.add(listenExercise);
         _exercises.add(sortingExercise);
     }
