@@ -79,7 +79,7 @@ public class MainActivity extends Activity {
 //        Load data
             HashMap<String, List<User>> data = new HashMap<>();
             for (Class c : Class.get()) {
-                data.put(c.getName(), c.getStuds());
+                data.put(c.getId() + "", c.getStuds());
             }
 
 //        Setup list
@@ -107,7 +107,7 @@ public class MainActivity extends Activity {
 
         @Override
         public User getChild(int groupPosition, int childPosititon) {
-            return this._data.get(this._headers.get(groupPosition).getName()).get(childPosititon);
+            return this._data.get(this._headers.get(groupPosition).getId() + "").get(childPosititon);
         }
 
         @Override
@@ -134,7 +134,7 @@ public class MainActivity extends Activity {
 
         @Override
         public int getChildrenCount(int groupPosition) {
-            return this._data.get(this._headers.get(groupPosition).getName()).size();
+            return this._data.get(this._headers.get(groupPosition).getId() + "").size();
         }
 
         @Override
@@ -163,7 +163,7 @@ public class MainActivity extends Activity {
             }
 
             TextView lblListHeader = (TextView) convertView.findViewById(R.id.tvName);
-            lblListHeader.setText(c.getName());
+            lblListHeader.setText(c.getName() + " (" + c.getGroup().getId() + ")");
 
             return convertView;
         }

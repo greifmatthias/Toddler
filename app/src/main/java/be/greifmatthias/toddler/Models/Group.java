@@ -114,37 +114,15 @@ public class Group {
         return output;
     }
 
-    //    Get exercisegroups
-    public List<ExerciseGroup> getExercises(WordSet set){
-        List<ExerciseGroup> groups = new ArrayList<>();
+    public Condition getCondition_forWordcollection(WordCollection collection){
 
-        ExerciseGroup testExercise = new ExerciseGroup("De duikbril");
-        testExercise.setTest();
-        groups.add(testExercise);
-
-        switch (set.words){
-            case A:
-                groups.add(new ExerciseGroup("Het klimtouw"));
-                groups.add(new ExerciseGroup("Het kroos"));
-                groups.add(new ExerciseGroup("Het riet"));
-                break;
-            case B:
-                groups.add(new ExerciseGroup("De val"));
-                groups.add(new ExerciseGroup("Het kompas"));
-                groups.add(new ExerciseGroup("Steil"));
-                break;
-            case C:
-                groups.add(new ExerciseGroup("De zwaan"));
-                groups.add(new ExerciseGroup("Het kamp"));
-                groups.add(new ExerciseGroup("De zaklamp"));
-                break;
+        for(WordSet set : this.getWordSet()){
+            if(set.words == collection){
+                return set.condition;
+            }
         }
 
-        for (ExerciseGroup group : groups){
-            group.loadDefault();
-        }
-
-        return groups;
+        return null;
     }
 
     public List<ExerciseGroup> getExercises_ofGroup(WordCollection collection){
@@ -152,19 +130,19 @@ public class Group {
 
         switch (collection){
             case A:
-                groups.add(new ExerciseGroup("Het klimtouw"));
-                groups.add(new ExerciseGroup("Het kroos"));
-                groups.add(new ExerciseGroup("Het riet"));
+                groups.add(new ExerciseGroup("Het klimtouw", getCondition_forWordcollection(WordCollection.A)));
+                groups.add(new ExerciseGroup("Het kroos", getCondition_forWordcollection(WordCollection.A)));
+                groups.add(new ExerciseGroup("Het riet", getCondition_forWordcollection(WordCollection.A)));
                 break;
             case B:
-                groups.add(new ExerciseGroup("De val"));
-                groups.add(new ExerciseGroup("Het kompas"));
-                groups.add(new ExerciseGroup("Steil"));
+                groups.add(new ExerciseGroup("De val", getCondition_forWordcollection(WordCollection.B)));
+                groups.add(new ExerciseGroup("Het kompas", getCondition_forWordcollection(WordCollection.B)));
+                groups.add(new ExerciseGroup("Steil", getCondition_forWordcollection(WordCollection.B)));
                 break;
             case C:
-                groups.add(new ExerciseGroup("De zwaan"));
-                groups.add(new ExerciseGroup("Het kamp"));
-                groups.add(new ExerciseGroup("De zaklamp"));
+                groups.add(new ExerciseGroup("De zwaan", getCondition_forWordcollection(WordCollection.C)));
+                groups.add(new ExerciseGroup("Het kamp", getCondition_forWordcollection(WordCollection.C)));
+                groups.add(new ExerciseGroup("De zaklamp", getCondition_forWordcollection(WordCollection.C)));
                 break;
         }
 
@@ -174,7 +152,7 @@ public class Group {
     public List<ExerciseGroup> getExercises(){
         List<ExerciseGroup> groups = new ArrayList<>();
 
-        ExerciseGroup testExercise = new ExerciseGroup("De duikbril");
+        ExerciseGroup testExercise = new ExerciseGroup("De duikbril", getCondition_forWordcollection(WordCollection.A));
         testExercise.setTest();
         groups.add(testExercise);
 

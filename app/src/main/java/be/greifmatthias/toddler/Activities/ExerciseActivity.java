@@ -56,7 +56,7 @@ public class ExerciseActivity extends Activity {
         super.onResume();
 
 //        Set header
-        this._tvWord.setText(this._toddler.getExercises().get(this._curGroup).getWord());
+        this._tvWord.setText(this._toddler.getExercises().get(this._curGroup).getWord() + this._toddler.getExercises().get(this._curGroup).getCondition());
 
         setContent(this._curExercise);
     }

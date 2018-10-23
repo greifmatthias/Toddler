@@ -3,6 +3,7 @@ package be.greifmatthias.toddler.Exercises;
 import java.util.ArrayList;
 import java.util.List;
 
+import be.greifmatthias.toddler.Models.Group;
 import be.greifmatthias.toddler.Models.User;
 import be.greifmatthias.toddler.R;
 
@@ -14,10 +15,13 @@ public class ExerciseGroup {
     private boolean _preteached;
     private boolean _known;
 
-    public ExerciseGroup(String word){
+    private Group.Condition _condition;
+
+    public ExerciseGroup(String word, Group.Condition condition){
         this._isTest = false;
 
         this._word = word;
+        this._condition = condition;
 
         this._known = false;
         this._preteached = false;
@@ -25,6 +29,19 @@ public class ExerciseGroup {
 
     public String getWord(){
         return this._word;
+    }
+
+    public String getCondition() {
+        switch (this._condition){
+            case A:
+                return "A";
+            case B:
+                return "B";
+            case C:
+                return "C";
+        }
+
+        return "";
     }
 
     public static int getImage(String word){
