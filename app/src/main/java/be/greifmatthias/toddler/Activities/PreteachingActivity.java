@@ -99,26 +99,28 @@ public class PreteachingActivity extends Activity {
     }
 
     public void onImageClick(View view) {
+        if(_currentWord < this._toddler.getExercises().size()) {
 //        Set preteached
-        this._toddler.getExercises().get(this._currentWord).setPreteached();
+            this._toddler.getExercises().get(this._currentWord).setPreteached();
 
 //        Set if correct
-        if(view.getTag().equals(Integer.toString(this._currentCorrect))){
-            this._toddler.getExercises().get(this._currentWord).setCorrect();
-        }
+            if (view.getTag().equals(Integer.toString(this._currentCorrect))) {
+                this._toddler.getExercises().get(this._currentWord).setCorrect();
+            }
 
 //        Next word
-        this._currentWord++;
+            this._currentWord++;
 
 //        Update UI
-        if(this._currentWord == this._toddler.getExercises().size()){
+            if (this._currentWord == this._toddler.getExercises().size()) {
 //            Save and close
-            this._toddler.saveExercises();
+                this._toddler.saveExercises();
 
-            this.finish();
-        }else {
+                this.finish();
+            } else {
 //            Next image
-            this.setContent();
+                this.setContent();
+            }
         }
     }
 }
