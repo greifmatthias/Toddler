@@ -195,6 +195,18 @@ public class ToddlerDetailActivity extends Activity {
         this._adapter = new GroupsAdapter(this, headers, data);
         this._lvExercisegroups.setAdapter(this._adapter);
 
+//        Set next condition expanded, default expand first
+        this._lvExercisegroups.expandGroup(0);
+        for(int i = 0; i < this._adapter.getGroupCount() - 1; i++){
+            for(int j = 0; j < this._adapter.getChildrenCount(i); j++){
+                ExerciseGroup e = this._adapter.getChild(i, j);
+
+                if(e.getExercises().get(0).hasScore()){
+                    this._lvExercisegroups.expandGroup(i + 1);
+                }
+            }
+        }
+
 //        Check if test done
         if(this._toddler.getExercises().get(0).isKnown()){
             _ivTest.setImageResource(R.drawable.ic_round_assignment_turned_in);
