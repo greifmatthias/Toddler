@@ -188,4 +188,14 @@ public class User implements Comparable<User> {
     public void clearExercises() {
         this._exercises = null;
     }
+
+    public void setExercises(List<ExerciseGroup> exercises) {
+        for(ExerciseGroup e : this._exercises){
+            for(ExerciseGroup g : exercises){
+                if(e.getWord().equals(g.getWord())){
+                    e = g;
+                }
+            }
+        }
+    }
 }

@@ -11,18 +11,11 @@ import be.greifmatthias.toddler.Activities.ExerciseActivity;
 import be.greifmatthias.toddler.R;
 
 public class IntroExercise extends Exercise {
-    private boolean _viewed;
 
     public IntroExercise(String word) {
         super(word);
 
         this._type = "Intro";
-        this._viewed = false;
-    }
-
-    @Override
-    public boolean hasPasses() {
-        return this._viewed;
     }
 
     @Override

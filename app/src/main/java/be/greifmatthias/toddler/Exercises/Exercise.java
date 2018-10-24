@@ -4,10 +4,13 @@ import android.app.Fragment;
 
 import be.greifmatthias.toddler.Activities.ExerciseActivity;
 import be.greifmatthias.toddler.Models.User;
+import be.greifmatthias.toddler.R;
 
 public class Exercise {
     protected String _type;
     protected String _word;
+    protected boolean _hasscore;
+    protected boolean _haspassed;
 
     public Exercise(String word){
         this._word = word;
@@ -24,16 +27,17 @@ public class Exercise {
     }
 
     public boolean hasScore(){
-        return false;
-    }
-
-    public boolean isDone(){
-        return false;
-    }
-
-    public boolean hasPasses(){
-        return false;
+        return this._hasscore;
     }
 
     public String getKaatje(){ return  ""; }
+
+    public int getIcon(){
+        return R.drawable.ic_round_close;
+    }
+
+    public void setScore(boolean passed) {
+        this._hasscore = true;
+        this._haspassed = passed;
+    }
 }

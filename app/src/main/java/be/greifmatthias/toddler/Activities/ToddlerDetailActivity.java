@@ -37,12 +37,16 @@ public class ToddlerDetailActivity extends Activity {
     private LinearLayout _llExercises;
     private ImageView _ivTest;
     private ExpandableListView _lvExercisegroups;
+    private GroupsAdapter _adapter;
     private View _llActions;
     private View _rlOverlay;
+    private View _fabLaunch;
 
     private User _toddler;
 
     private List<ExerciseGroup> _groups;
+
+    private int openedgroup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +67,7 @@ public class ToddlerDetailActivity extends Activity {
         this._lvExercisegroups = findViewById(R.id.lvExercisegroups);
         this._llActions = findViewById(R.id.llActions);
         this._rlOverlay = findViewById(R.id.rlOverlay);
+        this._fabLaunch = findViewById(R.id.fabLaunch);
 
 //        Toggle actions
         this._ivMore.setOnClickListener(new View.OnClickListener() {
@@ -91,7 +96,7 @@ public class ToddlerDetailActivity extends Activity {
             }
         });
 
-        findViewById(R.id.fabUtil).setOnClickListener(new View.OnClickListener() {
+        this._fabLaunch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(_llNotif.getVisibility() == View.VISIBLE){
@@ -99,6 +104,12 @@ public class ToddlerDetailActivity extends Activity {
                     Intent preteachIntent = new Intent(getApplicationContext(), PreteachingActivity.class);
                     preteachIntent.putExtra("toddlerId", _toddler.getId());
                     startActivity(preteachIntent);
+                }else{
+//                    Start expanded exercise
+                    Intent exerciseActivity = new Intent(getApplicationContext(), ExerciseActivity.class);
+                    exerciseActivity.putExtra("toddlerId", _toddler.getId());
+                    exerciseActivity.putExtra("condition", openedgroup);
+                    startActivity(exerciseActivity);
                 }
             }
         });
@@ -106,16 +117,40 @@ public class ToddlerDetailActivity extends Activity {
         //        Load exercisedata
         this._groups = this._toddler.getExercises();
 
-        this._lvExercisegroups.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
-
+//        Listen to group changes
+        this._lvExercisegroups.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
             @Override
-            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-                Intent exerciseActivity = new Intent(getApplicationContext(), ExerciseActivity.class);
-                exerciseActivity.putExtra("toddlerId", _toddler.getId());
-                exerciseActivity.putExtra("condition", groupPosition);
-                startActivity(exerciseActivity);
+            public void onGroupExpand(int position) {
+                openedgroup = position;
 
-                return false;
+//                Collapse all other groups
+                for(int i = 0; i < _adapter.getGroupCount(); i++){
+                    if(position != i){
+                        _lvExercisegroups.collapseGroup(i);
+                    }
+                }
+            }
+        });
+
+        this._lvExercisegroups.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
+            @Override
+            public void onGroupCollapse(int position) {
+                boolean isopen = false;
+
+                for(int i = 0; i < _adapter.getGroupCount(); i++){
+//                    Loop if a group is expanded
+                    if(_lvExercisegroups.isGroupExpanded(i)){
+                        isopen = true;
+                        break;
+                    }
+                }
+
+//                Show/hide fab
+                if(isopen){
+                    _fabLaunch.setVisibility(View.VISIBLE);
+                }else{
+                    _fabLaunch.setVisibility(View.GONE);
+                }
             }
         });
     }
@@ -157,8 +192,8 @@ public class ToddlerDetailActivity extends Activity {
             }
         }
 
-        GroupsAdapter adapter = new GroupsAdapter(this, headers, data);
-        this._lvExercisegroups.setAdapter(adapter);
+        this._adapter = new GroupsAdapter(this, headers, data);
+        this._lvExercisegroups.setAdapter(this._adapter);
 
 //        Check if test done
         if(this._toddler.getExercises().get(0).isKnown()){
@@ -171,13 +206,9 @@ public class ToddlerDetailActivity extends Activity {
         if(!this._toddler.getExercises().get(1).isPreteached()){
             this._llNotif.setVisibility(View.VISIBLE);
             this._llExercises.setVisibility(View.GONE);
-
-//            Enable fab
-            findViewById(R.id.fabUtil).setVisibility(View.VISIBLE);
         }else{
             this._llNotif.setVisibility(View.GONE);
             this._llExercises.setVisibility(View.VISIBLE);
-            findViewById(R.id.fabUtil).setVisibility(View.GONE);
         }
     }
 
@@ -261,6 +292,8 @@ public class ToddlerDetailActivity extends Activity {
                 ivResult.setVisibility(View.GONE);
             }
 
+            ivResult.setImageResource(exercise.getIcon());
+
             return view;
         }
 
@@ -296,7 +329,7 @@ public class ToddlerDetailActivity extends Activity {
             }
 
             TextView lblListHeader = (TextView) convertView.findViewById(R.id.tvName);
-            lblListHeader.setText(c);
+            lblListHeader.setText("Condition " + c);
 
             return convertView;
         }

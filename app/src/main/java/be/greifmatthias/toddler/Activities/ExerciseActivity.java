@@ -92,7 +92,7 @@ public class ExerciseActivity extends Activity {
 
     private void setContent(int position){
 //        Set header
-        this._tvWord.setText(this._exercises.get(this._curGroup).getWord() + this._toddler.getExercises().get(this._curGroup).getCondition());
+        this._tvWord.setText(this._exercises.get(this._curGroup).getWord());
 
 //        Set screen
         final FragmentTransaction transaction = getFragmentManager().beginTransaction();
@@ -101,23 +101,33 @@ public class ExerciseActivity extends Activity {
     }
 
     public void goNext() {
+//        Set to next exercise
         this._curExercise++;
 
-        if(this._curExercise == this._exercises.get(_curGroup).getExercises().size()){
+        if(_curGroup < this._exercises.size()) {
+            if (this._curExercise == this._exercises.get(_curGroup).getExercises().size()) {
 //            Is last so reset for next word
-            this._curExercise = 0;
-            this._curGroup++;
+                this._curExercise = 0;
+                this._curGroup++;
 
 //            Check if last word
-            if(this._curGroup == this._exercises.size()){
-                this.finish();
-                return;
-            }
-        }
+                if (this._curGroup == this._exercises.size()) {
+//                    Update exercises to toddler, and save
+                    this._toddler.setExercises(this._exercises);
+                    this._toddler.saveExercises();
 
-        setContent(this._curExercise);
+//                    Return to last activity
+                    this.finish();
+                    return;
+                }
+            }
+
+//            Update UI
+            setContent(this._curExercise);
+        }
     }
 
+//    Public function to set talking of kaatje
     public void setKaatje(String text){
         if(text.equals("")){
             this._rlKaatje.setVisibility(View.GONE);

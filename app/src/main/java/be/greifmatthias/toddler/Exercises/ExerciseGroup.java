@@ -31,19 +31,6 @@ public class ExerciseGroup {
         return this._word;
     }
 
-    public String getConditionString() {
-        switch (this._condition){
-            case A:
-                return "A";
-            case B:
-                return "B";
-            case C:
-                return "C";
-        }
-
-        return "";
-    }
-
     public Group.Condition getCondition() {
         return _condition;
     }

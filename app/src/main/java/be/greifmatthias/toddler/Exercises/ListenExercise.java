@@ -14,10 +14,30 @@ import be.greifmatthias.toddler.R;
 
 public class ListenExercise extends Exercise {
 
+    private boolean _listened;
+
     public ListenExercise(String word) {
         super(word);
 
         this._type = "Listen";
+        this._listened = false;
+    }
+
+    public boolean getListened(){
+        return this._listened;
+    }
+
+    public void setListened() {
+        this._listened = true;
+    }
+
+    @Override
+    public int getIcon() {
+        if(this._listened){
+            return R.drawable.ic_round_done;
+        }
+
+        return R.drawable.ic_round_close;
     }
 
     @Override
@@ -71,14 +91,14 @@ public class ListenExercise extends Exercise {
 
     public static class ListenFragment extends Fragment {
         private ExerciseActivity _activity;
-        private Exercise _exercise;
+        private ListenExercise _exercise;
 
         public ListenFragment() {
             // Required empty public constructor
         }
 
         @SuppressLint("ValidFragment")
-        public ListenFragment(ExerciseActivity activity, Exercise exercise) {
+        public ListenFragment(ExerciseActivity activity, ListenExercise exercise) {
             this._activity = activity;
             this._exercise = exercise;
 
@@ -98,6 +118,9 @@ public class ListenExercise extends Exercise {
                     _activity.goNext();
                 }
             });
+
+            this._exercise.setScore(true);
+            this._exercise.setListened();
 
             return view;
         }
