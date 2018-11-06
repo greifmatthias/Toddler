@@ -29,11 +29,27 @@
             android:backgroundTint="@color/colorDark"
             android:textColor="@color/colorDark" />
 
-        <Spinner
-            android:id="@+id/spGroups"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padSmaller"></Spinner>
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="@dimen/padSmaller">
+
+            <CheckBox
+                android:id="@+id/cbAllGroups"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Create all 3 groups"
+                android:checked="true"/>
+
+            <Spinner
+                android:id="@+id/spGroups"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"></Spinner>
+
+        </LinearLayout>
     </LinearLayout>
 
     <android.support.design.widget.FloatingActionButton

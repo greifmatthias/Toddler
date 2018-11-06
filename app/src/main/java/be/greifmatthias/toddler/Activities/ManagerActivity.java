@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -167,6 +168,11 @@ public class ManagerActivity extends Activity {
             public void onClick(View view) {
                 _addpopup.dismiss();
 
+                // Reset popup
+                ((Spinner)_classpopup.getContentView().findViewById(R.id.spGroups)).setSelection(0);
+                ((Spinner)_classpopup.getContentView().findViewById(R.id.spGroups)).setVisibility(View.GONE);
+                ((CheckBox)_classpopup.getContentView().findViewById(R.id.cbAllGroups)).setChecked(true);
+
                 _classpopup.showAtLocation(findViewById(R.id.rlRoot), Gravity.CENTER, 0, 0);
             }
         });
@@ -200,6 +206,18 @@ public class ManagerActivity extends Activity {
         adapter.setDropDownViewResource(R.layout.classes_class);
         spGroups.setAdapter(adapter);
 
+        final CheckBox cbAllGroups = customView.findViewById(R.id.cbAllGroups);
+        cbAllGroups.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(cbAllGroups.isChecked()){
+                    spGroups.setVisibility(View.GONE);
+                }else{
+                    spGroups.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
         customView.findViewById(R.id.rlBackground).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -213,7 +231,14 @@ public class ManagerActivity extends Activity {
 //                Save class
                 String classname = ((EditText) customView.findViewById(R.id.etClassName)).getText().toString();
                 if (!classname.equals("")) {
-                    Class.add(new Class(classname.trim(), spGroups.getSelectedItemPosition()));
+                    if(cbAllGroups.isChecked()){
+                        for(int i = 0; i < 3; i++){
+                            Class.add(new Class(classname.trim(), i));
+                        }
+                    }else{
+                        Class.add(new Class(classname.trim(), spGroups.getSelectedItemPosition()));
+                    }
+
                     ((EditText) customView.findViewById(R.id.etClassName)).setText("");
 
 //                Update
