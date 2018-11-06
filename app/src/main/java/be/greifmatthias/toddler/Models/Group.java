@@ -14,6 +14,7 @@ public class Group {
     };
 
     public enum Condition {
+        TEST,
         A,
         B,
         C
@@ -79,6 +80,8 @@ public class Group {
 
     public static Condition getCondition(int condition){
         switch (condition){
+            case -1:
+                return Condition.TEST;
             case 0:
                 return Condition.A;
             case 1:
@@ -165,7 +168,7 @@ public class Group {
     public List<ExerciseGroup> getExercises(){
         List<ExerciseGroup> groups = new ArrayList<>();
 
-        ExerciseGroup testExercise = new ExerciseGroup("De duikbril", getCondition_forWordcollection(WordCollection.A));
+        ExerciseGroup testExercise = new ExerciseGroup("De duikbril", Condition.TEST);
         testExercise.setTest();
         groups.add(testExercise);
 

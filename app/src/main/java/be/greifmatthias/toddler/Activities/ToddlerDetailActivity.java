@@ -91,7 +91,7 @@ public class ToddlerDetailActivity extends Activity {
             public void onClick(View view) {
                 Intent exerciseActivity = new Intent(getApplicationContext(), ExerciseActivity.class);
                 exerciseActivity.putExtra("toddlerId", _toddler.getId());
-                exerciseActivity.putExtra("group", 0);
+                exerciseActivity.putExtra("condition", -1);
                 startActivity(exerciseActivity);
             }
         });

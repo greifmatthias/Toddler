@@ -58,19 +58,19 @@ public class ExerciseActivity extends Activity {
 
 //        Get exercises
         this._exercises = new ArrayList<>();
+
+//        Add intro exercise
+        ExerciseGroup exercise = new ExerciseGroup("", Group.Condition.A);
+
+        exercise.clearExercises();
+        exercise.addExercise(new IntroExercise(""));
+
+        this._exercises.add(exercise);
+
+//        Loop
         for(ExerciseGroup e : this._toddler.getExercises()){
-            if(!e.getWord().equals("De duikbril")) {
-                if (e.getCondition().equals(Group.getCondition(this._condition))) {
-                    this._exercises.add(e);
-                }
-            }else{
-//                Add intro exercise
-                ExerciseGroup exercise = new ExerciseGroup("", Group.Condition.A);
-
-                exercise.clearExercises();
-                exercise.addExercise(new IntroExercise(""));
-
-                this._exercises.add(exercise);
+            if (e.getCondition().equals(Group.getCondition(this._condition))) {
+                this._exercises.add(e);
             }
         }
     }
