@@ -1,14 +1,8 @@
 package be.greifmatthias.toddler.Activities;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.app.Activity;
-import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Gravity;
@@ -17,26 +11,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
-import android.widget.RelativeLayout;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
-import java.util.Collections;
 import java.util.List;
 
 import be.greifmatthias.toddler.Models.Class;
 import be.greifmatthias.toddler.Models.Group;
 import be.greifmatthias.toddler.Models.User;
 import be.greifmatthias.toddler.R;
-import be.greifmatthias.toddler.Theme;
+import be.greifmatthias.toddler.Helpers.Theme;
 
 public class ManagerActivity extends Activity {
 

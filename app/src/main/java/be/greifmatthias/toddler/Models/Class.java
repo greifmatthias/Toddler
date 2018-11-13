@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import be.greifmatthias.toddler.DataHandler;
+import be.greifmatthias.toddler.Helpers.DataHelper;
 
 public class Class implements Comparable<Class> {
 //    Members
@@ -116,7 +116,7 @@ public class Class implements Comparable<Class> {
         Gson gson = new GsonBuilder().create();
         List<Class> output = new ArrayList<>();
 
-        List<String> data = DataHandler.getInstance().read(dataname);
+        List<String> data = DataHelper.getInstance().read(dataname);
         if(data.size() > 0) {
             for (String s : data) {
 //                Convert
@@ -168,7 +168,7 @@ public class Class implements Comparable<Class> {
             output.add(gson.toJson(c));
         }
 
-        DataHandler.getInstance().write(dataname, output);
+        DataHelper.getInstance().write(dataname, output);
     }
 
     @Override

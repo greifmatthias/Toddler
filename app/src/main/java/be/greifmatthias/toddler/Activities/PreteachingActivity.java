@@ -9,10 +9,10 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import be.greifmatthias.toddler.Helpers;
+import be.greifmatthias.toddler.Helpers.TypeHelper;
 import be.greifmatthias.toddler.Models.User;
 import be.greifmatthias.toddler.R;
-import be.greifmatthias.toddler.Theme;
+import be.greifmatthias.toddler.Helpers.Theme;
 
 public class PreteachingActivity extends Activity {
 
@@ -72,7 +72,7 @@ public class PreteachingActivity extends Activity {
             view.setImageResource(this._toddler.getExercises().get(usedwords.get(usedwords.size() - 1)).getImage());
         }
 
-        this._currentCorrect = Helpers.getRandom(0, 3);
+        this._currentCorrect = TypeHelper.getRandom(0, 3);
         images.get(this._currentCorrect).setImageResource(this._toddler.getExercises().get(this._currentWord).getImage());
     }
 
@@ -80,7 +80,7 @@ public class PreteachingActivity extends Activity {
         int index = -1;
 
         while (index == -1) {
-            index = Helpers.getRandom(1, this._toddler.getExercises().size() - 1);
+            index = TypeHelper.getRandom(1, this._toddler.getExercises().size() - 1);
 
             boolean isgood = true;
             for(Integer i : exclude){

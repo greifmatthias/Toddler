@@ -11,13 +11,12 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import be.greifmatthias.toddler.Exercises.Exercise;
 import be.greifmatthias.toddler.Exercises.ExerciseGroup;
 import be.greifmatthias.toddler.Exercises.IntroExercise;
 import be.greifmatthias.toddler.Models.Group;
 import be.greifmatthias.toddler.Models.User;
 import be.greifmatthias.toddler.R;
-import be.greifmatthias.toddler.Theme;
+import be.greifmatthias.toddler.Helpers.Theme;
 
 public class ExerciseActivity extends Activity {
 
@@ -134,6 +133,12 @@ public class ExerciseActivity extends Activity {
         }else{
             this._rlKaatje.setVisibility(View.VISIBLE);
             this._tvKaatje.setText(text);
+        }
+    }
+
+    public void setFullScreen(boolean fullScreen){
+        if(fullScreen){
+
         }
     }
 }

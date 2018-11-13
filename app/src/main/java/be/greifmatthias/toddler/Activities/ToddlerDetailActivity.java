@@ -7,13 +7,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.BaseAdapter;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -22,11 +19,9 @@ import java.util.List;
 
 import be.greifmatthias.toddler.Exercises.Exercise;
 import be.greifmatthias.toddler.Exercises.ExerciseGroup;
-import be.greifmatthias.toddler.Models.Class;
-import be.greifmatthias.toddler.Models.Group;
 import be.greifmatthias.toddler.Models.User;
 import be.greifmatthias.toddler.R;
-import be.greifmatthias.toddler.Theme;
+import be.greifmatthias.toddler.Helpers.Theme;
 
 public class ToddlerDetailActivity extends Activity {
 

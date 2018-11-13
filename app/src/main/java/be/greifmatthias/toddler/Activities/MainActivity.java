@@ -11,15 +11,14 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import be.greifmatthias.toddler.DataHandler;
+import be.greifmatthias.toddler.Helpers.DataHelper;
 import be.greifmatthias.toddler.Models.Class;
 import be.greifmatthias.toddler.Models.User;
 import be.greifmatthias.toddler.R;
-import be.greifmatthias.toddler.Theme;
+import be.greifmatthias.toddler.Helpers.Theme;
 
 public class MainActivity extends Activity {
 
@@ -35,7 +34,7 @@ public class MainActivity extends Activity {
         Theme.setStatusbarWhite(getWindow(), true);
 
 //        Init handlers
-        DataHandler.getInstance(this);
+        DataHelper.getInstance(this);
 
 //        Get controls
         this._elvStuds = findViewById(R.id.elvStuds);

@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import be.greifmatthias.toddler.R;
-import be.greifmatthias.toddler.Theme;
+import be.greifmatthias.toddler.Helpers.Theme;
 
 public class ResourceActivity extends Activity {
 

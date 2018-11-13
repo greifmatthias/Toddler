@@ -4,14 +4,12 @@ import android.support.annotation.NonNull;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonParseException;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
-import be.greifmatthias.toddler.DataHandler;
+import be.greifmatthias.toddler.Helpers.DataHelper;
 import be.greifmatthias.toddler.Exercises.Exercise;
 import be.greifmatthias.toddler.Exercises.ExerciseGroup;
 import be.greifmatthias.toddler.Exercises.IntroExercise;
@@ -93,7 +91,7 @@ public class User implements Comparable<User> {
             List<ExerciseGroup> output = new ArrayList<>();
 
 //            Read data
-            List<String> data = DataHandler.getInstance().read(this.getDataname());
+            List<String> data = DataHelper.getInstance().read(this.getDataname());
 
 //            Convert data
             if(data.size() > 0) {
@@ -177,7 +175,7 @@ public class User implements Comparable<User> {
             }
         }
 
-        DataHandler.getInstance().write(this.getDataname(), output);
+        DataHelper.getInstance().write(this.getDataname(), output);
     }
 
     @Override
