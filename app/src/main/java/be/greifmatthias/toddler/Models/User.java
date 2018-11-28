@@ -65,6 +65,7 @@ public class User implements Comparable<User> {
         return null;
     }
 
+//    Search and delete toddler
     public void delete(){
         List<Class> classes = Class.get();
 
@@ -72,9 +73,11 @@ public class User implements Comparable<User> {
         while (iter.hasNext()) {
             Class aClass = iter.next();
 
-            for(User u : aClass.getStuds()){
-                if(u.getId() == this.getId()){
-                    aClass.removeStud(u);
+            for (Iterator<User> useriter = aClass.getStuds().iterator(); useriter.hasNext(); ) {
+                User aUser = useriter.next();
+
+                if(aUser.getId() == this.getId()){
+                    aClass.removeStud(aUser);
                 }
             }
         }

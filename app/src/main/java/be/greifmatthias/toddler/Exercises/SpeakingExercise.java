@@ -8,18 +8,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import be.greifmatthias.toddler.Activities.ExerciseActivity;
 import be.greifmatthias.toddler.Models.User;
 import be.greifmatthias.toddler.R;
 
-public class ListenExercise extends Exercise {
+public class SpeakingExercise extends Exercise {
 
     private boolean _listened;
 
-    public ListenExercise(String word) {
+    public SpeakingExercise(String word) {
         super(word);
 
-        this._type = "Listen";
+        this._type = "Speak";
         this._listened = false;
     }
 
@@ -42,63 +46,41 @@ public class ListenExercise extends Exercise {
 
     @Override
     public String getName() {
-        return "Luisteroefening";
+        return "Spreekoefening";
     }
 
     @Override
     public String getKaatje() {
         String output = "Wat zie je hier? ... " + this._word + ". Weet jij wat dat is? ... ";
-        switch (this._word){
-            case "De duikbril":
-                output += "Een duikbril is een bril voor onder water. Daarmee kun je onder water je ogen open houden.";
-                break;
-                case "Het klimtouw":
-                output += "Een klimtouw is een touw waarin je omhoog kunt klimmen.";
-                break;
-                case "Het kroos":
-                output += "Kroos bestaat uit kleine, groene plantjes die op het water groeien. Je ziet het bijvoorbeeld in een sloot.";
-                break;
-                case "Het riet":
-                output += "Riet lijkt op hoog gras. Het heeft lange stengels en groeit langs het water.";
-                break;
-                case "De val":
-                output += "Als je een val maakt, val je op de grond.";
-                break;
-            case "Het kompas":
-                output += "Met een kompas weet je waar je naartoe moet. De naald van het kompas geeft het noorden aan.";
-                break;
-            case "Steil":
-                output += "Een steile berg gaat heel schuin omhoog of omlaag.";
-                break;
-            case "De zwaan":
-                output += "Een zwaan is een grote vogel met een lange, kromme hals. Meestal zijn zwanen wit, maar soms zwart.";
-                break;
-            case "Het kamp":
-                output += "Een kamp is een plaats om buiten te wonen en te slapen, bijvoorbeeld in tenten.";
-                break;
-            case "De zaklamp":
-                output += "Een zaklamp is een kleine lamp die je overal mee naartoe kunt nemen.";
-                break;
+
+        return "Wat is " + this.getWord() + " een leuk woord. Kan jij het ook zeggen, " + this.getWord() + "? Doe maar!​";
+    }
+
+    private String getWord(){
+        List<String> wordparts = Arrays.asList(this._word.split(" "));
+
+        if(wordparts.size() > 1){
+            return wordparts.get(wordparts.size() - 1);
         }
 
-        return output;
+        return this._word;
     }
 
     @Override
     public Fragment getFragment(ExerciseActivity activity) {
-        return new ListenFragment(activity, this);
+        return new SpeakingFragment(activity, this);
     }
 
-    public static class ListenFragment extends Fragment {
+    public static class SpeakingFragment extends Fragment {
         private ExerciseActivity _activity;
-        private ListenExercise _exercise;
+        private SpeakingExercise _exercise;
 
-        public ListenFragment() {
+        public SpeakingFragment() {
             // Required empty public constructor
         }
 
         @SuppressLint("ValidFragment")
-        public ListenFragment(ExerciseActivity activity, ListenExercise exercise) {
+        public SpeakingFragment(ExerciseActivity activity, SpeakingExercise exercise) {
             this._activity = activity;
             this._exercise = exercise;
 

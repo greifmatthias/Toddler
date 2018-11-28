@@ -90,6 +90,11 @@ public class ExerciseActivity extends Activity {
     }
 
     private void setContent(int position){
+//        Revert if fullscreen
+        if(_tvWord.getVisibility() == View.GONE){
+            this.setFullScreen(false);
+        }
+
 //        Set header
         this._tvWord.setText(this._exercises.get(this._curGroup).getWord());
 
@@ -138,7 +143,9 @@ public class ExerciseActivity extends Activity {
 
     public void setFullScreen(boolean fullScreen){
         if(fullScreen){
-
+            _tvWord.setVisibility(View.GONE);
+        }else{
+            _tvWord.setVisibility(View.VISIBLE);
         }
     }
 }
