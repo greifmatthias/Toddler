@@ -143,10 +143,12 @@ public class ExerciseGroup {
 //        Set default
         ListenExercise listenExercise = new ListenExercise(this.getWord());
         SpeakingExercise speakingExercise = new SpeakingExercise(this.getWord());
+        SentenceExercise sentenceExercise = new SentenceExercise(this.getWord());
         SortingExercise sortingExercise = new SortingExercise(this.getWord());
 
         _exercises.add(listenExercise);
         _exercises.add(speakingExercise);
+        _exercises.add(sentenceExercise);
         _exercises.add(sortingExercise);
     }
 

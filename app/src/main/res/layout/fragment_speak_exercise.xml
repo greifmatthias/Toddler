@@ -48,7 +48,7 @@
             android:layout_height="30dp"
             android:src="@drawable/ic_round_thumb_up"
             android:tint="@color/colorLight"
-            android:layout_marginLeft="@dimen/padNormal"/>
+            android:layout_marginRight="@dimen/padNormal"/>
 
     </RelativeLayout>
 

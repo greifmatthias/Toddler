@@ -49,13 +49,6 @@ public class SortingExercise extends Exercise {
             // Inflate the layout for this fragment
             View view = inflater.inflate(R.layout.fragment_sort_exercise, container, false);
 
-            view.findViewById(R.id.ivStory).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    _activity.goNext();
-                }
-            });
-
             return view;
         }
     }
