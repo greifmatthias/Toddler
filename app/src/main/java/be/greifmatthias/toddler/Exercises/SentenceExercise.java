@@ -29,64 +29,29 @@ public class SentenceExercise extends Exercise {
 
     @Override
     public String getName() {
-        return "zinnenoefening";
+        return "Zinnenoefening";
     }
 
     @Override
     public String getKaatje() {
-        String output = "Wat zie je hier? ... " + this._word + ". Weet jij wat dat is? ... ";
-
-        switch (this._word){
-            case "De duikbril":
-                output += "Een duikbril is een bril voor onder water. Daarmee kun je onder water je ogen open houden.";
-                break;
-            case "Het klimtouw":
-                output += "Een klimtouw is een touw waarin je omhoog kunt klimmen.";
-                break;
-            case "Het kroos":
-                output += "Kroos bestaat uit kleine, groene plantjes die op het water groeien. Je ziet het bijvoorbeeld in een sloot.";
-                break;
-            case "Het riet":
-                output += "Riet lijkt op hoog gras. Het heeft lange stengels en groeit langs het water.";
-                break;
-            case "De val":
-                output += "Als je een val maakt, val je op de grond.";
-                break;
-            case "Het kompas":
-                output += "Met een kompas weet je waar je naartoe moet. De naald van het kompas geeft het noorden aan.";
-                break;
-            case "Steil":
-                output += "Een steile berg gaat heel schuin omhoog of omlaag.";
-                break;
-            case "De zwaan":
-                output += "Een zwaan is een grote vogel met een lange, kromme hals. Meestal zijn zwanen wit, maar soms zwart.";
-                break;
-            case "Het kamp":
-                output += "Een kamp is een plaats om buiten te wonen en te slapen, bijvoorbeeld in tenten.";
-                break;
-            case "De zaklamp":
-                output += "Een zaklamp is een kleine lamp die je overal mee naartoe kunt nemen.";
-                break;
-        }
-
-        return output;
+        return "Ik zou " + this._word + " graag in een zinnetje gebruiken, maar ik weet niet of ik het goed zeg. Help jij mij? Ik zeg een zinnetje en jij moet aanduiden of het zinnetje juist of fout is. Als het juist is, dan druk je op de groene duim. Als het zinnetje fout is, dan druk je op de rode duim. Hier gaan we.";
     }
 
     @Override
     public Fragment getFragment(ExerciseActivity activity) {
-        return new ListenExercise.ListenFragment(activity, this);
+        return new SentenceFragment(activity, this);
     }
 
-    public static class ListenFragment extends Fragment {
+    public static class SentenceFragment extends Fragment {
         private ExerciseActivity _activity;
-        private ListenExercise _exercise;
+        private SentenceExercise _exercise;
 
-        public ListenFragment() {
+        public SentenceFragment() {
             // Required empty public constructor
         }
 
         @SuppressLint("ValidFragment")
-        public ListenFragment(ExerciseActivity activity, ListenExercise exercise) {
+        public SentenceFragment(ExerciseActivity activity, SentenceExercise exercise) {
             this._activity = activity;
             this._exercise = exercise;
 
@@ -96,7 +61,7 @@ public class SentenceExercise extends Exercise {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             // Inflate the layout for this fragment
-            View view =  inflater.inflate(R.layout.fragment_listen_exercise, container, false);
+            View view =  inflater.inflate(R.layout.fragment_sentence_exercise, container, false);
 
             ((ImageView)view.findViewById(R.id.ivImage)).setImageResource(ExerciseGroup.getHdImage(_exercise._word));
 
