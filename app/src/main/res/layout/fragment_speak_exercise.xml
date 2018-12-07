@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Exercises.ListenExercise">
+
+    <ImageView
+        android:id="@+id/ivImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"/>
+
+    <RelativeLayout
+        android:id="@+id/rlRate_not"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_corners_right"
+        android:padding="@dimen/padNormal"
+        android:backgroundTint="@color/colorAccent"
+        android:layout_alignParentLeft="true"
+        android:layout_centerInParent="true"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_round_thumb_down"
+            android:tint="@color/colorLight"
+            android:layout_marginLeft="@dimen/padNormal"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlRate_yes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_corners_left"
+        android:padding="@dimen/padNormal"
+        android:backgroundTint="@color/colorAccent"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_round_thumb_up"
+            android:tint="@color/colorLight"
+            android:layout_marginLeft="@dimen/padNormal"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/padBig"
+        android:background="@drawable/rounded_corners_bottom"
+        android:backgroundTint="@color/colorLight">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fabUnlock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_round_lock_open"
+            android:tint="@color/colorLight"
+            android:backgroundTint="@color/colorAccent"
+            android:layout_margin="@dimen/padSmaller"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import be.greifmatthias.toddler.Exercises.SpeakingExercise;
 import be.greifmatthias.toddler.Helpers.DataHelper;
 import be.greifmatthias.toddler.Exercises.Exercise;
 import be.greifmatthias.toddler.Exercises.ExerciseGroup;
@@ -122,6 +123,9 @@ public class User implements Comparable<User> {
                                     break;
                                 case "Listen":
                                     e = gson.fromJson(data.get(i), ListenExercise.class);
+                                    break;
+                                case "Speak":
+                                    e = gson.fromJson(data.get(i), SpeakingExercise.class);
                                     break;
                                 case "Sorting":
                                     e = gson.fromJson(data.get(i), SortingExercise.class);

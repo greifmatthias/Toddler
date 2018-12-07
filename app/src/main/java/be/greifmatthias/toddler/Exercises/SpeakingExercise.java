@@ -18,26 +18,15 @@ import be.greifmatthias.toddler.R;
 
 public class SpeakingExercise extends Exercise {
 
-    private boolean _listened;
-
     public SpeakingExercise(String word) {
         super(word);
 
         this._type = "Speak";
-        this._listened = false;
-    }
-
-    public boolean getListened(){
-        return this._listened;
-    }
-
-    public void setListened() {
-        this._listened = true;
     }
 
     @Override
     public int getIcon() {
-        if(this._listened){
+        if(this.hasScore() && this._haspassed){
             return R.drawable.ic_round_done;
         }
 
@@ -51,8 +40,6 @@ public class SpeakingExercise extends Exercise {
 
     @Override
     public String getKaatje() {
-        String output = "Wat zie je hier? ... " + this._word + ". Weet jij wat dat is? ... ";
-
         return "Wat is " + this.getWord() + " een leuk woord. Kan jij het ook zeggen, " + this.getWord() + "? Doe maar!​";
     }
 
@@ -90,19 +77,34 @@ public class SpeakingExercise extends Exercise {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             // Inflate the layout for this fragment
-            View view =  inflater.inflate(R.layout.fragment_listen_exercise, container, false);
+            final View view =  inflater.inflate(R.layout.fragment_speak_exercise, container, false);
 
             ((ImageView)view.findViewById(R.id.ivImage)).setImageResource(ExerciseGroup.getHdImage(_exercise._word));
 
-            ((ImageView)view.findViewById(R.id.ivImage)).setOnClickListener(new View.OnClickListener() {
+            view.findViewById(R.id.fabUnlock).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    view.findViewById(R.id.rlRate_yes).setVisibility(View.VISIBLE);
+                    view.findViewById(R.id.rlRate_not).setVisibility(View.VISIBLE);
+                    view.findViewById(R.id.fabUnlock).setVisibility(View.GONE);
+                }
+            });
+
+            view.findViewById(R.id.rlRate_not).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    _exercise.setScore(false);
                     _activity.goNext();
                 }
             });
 
-            this._exercise.setScore(true);
-            this._exercise.setListened();
+            view.findViewById(R.id.rlRate_yes).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    _exercise.setScore(true);
+                    _activity.goNext();
+                }
+            });
 
             return view;
         }

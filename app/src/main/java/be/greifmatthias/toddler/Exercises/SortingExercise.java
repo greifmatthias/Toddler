@@ -25,18 +25,18 @@ public class SortingExercise extends Exercise {
 
     @Override
     public Fragment getFragment(ExerciseActivity activity) {
-        return new IntroExercise.IntroFragment(activity);
+        return new SortingFragment(activity);
     }
 
-    public static class IntroFragment extends Fragment {
+    public static class SortingFragment extends Fragment {
         private ExerciseActivity _activity;
 
-        public IntroFragment() {
+        public SortingFragment() {
             // Required empty public constructor
         }
 
         @SuppressLint("ValidFragment")
-        public IntroFragment(ExerciseActivity activity){
+        public SortingFragment(ExerciseActivity activity){
             this._activity = activity;
 
             this._activity.enableNext(false);
@@ -47,7 +47,7 @@ public class SortingExercise extends Exercise {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             // Inflate the layout for this fragment
-            View view = inflater.inflate(R.layout.fragment_intro, container, false);
+            View view = inflater.inflate(R.layout.fragment_sort_exercise, container, false);
 
             view.findViewById(R.id.ivStory).setOnClickListener(new View.OnClickListener() {
                 @Override
