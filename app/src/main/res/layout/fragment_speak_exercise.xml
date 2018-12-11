@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_corners_right"
         android:padding="@dimen/padNormal"
-        android:backgroundTint="@color/colorAccent"
+        android:backgroundTint="@color/colorNo"
         android:layout_alignParentLeft="true"
         android:layout_centerInParent="true"
         android:visibility="gone">
@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_corners_left"
         android:padding="@dimen/padNormal"
-        android:backgroundTint="@color/colorAccent"
+        android:backgroundTint="@color/colorYes"
         android:layout_alignParentRight="true"
         android:layout_centerInParent="true"
         android:visibility="gone">

@@ -39,8 +39,6 @@ public class SortingExercise extends Exercise {
         public SortingFragment(ExerciseActivity activity){
             this._activity = activity;
 
-            this._activity.enableNext(false);
-
             this._activity.setKaatje("Hallo ik ben Kaat. Ik ga vandaag samen met mijn vriendjes naar het bos, op groot avontuur. Klik maar op de bomen als je wilt starten.");
         }
 
@@ -48,6 +46,8 @@ public class SortingExercise extends Exercise {
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             // Inflate the layout for this fragment
             View view = inflater.inflate(R.layout.fragment_sort_exercise, container, false);
+
+            this._activity.goNext();
 
             return view;
         }

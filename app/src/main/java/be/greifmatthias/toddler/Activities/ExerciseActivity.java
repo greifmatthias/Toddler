@@ -81,14 +81,6 @@ public class ExerciseActivity extends Activity {
         setContent(this._curExercise);
     }
 
-    public void enableNext(boolean enable){
-        if(enable) {
-            this._fabNext.setVisibility(View.VISIBLE);
-        }else{
-            this._fabNext.setVisibility(View.GONE);
-        }
-    }
-
     private void setContent(int position){
 //        Revert if fullscreen
         if(_tvWord.getVisibility() == View.GONE){

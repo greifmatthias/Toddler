@@ -72,15 +72,4 @@
 
     </RelativeLayout>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fabNext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_round_arrow_right_alt"
-        android:tint="@color/colorLight"
-        android:backgroundTint="@color/colorAccent"
-        android:layout_alignParentBottom="true"
-        android:layout_centerInParent="true"
-        android:layout_margin="@dimen/padNormal"/>
-
 </RelativeLayout>

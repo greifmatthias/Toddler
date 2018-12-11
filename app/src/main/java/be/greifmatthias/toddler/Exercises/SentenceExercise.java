@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import be.greifmatthias.toddler.Activities.ExerciseActivity;
+import be.greifmatthias.toddler.Helpers.TypeHelper;
 import be.greifmatthias.toddler.R;
 
 public class SentenceExercise extends Exercise {
@@ -131,6 +132,9 @@ public class SentenceExercise extends Exercise {
     public static class SentenceFragment extends Fragment {
         private ExerciseActivity _activity;
         private SentenceExercise _exercise;
+        private int _current;
+        private boolean _islast;
+        private boolean _firstresult;
 
         public SentenceFragment() {
             // Required empty public constructor
@@ -148,11 +152,40 @@ public class SentenceExercise extends Exercise {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             // Inflate the layout for this fragment
-            View view =  inflater.inflate(R.layout.fragment_sentence_exercise, container, false);
+            final View view =  inflater.inflate(R.layout.fragment_sentence_exercise, container, false);
 
-            ((TextView)view.findViewById(R.id.tvSentence)).setText(_exercise.getSentence(0).getSentence());
+            this._current = TypeHelper.getRandom(0, 1);
+            ((TextView)view.findViewById(R.id.tvSentence)).setText(_exercise.getSentence(this._current).getSentence());
+
+            view.findViewById(R.id.rlRate_yes).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    checkResult(true, view);
+                }
+            });
+
+            view.findViewById(R.id.rlRate_not).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    checkResult(false, view);
+                }
+            });
 
             return view;
+        }
+
+        private void checkResult(boolean input, View view){
+            if(_islast){
+                _exercise._hasscore = true;
+                _exercise._haspassed = input == this._exercise.getSentence(this._current).getValid() && this._firstresult;
+                _activity.goNext();
+            }else{
+                this._islast = true;
+                this._firstresult = input == this._exercise.getSentence(this._current).getValid();
+
+                this._current = 1 - this._current;
+                ((TextView)view.findViewById(R.id.tvSentence)).setText(_exercise.getSentence(this._current).getSentence());
+            }
         }
     }
 }
