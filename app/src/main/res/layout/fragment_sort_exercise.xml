@@ -1,13 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Exercises.ListenExercise">
+    tools:context=".Exercises.SortingExercise">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="DIT WORD DE SORTEEROEFENIGN"/>
+        android:orientation="vertical">
 
-</FrameLayout>
+        <!--BANNER-->
+        <ImageView
+        android:id="@+id/ivImage"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"/>
+
+        <!--TILES-->
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="4"
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/padSmaller">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_margin="@dimen/padSmaller"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvImage01"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padThin"
+                android:textColor="@color/colorDark"
+                android:layout_marginBottom="@dimen/padSmaller"
+                android:textSize="@dimen/textBig" />
+
+            <ImageView
+                android:id="@+id/ivImage01"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="true"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_margin="@dimen/padSmaller"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvImage02"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padThin"
+                android:textColor="@color/colorDark"
+                android:layout_marginBottom="@dimen/padSmaller"
+                android:textSize="@dimen/textBig" />
+
+            <ImageView
+                android:id="@+id/ivImage02"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="true"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_margin="@dimen/padSmaller"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvImage03"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padThin"
+                android:textColor="@color/colorDark"
+                android:layout_marginBottom="@dimen/padSmaller"
+                android:textSize="@dimen/textBig" />
+
+            <ImageView
+                android:id="@+id/ivImage03"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="true"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_margin="@dimen/padSmaller"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvImage04"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padThin"
+                android:textColor="@color/colorDark"
+                android:layout_marginBottom="@dimen/padSmaller"
+                android:textSize="@dimen/textBig" />
+
+            <ImageView
+                android:id="@+id/ivImage04"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="true"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+    <!--FAB-->
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/padBig"
+        android:background="@drawable/rounded_corners_bottom"
+        android:backgroundTint="@color/colorLight">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fabNext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_round_arrow_right_alt"
+            android:tint="@color/colorLight"
+            android:backgroundTint="@color/colorAccent"
+            android:layout_margin="@dimen/padSmaller"/>
+
+    </RelativeLayout>
+</RelativeLayout>
