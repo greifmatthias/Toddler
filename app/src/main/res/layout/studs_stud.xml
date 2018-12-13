@@ -17,15 +17,6 @@
             android:paddingTop="@dimen/padSmaller"
             android:paddingBottom="@dimen/padSmaller"
             android:paddingLeft="@dimen/padNormal" />
-
-        <TextView
-            android:visibility="gone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padThin"
-            android:text="A web/appdeveloper based in Belgium, love to code and design."
-            android:textColor="@color/colorDark_semitrans"
-            android:textSize="@dimen/textSmall"/>
     </LinearLayout>
 
 </RelativeLayout>

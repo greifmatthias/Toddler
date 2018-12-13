@@ -12,7 +12,7 @@
         android:id="@+id/tvHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Settings"
+        android:text="Instellingen"
         android:padding="@dimen/padNormal"
         android:textStyle="bold"
         android:textSize="@dimen/textBigger"
@@ -59,7 +59,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Manage toddlers"
+                        android:text="Beheer"
                         android:textStyle="bold"
                         android:textSize="@dimen/textNormal"
                         android:textColor="@color/colorDark"/>
@@ -67,7 +67,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Manage classes, groups and those toddlers."/>
+                        android:text="Beheer klassen, Groepen en Kleuters."/>
 
                 </LinearLayout>
 
@@ -83,7 +83,9 @@
                 android:paddingTop="@dimen/padSmaller"
                 android:paddingBottom="@dimen/padSmaller"
                 android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:background="@drawable/border"
+                android:backgroundTint="@color/colorDark_mintrans">
 
                 <ImageView
                     android:layout_width="20dp"
@@ -100,7 +102,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Resources"
+                        android:text="Bronnen"
                         android:textStyle="bold"
                         android:textSize="@dimen/textNormal"
                         android:textColor="@color/colorDark"/>
@@ -108,7 +110,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Where all these icons and images are coming from."/>
+                        android:text="Bekijk waar alle afbeeldingen en iconen vandaan komen"/>
 
                 </LinearLayout>
 
@@ -124,9 +126,7 @@
                 android:paddingTop="@dimen/padSmaller"
                 android:paddingBottom="@dimen/padSmaller"
                 android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:background="@drawable/border"
-                android:backgroundTint="@color/colorDark_mintrans">
+                android:gravity="center_vertical">
 
                 <ImageView
                     android:layout_width="20dp"
@@ -143,7 +143,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="What is this for crazyness"
+                        android:text="Over"
                         android:textStyle="bold"
                         android:textSize="@dimen/textNormal"
                         android:textColor="@color/colorDark"/>
@@ -151,7 +151,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Check out who's behind, and what this all made possible by."/>
+                        android:text="Wat achter de schermen van deze geweldige applicatie?"/>
 
                 </LinearLayout>
 

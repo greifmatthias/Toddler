@@ -18,7 +18,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hi there"
+            android:text="Hallo daar"
             android:padding="@dimen/padNormal"
             android:textStyle="bold"
             android:textSize="@dimen/textBigger"
@@ -70,7 +70,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Get you started"
+                    android:text="Laten we starten"
                     android:textStyle="bold"
                     android:textSize="@dimen/textNormal"
                     android:textColor="@color/colorDark"
@@ -81,7 +81,7 @@
                     android:textSize="@dimen/textNormal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="It looks like there are no groups made yet, Let's get started by creating one."/>
+                    android:text="Het ziet ernaar uit dat er nog geen klassen beschikbaar zijn."/>
 
                 <TextView
                     android:textColor="@color/colorDark_semitrans"
@@ -89,7 +89,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="@dimen/padSmall"
-                    android:text="(Use the shortcut at the right)"/>
+                    android:text="(Gebruik de knop hier rechts)"/>
 
             </LinearLayout>
 

@@ -17,8 +17,7 @@
         android:textSize="@dimen/textBigger"
         android:textColor="@color/colorDark"
         android:background="@drawable/gradient_bottomtop"
-        android:backgroundTint="@color/colorDark_mintrans"
-        android:visibility="gone"/>
+        android:backgroundTint="@color/colorDark_mintrans" />
 
     <FrameLayout
         android:id="@+id/flContent"

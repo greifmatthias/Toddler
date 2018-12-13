@@ -38,7 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="@dimen/padSmaller"
-                android:text="Add a new class"/>
+                android:text="Voeg een nieuwe Klas toe."/>
 
         </LinearLayout>
 
@@ -66,7 +66,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="@dimen/padSmaller"
-                android:text="Add a new toddler"/>
+                android:text="Voeg een nieuwe Kleuter toe."/>
 
         </LinearLayout>
 

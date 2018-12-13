@@ -12,7 +12,7 @@
         android:id="@+id/tvHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Resources"
+        android:text="Bronnen"
         android:padding="@dimen/padNormal"
         android:textStyle="bold"
         android:textSize="@dimen/textBigger"
@@ -58,7 +58,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Icons"
+                        android:text="Iconen"
                         android:textStyle="bold"
                         android:textSize="@dimen/textNormal"
                         android:textColor="@color/colorDark"/>
@@ -66,7 +66,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="All icons used are from the free-to-use Material Design collection."/>
+                        android:text="Alle iconen zijn gehaald van de gratis Google Material Design collectie."/>
 
                 </LinearLayout>
 
@@ -98,7 +98,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Images"
+                        android:text="Afbeeldingen"
                         android:textStyle="bold"
                         android:textSize="@dimen/textNormal"
                         android:textColor="@color/colorDark"/>
@@ -106,7 +106,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="All images are copyright free used from Pixabay."/>
+                        android:text="Allen zijn copyright-vrije afbeeldingen van Pixabay."/>
 
                 </LinearLayout>
 
@@ -138,7 +138,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Characters"
+                        android:text="Karakters"
                         android:textStyle="bold"
                         android:textSize="@dimen/textNormal"
                         android:textColor="@color/colorDark"/>
@@ -146,7 +146,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="The characters, like Kaatje, are free to use vectors stolen at Flaticon.com"/>
+                        android:text="Karakters, zoals Kaatje, zijn gehaald van Flaticon.com, en beschikbaar voor gratis gebruik."/>
 
                 </LinearLayout>
 

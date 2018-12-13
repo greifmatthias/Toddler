@@ -15,7 +15,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Add a new toddler"
+            android:text="Voeg een nieuwe Kleuter toe."
             android:textColor="@color/colorDark"
             android:textSize="@dimen/textNormal"
             android:textStyle="bold"
@@ -25,7 +25,7 @@
             android:id="@+id/etName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="First name"
+            android:hint="Voornaam"
             android:backgroundTint="@color/colorDark"
             android:textColor="@color/colorDark" />
 
@@ -33,7 +33,7 @@
             android:id="@+id/etFamname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Last name"
+            android:hint="Achternaam"
             android:backgroundTint="@color/colorDark"
             android:textColor="@color/colorDark"
             android:layout_marginTop="@dimen/padSmall"/>

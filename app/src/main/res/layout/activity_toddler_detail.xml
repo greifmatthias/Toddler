@@ -74,7 +74,7 @@
                     android:textSize="@dimen/textNormal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="This toddler hasn't had a preteaching exercise yet."/>
+                    android:text="Deze kleuter heeft nog geen preteaching gehad."/>
 
                 <TextView
                     android:textColor="@color/colorDark_semitrans"
@@ -82,7 +82,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="@dimen/padSmall"
-                    android:text="(Start the test with the button at the right)"/>
+                    android:text="(Start de test met de knop rechts)"/>
 
             </LinearLayout>
 
@@ -120,7 +120,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingLeft="@dimen/padSmaller"
-                        android:text="Start the test exercise"/>
+                        android:text="Start een testoefening"/>
 
                 </LinearLayout>
 
@@ -168,7 +168,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingLeft="@dimen/padSmaller"
-                    android:text="Delete this toddler"/>
+                    android:text="Verwijder deze kleuter"/>
 
             </LinearLayout>
 

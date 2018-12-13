@@ -15,8 +15,7 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="@dimen/padBig"
+        android:layout_marginLeft="@dimen/padBig"
         android:background="@drawable/rounded_corners_bottom"
         android:backgroundTint="@color/colorLight">
 

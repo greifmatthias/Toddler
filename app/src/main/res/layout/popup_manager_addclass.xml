@@ -15,7 +15,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Add a new class"
+                android:text="Voeg een nieuwe Klas toe."
                 android:textColor="@color/colorDark"
                 android:textSize="@dimen/textNormal"
                 android:textStyle="bold"
@@ -25,7 +25,7 @@
             android:id="@+id/etClassName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Name"
+            android:hint="Naam"
             android:backgroundTint="@color/colorDark"
             android:textColor="@color/colorDark" />
 
@@ -40,7 +40,7 @@
                 android:id="@+id/cbAllGroups"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Create all 3 groups"
+                android:text="Maak meteen 3 Groepen in deze Klas."
                 android:checked="true"/>
 
             <Spinner

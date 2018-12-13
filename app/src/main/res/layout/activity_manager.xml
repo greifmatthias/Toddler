@@ -23,7 +23,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Manager"
+            android:text="Beheer"
             android:padding="@dimen/padNormal"
             android:textStyle="bold"
             android:textSize="@dimen/textBigger"
@@ -74,7 +74,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingLeft="@dimen/padSmaller"
-                        android:text="Create a first class, toddlers can be added later."/>
+                        android:text="Maak eerst een nieuwe klas, kleutertjes kunnen later toegevoegd worden."/>
 
                     <TextView
                         android:textColor="@color/colorDark_semitrans"
@@ -83,7 +83,7 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="@dimen/padSmaller"
                         android:paddingTop="@dimen/padSmall"
-                        android:text="(Use the button beneath to add a new class)"/>
+                        android:text="(Gebruik onderstaande knop)"/>
 
                 </LinearLayout>
 
@@ -118,7 +118,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingLeft="@dimen/padSmaller"
-                    android:text="It's a bit too quite in here, isn't it? Time to add some toddlers to this class."/>
+                    android:text="Het is nogal stil in deze kleuterklas, tijd voor wat kleuters toe te voegen."/>
 
                 <TextView
                     android:textColor="@color/colorDark_semitrans"
@@ -127,7 +127,7 @@
                     android:layout_height="wrap_content"
                     android:paddingLeft="@dimen/padSmaller"
                     android:paddingTop="@dimen/padSmall"
-                    android:text="(Use the button above to add a new toddler)"/>
+                    android:text="(Gebruik de knop hierboven)"/>
 
             </LinearLayout>
 

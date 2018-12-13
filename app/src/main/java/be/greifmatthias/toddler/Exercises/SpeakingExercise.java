@@ -71,6 +71,7 @@ public class SpeakingExercise extends Exercise {
             this._activity = activity;
             this._exercise = exercise;
 
+//            Set Kaatjes text
             activity.setKaatje(exercise.getKaatje());
         }
 
@@ -79,8 +80,11 @@ public class SpeakingExercise extends Exercise {
             // Inflate the layout for this fragment
             final View view =  inflater.inflate(R.layout.fragment_speak_exercise, container, false);
 
+//            Set image
             ((ImageView)view.findViewById(R.id.ivImage)).setImageResource(ExerciseGroup.getHdImage(_exercise._word));
 
+//            Set clickhandlers
+//            Unlock fab
             view.findViewById(R.id.fabUnlock).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -90,6 +94,7 @@ public class SpeakingExercise extends Exercise {
                 }
             });
 
+//            Raters
             view.findViewById(R.id.rlRate_not).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
