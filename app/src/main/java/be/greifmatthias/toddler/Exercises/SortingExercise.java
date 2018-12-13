@@ -54,64 +54,64 @@ public class SortingExercise extends Exercise {
 
         switch (this._word){
             case "De duikbril":
-                tiles.add(new Tile("Ogen", R.drawable.kompas_hd, true));
-                tiles.add(new Tile("In de zee", R.drawable.kompas_hd, true));
-                tiles.add(new Tile("Zwemmen", R.drawable.kompas_hd, true));
-                tiles.add(new Tile("Schrijven", R.drawable.kompas_hd, false));
+                tiles.add(new Tile("Ogen", R.drawable.ogen, true));
+                tiles.add(new Tile("In de zee", R.drawable.appel, true));
+                tiles.add(new Tile("Zwemmen", R.drawable.zwemmen, true));
+                tiles.add(new Tile("Schrijven", R.drawable.schrijven, false));
                 break;
             case "Het klimtouw":
-                tiles.add(new Tile("Klimmen", R.drawable.kompas_hd, true));
-                tiles.add(new Tile("Sterk", R.drawable.kompas_hd, true));
-                tiles.add(new Tile("In de turnzaal", R.drawable.kompas_hd, true));
-                tiles.add(new Tile("Het zwembad", R.drawable.kompas_hd, false));
+                tiles.add(new Tile("Klimmen", R.drawable.klimmen, true));
+                tiles.add(new Tile("Sterk", R.drawable.sterk, true));
+                tiles.add(new Tile("In de turnzaal", R.drawable.turnzaal, true));
+                tiles.add(new Tile("Het zwembad", R.drawable.zwembad, false));
                 break;
             case "Het kroos":
-                tiles.add(new Tile("Groen", R.drawable.kompas_hd, true));
-                tiles.add(new Tile("In de vijver", R.drawable.kompas_hd, true));
-                tiles.add(new Tile("De lamp", R.drawable.kompas_hd, false));
-                tiles.add(new Tile("De eend", R.drawable.kompas_hd, false));
+                tiles.add(new Tile("Groen", R.drawable.groen, true));
+                tiles.add(new Tile("In de vijver", R.drawable.vijver, true));
+                tiles.add(new Tile("De lamp", R.drawable.lamp, false));
+                tiles.add(new Tile("De eend", R.drawable.eend, false));
                 break;
             case "Het riet":
-                tiles.add(new Tile("De vijver", R.drawable.kompas_hd, true));
-                tiles.add(new Tile("De eend", R.drawable.kompas_hd, true));
-                tiles.add(new Tile("Het bos", R.drawable.kompas_hd, true));
-                tiles.add(new Tile("De bril", R.drawable.kompas_hd, false));
+                tiles.add(new Tile("De vijver", R.drawable.vijver, true));
+                tiles.add(new Tile("De eend", R.drawable.eend, true));
+                tiles.add(new Tile("Het bos", R.drawable.bos, true));
+                tiles.add(new Tile("De bril", R.drawable.bril, false));
                 break;
             case "De val":
-                tiles.add(new Tile("De pijn", R.drawable.kompas_hd, true));
-                tiles.add(new Tile("Naar voor", R.drawable.kompas_hd, true));
-                tiles.add(new Tile("De pleister", R.drawable.kompas_hd, true));
-                tiles.add(new Tile("De appel", R.drawable.kompas_hd, false));
+                tiles.add(new Tile("De pijn", R.drawable.pijn, true));
+                tiles.add(new Tile("Naar voor", R.drawable.naarvoor, true));
+                tiles.add(new Tile("De pleister", R.drawable.pleister, true));
+                tiles.add(new Tile("De appel", R.drawable.appel, false));
                 break;
             case "Het kompas":
-                tiles.add(new Tile("Wandelen", R.drawable.kompas_hd, true));
-                tiles.add(new Tile("Rugzak", R.drawable.kompas_hd, true));
-                tiles.add(new Tile("De landkaart", R.drawable.kompas_hd, true));
-                tiles.add(new Tile("Het bad", R.drawable.kompas_hd, false));
+                tiles.add(new Tile("Wandelen", R.drawable.wandelen, true));
+                tiles.add(new Tile("Rugzak", R.drawable.rugzak, true));
+                tiles.add(new Tile("De landkaart", R.drawable.landkaart, true));
+                tiles.add(new Tile("Het bad", R.drawable.bad, false));
                 break;
             case "Steil":
-                tiles.add(new Tile("De berg", R.drawable.kompas_hd, true));
-                tiles.add(new Tile("Beklimmen", R.drawable.kompas_hd, true));
-                tiles.add(new Tile("De trap", R.drawable.kompas_hd, true));
-                tiles.add(new Tile("De bloem", R.drawable.kompas_hd, false));
+                tiles.add(new Tile("De berg", R.drawable.berg, true));
+                tiles.add(new Tile("Beklimmen", R.drawable.klimmen, true));
+                tiles.add(new Tile("De trap", R.drawable.trap, true));
+                tiles.add(new Tile("De bloem", R.drawable.bloem, false));
                 break;
             case "De zwaan":
-                tiles.add(new Tile("De vijver", R.drawable.kompas_hd, true));
-                tiles.add(new Tile("Vleugels", R.drawable.kompas_hd, true));
-                tiles.add(new Tile("Wit", R.drawable.kompas_hd, true));
-                tiles.add(new Tile("Het boek", R.drawable.kompas_hd, false));
+                tiles.add(new Tile("De vijver", R.drawable.vijver, true));
+                tiles.add(new Tile("Vleugels", R.drawable.vleugels, true));
+                tiles.add(new Tile("Wit", R.drawable.wit, true));
+                tiles.add(new Tile("Het boek", R.drawable.boek, false));
                 break;
             case "Het kamp":
-                tiles.add(new Tile("De tent", R.drawable.kompas_hd, true));
-                tiles.add(new Tile("Het kampvuur", R.drawable.kompas_hd, true));
-                tiles.add(new Tile("De slaapzak", R.drawable.kompas_hd, true));
-                tiles.add(new Tile("De deur", R.drawable.kompas_hd, false));
+                tiles.add(new Tile("De tent", R.drawable.kamp, true));
+                tiles.add(new Tile("Het kampvuur", R.drawable.kampvuur, true));
+                tiles.add(new Tile("De slaapzak", R.drawable.slaapzak, true));
+                tiles.add(new Tile("De deur", R.drawable.deur, false));
                 break;
             case "De zaklamp":
-                tiles.add(new Tile("Het licht", R.drawable.kompas_hd, true));
-                tiles.add(new Tile("De batterij", R.drawable.kompas_hd, true));
-                tiles.add(new Tile("In het donker", R.drawable.kompas_hd, true));
-                tiles.add(new Tile("Het paard", R.drawable.kompas_hd, false));
+                tiles.add(new Tile("Het licht", R.drawable.licht, true));
+                tiles.add(new Tile("De batterij", R.drawable.batterij, true));
+                tiles.add(new Tile("In het donker", R.drawable.donker, true));
+                tiles.add(new Tile("Het paard", R.drawable.paard, false));
                 break;
         }
 
