@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import be.greifmatthias.toddler.Activities.ExerciseActivity;
+import be.greifmatthias.toddler.Helpers.TypeHelper;
 import be.greifmatthias.toddler.Models.User;
 import be.greifmatthias.toddler.R;
 
@@ -146,6 +148,9 @@ public class SortingExercise extends Exercise {
         private ExerciseActivity _activity;
         private SortingExercise _exercise;
 
+        private int[] _content;
+        private int[] _selected;
+
         public SortingFragment() {
             // Required empty public constructor
         }
@@ -155,37 +160,128 @@ public class SortingExercise extends Exercise {
             this._activity = activity;
             this._exercise = exercise;
 
+            this._selected = new int[] {};
+
             activity.setKaatje("");
         }
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             // Inflate the layout for this fragment
-            View view =  inflater.inflate(R.layout.fragment_sort_exercise, container, false);
+            final View view =  inflater.inflate(R.layout.fragment_sort_exercise, container, false);
 
             // Set banner
             ((ImageView)view.findViewById(R.id.ivImage)).setImageResource(ExerciseGroup.getHdImage(_exercise._word));
 
-            // Set exercise images
-            ((ImageView)view.findViewById(R.id.ivImage01)).setImageResource(this._exercise.getTiles().get(0).getImage());
-            ((ImageView)view.findViewById(R.id.ivImage02)).setImageResource(this._exercise.getTiles().get(1).getImage());
-            ((ImageView)view.findViewById(R.id.ivImage03)).setImageResource(this._exercise.getTiles().get(2).getImage());
-            ((ImageView)view.findViewById(R.id.ivImage04)).setImageResource(this._exercise.getTiles().get(3).getImage());
-            // Set exercise texts
-            ((TextView)view.findViewById(R.id.tvImage01)).setText(this._exercise.getTiles().get(0).getSubject());
-            ((TextView)view.findViewById(R.id.tvImage02)).setText(this._exercise.getTiles().get(1).getSubject());
-            ((TextView)view.findViewById(R.id.tvImage03)).setText(this._exercise.getTiles().get(2).getSubject());
-            ((TextView)view.findViewById(R.id.tvImage04)).setText(this._exercise.getTiles().get(3).getSubject());
+            this._content = TypeHelper.shuffleArray(new int[]{ 0, 1, 2, 3 });
 
+            // Set exercise images
+            ((ImageView)view.findViewById(R.id.ivImage01)).setImageResource(this._exercise.getTiles().get(this._content[0]).getImage());
+            ((ImageView)view.findViewById(R.id.ivImage02)).setImageResource(this._exercise.getTiles().get(this._content[1]).getImage());
+            ((ImageView)view.findViewById(R.id.ivImage03)).setImageResource(this._exercise.getTiles().get(this._content[2]).getImage());
+            ((ImageView)view.findViewById(R.id.ivImage04)).setImageResource(this._exercise.getTiles().get(this._content[3]).getImage());
+            // Set exercise texts
+            ((TextView)view.findViewById(R.id.tvImage01)).setText(this._exercise.getTiles().get(this._content[0]).getSubject());
+            ((TextView)view.findViewById(R.id.tvImage02)).setText(this._exercise.getTiles().get(this._content[1]).getSubject());
+            ((TextView)view.findViewById(R.id.tvImage03)).setText(this._exercise.getTiles().get(this._content[2]).getSubject());
+            ((TextView)view.findViewById(R.id.tvImage04)).setText(this._exercise.getTiles().get(this._content[3]).getSubject());
+
+//            Set click handlers
+            View.OnClickListener clickListener = new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+//                    Get val
+                    int val = 0;
+                    switch (v.getId()){
+                        case R.id.rlImage01:
+                            val = 0;
+                            break;
+                        case R.id.rlImage02:
+                            val = 1;
+                            break;
+                        case R.id.rlImage03:
+                            val = 2;
+                            break;
+                        case R.id.rlImage04:
+                            val = 3;
+                            break;
+                    }
+
+//                    Update selection
+                    if(TypeHelper.contains(_selected, val)){
+                        // remove selection
+                        _selected = TypeHelper.remove(_selected, val);
+
+//                        Update view
+                        switch (val){
+                            case 0:
+                                view.findViewById(R.id.rlImage01_check).setVisibility(View.GONE);
+                                break;
+                            case 1:
+                                view.findViewById(R.id.rlImage02_check).setVisibility(View.GONE);
+                                break;
+                            case 2:
+                                view.findViewById(R.id.rlImage03_check).setVisibility(View.GONE);
+                                break;
+                            case 3:
+                                view.findViewById(R.id.rlImage04_check).setVisibility(View.GONE);
+                                break;
+                        }
+                    }else{
+                        if(_selected.length < 3) {
+                            // add selection
+                            _selected = TypeHelper.add(_selected, val);
+
+//                        Update view
+                            switch (val) {
+                                case 0:
+                                    view.findViewById(R.id.rlImage01_check).setVisibility(View.VISIBLE);
+                                    break;
+                                case 1:
+                                    view.findViewById(R.id.rlImage02_check).setVisibility(View.VISIBLE);
+                                    break;
+                                case 2:
+                                    view.findViewById(R.id.rlImage03_check).setVisibility(View.VISIBLE);
+                                    break;
+                                case 3:
+                                    view.findViewById(R.id.rlImage04_check).setVisibility(View.VISIBLE);
+                                    break;
+                            }
+                        }
+                    }
+
+                    if(_selected.length == 3){
+                        view.findViewById(R.id.fabNext).setVisibility(View.VISIBLE);
+                    }else{
+                        view.findViewById(R.id.fabNext).setVisibility(View.GONE);
+                    }
+                }
+            };
+
+            view.findViewById(R.id.rlImage01).setOnClickListener(clickListener);
+            view.findViewById(R.id.rlImage02).setOnClickListener(clickListener);
+            view.findViewById(R.id.rlImage03).setOnClickListener(clickListener);
+            view.findViewById(R.id.rlImage04).setOnClickListener(clickListener);
 
             view.findViewById(R.id.fabNext).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+
+//                    Check score
+                    boolean isvalid = true;
+                    for(int i = 0; i < _selected.length; i++){
+                        if(!_exercise.getTiles().get(_content[_selected[i]])._valid){
+                            isvalid = false;
+                            break;
+                        }
+                    }
+
+                    _exercise._haspassed = isvalid;
+                    _exercise._hasscore = true;
+
                     _activity.goNext();
                 }
             });
-
-            this._exercise.setScore(true);
 
             return view;
         }
