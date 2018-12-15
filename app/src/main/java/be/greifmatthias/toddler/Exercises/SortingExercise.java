@@ -68,7 +68,7 @@ public class SortingExercise extends Exercise {
         switch (this._word){
             case "De duikbril":
                 tiles.add(new Tile("Ogen", R.drawable.ogen, true));
-                tiles.add(new Tile("In de zee", R.drawable.appel, true));
+                tiles.add(new Tile("In de zee", R.drawable.strand, true));
                 tiles.add(new Tile("Zwemmen", R.drawable.zwemmen, true));
                 tiles.add(new Tile("Schrijven", R.drawable.schrijven, false));
                 break;
