@@ -15,20 +15,22 @@ public class Class implements Comparable<Class> {
 //    Members
     private int _id;
     private String _name;
+    private String _year;
 
     private int _group;
 
     private List<User> _studs;
 
-    public Class(int id, String name, int group){
+    public Class(int id, String name, String year, int group){
         this._id = id;
         this._name = name;
         this._group = group;
+        this._year = year;
 
         this._studs = new ArrayList<>();
     }
 
-    public Class(String name, int group){
+    public Class(String name, String year, int group){
         int max = 0;
         for(Class c : _classes){
             if(max < c.getId()){
@@ -37,6 +39,7 @@ public class Class implements Comparable<Class> {
         }
         this._id = max + 1;
         this._name = name;
+        this._year = year;
         this._group = group;
     }
 
@@ -47,6 +50,8 @@ public class Class implements Comparable<Class> {
     public String getName(){
         return this._name;
     }
+
+    public String getYear(){ return this._year; }
 
     public Group getGroup() { return Group.getGroups().get(this._group); }
 

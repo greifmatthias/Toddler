@@ -100,7 +100,7 @@
         android:id="@+id/fabManager"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_round_add"
+        android:src="@drawable/ic_round_class"
         android:tint="@color/colorLight"
         android:backgroundTint="@color/colorAccent"
         android:layout_alignParentBottom="true"

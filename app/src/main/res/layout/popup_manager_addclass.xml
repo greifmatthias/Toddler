@@ -29,6 +29,19 @@
             android:backgroundTint="@color/colorDark"
             android:textColor="@color/colorDark" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Schooljaar"
+            android:layout_marginTop="@dimen/padSmaller"
+            android:layout_marginBottom="@dimen/padSmall"
+            android:textSize="@dimen/textNormal"/>
+
+        <Spinner
+            android:id="@+id/spYear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></Spinner>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

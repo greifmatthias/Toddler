@@ -56,4 +56,9 @@ public class TypeHelper {
 
         return copy;
     }
+
+    public static String convertName(String input){
+        input = input.trim();
+        return input.substring(0, 1).toUpperCase() + input.substring(1);
+    }
 }

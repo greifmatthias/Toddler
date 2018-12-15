@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import be.greifmatthias.toddler.Activities.ExerciseActivity;
@@ -43,7 +44,17 @@ public class SortingExercise extends Exercise {
 
     @Override
     public String getKaatje() {
-        return "";
+        return "Ik zoek 3 woorden die bij " + this.getWord() + " passen, weet jij welke?";
+    }
+
+    private String getWord(){
+        List<String> wordparts = Arrays.asList(this._word.split(" "));
+
+        if(wordparts.size() > 1){
+            return wordparts.get(wordparts.size() - 1);
+        }
+
+        return this._word;
     }
 
     @Override
@@ -162,7 +173,7 @@ public class SortingExercise extends Exercise {
 
             this._selected = new int[] {};
 
-            activity.setKaatje("");
+            activity.setKaatje(exercise.getKaatje());
         }
 
         @Override
@@ -266,7 +277,6 @@ public class SortingExercise extends Exercise {
             view.findViewById(R.id.fabNext).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
 //                    Check score
                     boolean isvalid = true;
                     for(int i = 0; i < _selected.length; i++){

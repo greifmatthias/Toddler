@@ -18,8 +18,10 @@ import android.widget.PopupWindow;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.util.Calendar;
 import java.util.List;
 
+import be.greifmatthias.toddler.Helpers.TypeHelper;
 import be.greifmatthias.toddler.Models.Class;
 import be.greifmatthias.toddler.Models.Group;
 import be.greifmatthias.toddler.Models.User;
@@ -188,7 +190,7 @@ public class ManagerActivity extends Activity {
         _classpopup.setFocusable(true);
         _classpopup.update();
 
-//        Set spinner
+//        Set Group spinner
         final Spinner spGroups = customView.findViewById(R.id.spGroups);
         GroupsAdapter adapter = new GroupsAdapter(this, R.layout.classes_class_default, R.id.tvName, Group.getGroups());
         adapter.setDropDownViewResource(R.layout.classes_class);
@@ -206,6 +208,13 @@ public class ManagerActivity extends Activity {
             }
         });
 
+//        Set Year spinner
+        final Spinner spYear = customView.findViewById(R.id.spYear);
+        YearsAdapter yearsAdapter = new YearsAdapter(this, R.layout.classes_class_default, R.id.tvName);
+        adapter.setDropDownViewResource(R.layout.classes_class);
+        spYear.setAdapter(yearsAdapter);
+
+
         customView.findViewById(R.id.rlBackground).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -221,10 +230,10 @@ public class ManagerActivity extends Activity {
                 if (!classname.equals("")) {
                     if(cbAllGroups.isChecked()){
                         for(int i = 0; i < 3; i++){
-                            Class.add(new Class(classname.trim(), i));
+                            Class.add(new Class(TypeHelper.convertName(classname), getYear(spYear.getSelectedItemPosition()), i));
                         }
                     }else{
-                        Class.add(new Class(classname.trim(), spGroups.getSelectedItemPosition()));
+                        Class.add(new Class(TypeHelper.convertName(classname), getYear(spYear.getSelectedItemPosition()), spGroups.getSelectedItemPosition()));
                     }
 
                     ((EditText) customView.findViewById(R.id.etClassName)).setText("");
@@ -299,7 +308,7 @@ public class ManagerActivity extends Activity {
             public void onClick(View view) {
 //                Save toddler
                 Class c = ((Class) _spClasses.getSelectedItem());
-                c.addStud(new User(Class.getNextToddlerId(), etName.getText().toString(), etFamname.getText().toString(), true));
+                c.addStud(new User(Class.getNextToddlerId(), TypeHelper.convertName(etName.getText().toString()), etFamname.getText().toString(), true));
 
 //                Reset views
                 etName.setText("");
@@ -435,5 +444,59 @@ public class ManagerActivity extends Activity {
 
             return v;
         }
+    }
+
+    private class YearsAdapter extends ArrayAdapter<String> {
+
+        public YearsAdapter(Context context, int View, int TextView) {
+            super(context, View, TextView);
+        }
+
+        @Override
+        public int getCount() {
+            return 3;
+        }
+
+        @Override
+        public String getItem(int position) {
+            return getYear(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            View v = super.getView(position, convertView, parent);
+
+            ((TextView) v.findViewById(R.id.tvName)).setText(getItem(position));
+
+            return v;
+        }
+
+        @Override
+        public View getDropDownView(int position, View convertView, ViewGroup parent) {
+            View v = super.getDropDownView(position, convertView, parent);
+            ((TextView) v.findViewById(R.id.tvName)).setText(getItem(position));
+
+            return v;
+        }
+    }
+
+    private String getYear(int position){
+        int year = Calendar.getInstance().get(Calendar.YEAR);
+
+        switch (position){
+            case 0:
+                return (year - 1) + " - " + (year);
+            case 1:
+                return (year) + " - " + (year + 1);
+            case 2:
+                return (year + 1) + " - " + (year + 2);
+        }
+
+        return "";
     }
 }

@@ -33,6 +33,12 @@
         android:layout_alignParentBottom="true">
 
         <RelativeLayout
+            android:id="@+id/rlKaatje_Overlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorDark_trans"></RelativeLayout>
+
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:background="@drawable/gradient_bottomtop"
@@ -61,6 +67,7 @@
         </RelativeLayout>
 
         <ImageView
+            android:id="@+id/ivKaatje"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:src="@drawable/ic_girl"

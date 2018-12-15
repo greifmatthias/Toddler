@@ -29,8 +29,8 @@ public class ExerciseActivity extends Activity {
 
     private TextView _tvWord;
     private FrameLayout _content;
-    private View _fabNext;
 
+    private RelativeLayout _rlOverlayKaatje;
     private RelativeLayout _rlKaatje;
     private TextView _tvKaatje;
 
@@ -51,27 +51,49 @@ public class ExerciseActivity extends Activity {
 //        Get controls
         this._tvWord = findViewById(R.id.tvWord);
         this._content = findViewById(R.id.flContent);
-        this._fabNext = findViewById(R.id.fabNext);
+        this._rlOverlayKaatje = findViewById(R.id.rlKaatje_Overlay);
         this._rlKaatje = findViewById(R.id.rlKaatje);
         this._tvKaatje = findViewById(R.id.tvKaatje);
 
 //        Get exercises
         this._exercises = new ArrayList<>();
 
-//        Add intro exercise
+//        Setup exercises
         ExerciseGroup exercise = new ExerciseGroup("", Group.Condition.A);
 
         exercise.clearExercises();
+//        Add intro
         exercise.addExercise(new IntroExercise(""));
-
         this._exercises.add(exercise);
 
-//        Loop
+//        Loop others
         for(ExerciseGroup e : this._toddler.getExercises()){
             if (e.getCondition().equals(Group.getCondition(this._condition))) {
                 this._exercises.add(e);
             }
         }
+
+        // Set Kaatje click listener
+        this.findViewById(R.id.ivKaatje).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(_rlOverlayKaatje.getVisibility() == View.VISIBLE){
+                    _rlOverlayKaatje.setVisibility(View.GONE);
+                    _tvKaatje.setVisibility(View.GONE);
+                }else{
+                    _rlOverlayKaatje.setVisibility(View.VISIBLE);
+                    _tvKaatje.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        this.findViewById(R.id.rlKaatje_Overlay).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                _rlOverlayKaatje.setVisibility(View.GONE);
+                _tvKaatje.setVisibility(View.GONE);
+            }
+        });
     }
 
     @Override
@@ -129,6 +151,8 @@ public class ExerciseActivity extends Activity {
             this._rlKaatje.setVisibility(View.GONE);
         }else{
             this._rlKaatje.setVisibility(View.VISIBLE);
+            this._rlOverlayKaatje.setVisibility(View.VISIBLE);
+            this._tvKaatje.setVisibility(View.VISIBLE);
             this._tvKaatje.setText(text);
         }
     }
