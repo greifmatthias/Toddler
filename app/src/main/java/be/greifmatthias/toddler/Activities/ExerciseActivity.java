@@ -2,7 +2,9 @@ package be.greifmatthias.toddler.Activities;
 
 import android.app.Activity;
 import android.app.FragmentTransaction;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
@@ -33,6 +35,9 @@ public class ExerciseActivity extends Activity {
     private RelativeLayout _rlOverlayKaatje;
     private RelativeLayout _rlKaatje;
     private TextView _tvKaatje;
+    private RelativeLayout _rlVoiceKaatje;
+
+    private boolean _hasvoice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +59,7 @@ public class ExerciseActivity extends Activity {
         this._rlOverlayKaatje = findViewById(R.id.rlKaatje_Overlay);
         this._rlKaatje = findViewById(R.id.rlKaatje);
         this._tvKaatje = findViewById(R.id.tvKaatje);
+        this._rlVoiceKaatje = findViewById(R.id.rlVoiceKaatje);
 
 //        Get exercises
         this._exercises = new ArrayList<>();
@@ -87,6 +93,16 @@ public class ExerciseActivity extends Activity {
             }
         });
 
+//        Set KaatjeVoice click listener, to replay sound
+        this._rlVoiceKaatje.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(_hasvoice){
+                    __player.start();
+                }
+            }
+        });
+
         this.findViewById(R.id.rlKaatje_Overlay).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -101,6 +117,15 @@ public class ExerciseActivity extends Activity {
         super.onResume();
 
         setContent(this._curExercise);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        if(this._hasvoice){
+            this.__player.stop();
+        }
     }
 
     private void setContent(int position){
@@ -119,6 +144,13 @@ public class ExerciseActivity extends Activity {
     }
 
     public void goNext() {
+//        Stop voice if playing
+        if(this._hasvoice){
+            this.__player.stop();
+
+            this._rlVoiceKaatje.setVisibility(View.GONE);
+        }
+
 //        Set to next exercise
         this._curExercise++;
 
@@ -162,6 +194,35 @@ public class ExerciseActivity extends Activity {
             _tvWord.setVisibility(View.GONE);
         }else{
             _tvWord.setVisibility(View.VISIBLE);
+        }
+    }
+
+    private MediaPlayer __player;
+    public void setKaatje_voice(int resource) {
+        if(resource == 0){
+            this._hasvoice = false;
+        }else{
+            this._hasvoice = true;
+
+            this._rlVoiceKaatje.setVisibility(View.GONE);
+
+            if(this.__player != null) {
+                this.__player.release();
+            }
+
+            this.__player = MediaPlayer.create(this, resource);
+
+            this.__player.start();
+
+            this.__player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mp) {
+                    _rlVoiceKaatje.setVisibility(View.VISIBLE);
+
+                    _rlOverlayKaatje.setVisibility(View.GONE);
+                    _tvKaatje.setVisibility(View.GONE);
+                }
+            });
         }
     }
 }

@@ -127,7 +127,7 @@
                     android:layout_height="wrap_content"
                     android:paddingLeft="@dimen/padSmaller"
                     android:paddingTop="@dimen/padSmall"
-                    android:text="(Gebruik de knop hierboven)"/>
+                    android:text="(Gebruik de knop onderaan)"/>
 
             </LinearLayout>
 

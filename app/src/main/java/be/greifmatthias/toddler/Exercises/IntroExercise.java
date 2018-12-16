@@ -2,6 +2,7 @@ package be.greifmatthias.toddler.Exercises;
 
 import android.annotation.SuppressLint;
 import android.app.Fragment;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,6 +30,7 @@ public class IntroExercise extends Exercise {
     }
 
     public static class IntroFragment extends Fragment {
+        private IntroExercise _exercise;
         private ExerciseActivity _activity;
 
         public IntroFragment() {
@@ -42,6 +44,8 @@ public class IntroExercise extends Exercise {
             this._activity.setFullScreen(true);
 
             this._activity.setKaatje("Hallo ik ben Kaat. Ik ga vandaag samen met mijn vriendjes naar het bos, op groot avontuur. Klik maar op de bomen als je wilt starten.");
+            this._activity.setKaatje_voice(R.raw.intro);
+
         }
 
         @Override

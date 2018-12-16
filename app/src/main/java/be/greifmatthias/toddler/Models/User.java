@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import be.greifmatthias.toddler.Exercises.SectionExercise;
 import be.greifmatthias.toddler.Exercises.SentenceExercise;
 import be.greifmatthias.toddler.Exercises.SpeakingExercise;
 import be.greifmatthias.toddler.Helpers.DataHelper;
@@ -80,9 +81,14 @@ public class User implements Comparable<User> {
 
                 if(aUser.getId() == this.getId()){
                     aClass.removeStud(aUser);
+                    this.deleteData();
                 }
             }
         }
+    }
+
+    private void deleteData() {
+        DataHelper.getInstance().write(this.getDataname(), new ArrayList<String>());
     }
 
     private String getDataname(){
@@ -133,6 +139,9 @@ public class User implements Comparable<User> {
                                     break;
                                 case "Sorting":
                                     e = gson.fromJson(data.get(i), SortingExercise.class);
+                                    break;
+                                case "Section":
+                                    e = gson.fromJson(data.get(i), SectionExercise.class);
                                     break;
                             }
 

@@ -17,13 +17,14 @@
         android:textSize="@dimen/textBigger"
         android:textColor="@color/colorDark"
         android:background="@drawable/gradient_bottomtop"
-        android:backgroundTint="@color/colorDark_mintrans" />
+        android:backgroundTint="@color/colorDark_mintrans"
+        android:layout_alignParentBottom="true"/>
 
     <FrameLayout
         android:id="@+id/flContent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/tvWord" />
+        android:layout_above="@id/tvWord" />
 
     <RelativeLayout
         android:id="@+id/rlKaatje"
@@ -36,13 +37,40 @@
             android:id="@+id/rlKaatje_Overlay"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorDark_trans"></RelativeLayout>
+            android:background="@color/colorDark_semitrans">
+
+            <!--VOICE REPLAY-->
+            <RelativeLayout
+                android:id="@+id/rlVoiceKaatje"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/padBig"
+                android:padding="@dimen/padSmall"
+                android:background="@drawable/roundcorners"
+                android:backgroundTint="@color/colorLight">
+
+                <ImageView
+                    android:id="@+id/ivReplay"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_round_replay"
+                    android:tint="@color/colorDark"/>
+
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Herspeel Kaatjes stem"
+                    android:layout_toRightOf="@+id/ivReplay"
+                    android:textColor="@color/colorDark"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:background="@drawable/gradient_bottomtop"
-            android:backgroundTint="@color/colorAccent_light"
             android:layout_alignParentBottom="true" />
 
         <RelativeLayout

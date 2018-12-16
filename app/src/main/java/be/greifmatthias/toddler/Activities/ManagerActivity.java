@@ -308,7 +308,7 @@ public class ManagerActivity extends Activity {
             public void onClick(View view) {
 //                Save toddler
                 Class c = ((Class) _spClasses.getSelectedItem());
-                c.addStud(new User(Class.getNextToddlerId(), TypeHelper.convertName(etName.getText().toString()), etFamname.getText().toString(), true));
+                c.addStud(new User(Class.getNextToddlerId(), TypeHelper.convertName(etName.getText().toString()), TypeHelper.convertName(etFamname.getText().toString()), true));
 
 //                Reset views
                 etName.setText("");
