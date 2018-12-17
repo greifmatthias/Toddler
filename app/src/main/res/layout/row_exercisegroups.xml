@@ -21,12 +21,32 @@
             android:textStyle="bold"
             android:layout_weight="1"/>
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@drawable/border"
+        android:backgroundTint="@color/colorDark_mintrans">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/padNormal"
+            android:paddingTop="@dimen/padSmaller"
+            android:paddingBottom="@dimen/padSmaller"
+            android:textSize="@dimen/textNormal"
+            android:textColor="@color/colorDark"
+            android:layout_weight="1"
+            android:text="Preteaching"/>
+
         <ImageView
             android:id="@+id/ivState"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginRight="@dimen/padNormal"
-            android:src="@drawable/ic_round_check"/>
+            android:layout_marginRight="@dimen/padNormal" />
 
     </LinearLayout>
 
@@ -36,5 +56,32 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginBottom="@dimen/padSmall"></LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@drawable/border"
+        android:backgroundTint="@color/colorDark_mintrans">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/padNormal"
+            android:paddingTop="@dimen/padSmaller"
+            android:paddingBottom="@dimen/padSmaller"
+            android:textSize="@dimen/textNormal"
+            android:textColor="@color/colorDark"
+            android:layout_weight="1"
+            android:text="Endteaching"/>
+
+        <ImageView
+            android:id="@+id/ivState_after"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="@dimen/padNormal" />
+
+    </LinearLayout>
 
 </LinearLayout>

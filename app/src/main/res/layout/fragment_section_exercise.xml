@@ -3,15 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tvPLACEHOLDER"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="DEES WORD OEFENING 5"
-        android:padding="@dimen/padBig"/>
-
     <LinearLayout
-        android:layout_below="@id/tvPLACEHOLDER"
         android:id="@+id/llSections"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@color/colorNo"
-            android:padding="@dimen/padBig"
+            android:padding="@dimen/padInsane"
             android:layout_marginRight="@dimen/padSmall"
             android:orientation="horizontal"></LinearLayout>
 
@@ -35,8 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@color/colorYes"
-            android:padding="@dimen/padBig"
-            android:layout_marginLeft="@dimen/padSmall"
+            android:padding="@dimen/padInsane"
             android:orientation="horizontal"></LinearLayout>
 
     </LinearLayout>

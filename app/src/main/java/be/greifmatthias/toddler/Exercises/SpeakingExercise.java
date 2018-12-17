@@ -88,14 +88,13 @@ public class SpeakingExercise extends Exercise {
             view.findViewById(R.id.fabUnlock).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    view.findViewById(R.id.rlRate_yes).setVisibility(View.VISIBLE);
-                    view.findViewById(R.id.rlRate_not).setVisibility(View.VISIBLE);
+                    view.findViewById(R.id.rlFeedback).setVisibility(View.VISIBLE);
                     view.findViewById(R.id.fabUnlock).setVisibility(View.GONE);
                 }
             });
 
 //            Raters
-            view.findViewById(R.id.rlRate_not).setOnClickListener(new View.OnClickListener() {
+            view.findViewById(R.id.ivNo).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     _exercise.setScore(false);
@@ -103,7 +102,7 @@ public class SpeakingExercise extends Exercise {
                 }
             });
 
-            view.findViewById(R.id.rlRate_yes).setOnClickListener(new View.OnClickListener() {
+            view.findViewById(R.id.ivYes).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     _exercise.setScore(true);

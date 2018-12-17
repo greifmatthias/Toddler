@@ -3,6 +3,7 @@ package be.greifmatthias.toddler.Exercises;
 import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +25,15 @@ public class SectionExercise extends Exercise {
     }
 
     @Override
+    public int getIcon() {
+        if(this._haspassed){
+            return R.drawable.ic_round_done;
+        }
+
+        return R.drawable.ic_round_close;
+    }
+
+    @Override
     public String getName() {
         return "Vakjesoefening";
     }
@@ -38,64 +48,64 @@ public class SectionExercise extends Exercise {
 
         switch (this._word){
             case "De duikbril":
-                tiles.add(new Tile(R.drawable.ogen, true));
-                tiles.add(new Tile(R.drawable.strand, true));
-                tiles.add(new Tile(R.drawable.zwemmen, true));
-                tiles.add(new Tile(R.drawable.schrijven, false));
+                tiles.add(new Tile(R.drawable.duikbril_01, true));
+                tiles.add(new Tile(R.drawable.duikbril_02, true));
+                tiles.add(new Tile(R.drawable.duikbril_03, true));
+                tiles.add(new Tile(R.drawable.duikbril_false, false));
                 break;
             case "Het klimtouw":
-                tiles.add(new Tile(R.drawable.klimmen, true));
-                tiles.add(new Tile(R.drawable.sterk, true));
-                tiles.add(new Tile(R.drawable.turnzaal, true));
-                tiles.add(new Tile(R.drawable.zwembad, false));
+                tiles.add(new Tile(R.drawable.klimtouw_01, true));
+                tiles.add(new Tile(R.drawable.klimtouw_02, true));
+                tiles.add(new Tile(R.drawable.klimtouw_03, true));
+                tiles.add(new Tile(R.drawable.klimtouw_false, false));
                 break;
             case "Het kroos":
-                tiles.add(new Tile(R.drawable.groen, true));
-                tiles.add(new Tile(R.drawable.vijver, true));
-                tiles.add(new Tile(R.drawable.lamp, false));
-                tiles.add(new Tile(R.drawable.eend, false));
+                tiles.add(new Tile(R.drawable.kroos_01, true));
+                tiles.add(new Tile(R.drawable.kroos_02, true));
+                tiles.add(new Tile(R.drawable.kroos_03, false));
+                tiles.add(new Tile(R.drawable.kroos_false, false));
                 break;
             case "Het riet":
-                tiles.add(new Tile(R.drawable.vijver, true));
-                tiles.add(new Tile(R.drawable.eend, true));
-                tiles.add(new Tile(R.drawable.bos, true));
-                tiles.add(new Tile(R.drawable.bril, false));
+                tiles.add(new Tile(R.drawable.riet_01, true));
+                tiles.add(new Tile(R.drawable.riet_02, true));
+                tiles.add(new Tile(R.drawable.riet_03, true));
+                tiles.add(new Tile(R.drawable.riet_false, false));
                 break;
             case "De val":
-                tiles.add(new Tile(R.drawable.pijn, true));
-                tiles.add(new Tile(R.drawable.naarvoor, true));
-                tiles.add(new Tile(R.drawable.pleister, true));
-                tiles.add(new Tile(R.drawable.appel, false));
+                tiles.add(new Tile(R.drawable.val_01, true));
+                tiles.add(new Tile(R.drawable.val_02, true));
+                tiles.add(new Tile(R.drawable.val_03, true));
+                tiles.add(new Tile(R.drawable.val_false, false));
                 break;
             case "Het kompas":
-                tiles.add(new Tile(R.drawable.wandelen, true));
-                tiles.add(new Tile(R.drawable.rugzak, true));
-                tiles.add(new Tile(R.drawable.landkaart, true));
-                tiles.add(new Tile(R.drawable.bad, false));
+                tiles.add(new Tile(R.drawable.kompas_01, true));
+                tiles.add(new Tile(R.drawable.kompas_02, true));
+                tiles.add(new Tile(R.drawable.kompas_03, true));
+                tiles.add(new Tile(R.drawable.kompas_false, false));
                 break;
             case "Steil":
-                tiles.add(new Tile(R.drawable.berg, true));
-                tiles.add(new Tile(R.drawable.klimmen, true));
-                tiles.add(new Tile(R.drawable.trap, true));
-                tiles.add(new Tile(R.drawable.bloem, false));
+                tiles.add(new Tile(R.drawable.steil_01, true));
+                tiles.add(new Tile(R.drawable.steil_02, true));
+                tiles.add(new Tile(R.drawable.steil_03, true));
+                tiles.add(new Tile(R.drawable.steil_false, false));
                 break;
             case "De zwaan":
-                tiles.add(new Tile(R.drawable.vijver, true));
-                tiles.add(new Tile(R.drawable.vleugels, true));
-                tiles.add(new Tile(R.drawable.wit, true));
-                tiles.add(new Tile(R.drawable.boek, false));
+                tiles.add(new Tile(R.drawable.zwaan_01, true));
+                tiles.add(new Tile(R.drawable.zwaan_02, true));
+                tiles.add(new Tile(R.drawable.zwaan_03, true));
+                tiles.add(new Tile(R.drawable.zwaan_false, false));
                 break;
             case "Het kamp":
-                tiles.add(new Tile(R.drawable.kamp, true));
-                tiles.add(new Tile(R.drawable.kampvuur, true));
-                tiles.add(new Tile(R.drawable.slaapzak, true));
-                tiles.add(new Tile(R.drawable.deur, false));
+                tiles.add(new Tile(R.drawable.kamp_01, true));
+                tiles.add(new Tile(R.drawable.kamp_02, true));
+                tiles.add(new Tile(R.drawable.kamp_03, true));
+                tiles.add(new Tile(R.drawable.kamp_false, false));
                 break;
             case "De zaklamp":
-                tiles.add(new Tile(R.drawable.licht, true));
-                tiles.add(new Tile(R.drawable.batterij, true));
-                tiles.add(new Tile(R.drawable.donker, true));
-                tiles.add(new Tile(R.drawable.paard, false));
+                tiles.add(new Tile(R.drawable.zaklamp_01, true));
+                tiles.add(new Tile(R.drawable.zaklamp_02, true));
+                tiles.add(new Tile(R.drawable.zaklamp_03, true));
+                tiles.add(new Tile(R.drawable.zaklamp_false, false));
                 break;
         }
 
@@ -126,12 +136,16 @@ public class SectionExercise extends Exercise {
         private int[] _content;
         private int _currentselection = -1;
 
+        private boolean _iscorrect;
+
         public SectionFragment() {
             // Required empty public constructor
         }
 
         @SuppressLint("ValidFragment")
         public SectionFragment(SectionExercise exercise, ExerciseActivity activity){
+            this._iscorrect = true;
+
             this._exercise = exercise;
             this._activity = activity;
 
@@ -161,26 +175,34 @@ public class SectionExercise extends Exercise {
 //                    Get val
                         int val = 0;
                         switch (v.getId()) {
-                            case R.id.rlImage01:
+                            case R.id.ivImage01:
                                 val = 0;
                                 break;
-                            case R.id.rlImage02:
+                            case R.id.ivImage02:
                                 val = 1;
                                 break;
-                            case R.id.rlImage03:
+                            case R.id.ivImage03:
                                 val = 2;
                                 break;
-                            case R.id.rlImage04:
+                            case R.id.ivImage04:
                                 val = 3;
                                 break;
                         }
 
                         _currentselection = val;
 
-                        view.findViewById(R.id.rlImage01_check).setVisibility(View.VISIBLE);
-                        view.findViewById(R.id.rlImage02_check).setVisibility(View.VISIBLE);
-                        view.findViewById(R.id.rlImage03_check).setVisibility(View.VISIBLE);
-                        view.findViewById(R.id.rlImage04_check).setVisibility(View.VISIBLE);
+                        if(view.findViewById(R.id.ivImage01).getVisibility() != View.INVISIBLE) {
+                            view.findViewById(R.id.rlImage01_check).setVisibility(View.VISIBLE);
+                        }
+                        if(view.findViewById(R.id.ivImage02).getVisibility() != View.INVISIBLE) {
+                            view.findViewById(R.id.rlImage02_check).setVisibility(View.VISIBLE);
+                        }
+                        if(view.findViewById(R.id.ivImage03).getVisibility() != View.INVISIBLE) {
+                            view.findViewById(R.id.rlImage03_check).setVisibility(View.VISIBLE);
+                        }
+                        if(view.findViewById(R.id.ivImage04).getVisibility() != View.INVISIBLE) {
+                            view.findViewById(R.id.rlImage04_check).setVisibility(View.VISIBLE);
+                        }
 
 
 //                        Set selection
@@ -202,23 +224,38 @@ public class SectionExercise extends Exercise {
                 }
             };
 
-            view.findViewById(R.id.rlImage01).setOnClickListener(clickListener);
-            view.findViewById(R.id.rlImage02).setOnClickListener(clickListener);
-            view.findViewById(R.id.rlImage03).setOnClickListener(clickListener);
-            view.findViewById(R.id.rlImage04).setOnClickListener(clickListener);
+            view.findViewById(R.id.ivImage01).setOnClickListener(clickListener);
+            view.findViewById(R.id.ivImage02).setOnClickListener(clickListener);
+            view.findViewById(R.id.ivImage03).setOnClickListener(clickListener);
+            view.findViewById(R.id.ivImage04).setOnClickListener(clickListener);
 
             View.OnClickListener sectionclicklistener = new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if(_currentselection >= 0) {
+//                        Get selected
+                        boolean setcorrect = false;
+
                         switch (v.getId()) {
                             case R.id.llSectionYes:
-
+                                setcorrect = true;
                                 break;
                             case R.id.llSectionNo:
-
+                                setcorrect = false;
                                 break;
                         }
+
+//                        Update result
+                        _iscorrect = _iscorrect && (_exercise.getTiles().get(_content[_currentselection]).isValid() == setcorrect);
+
+                        Log.d("select", _exercise.getTiles().get(_content[_currentselection]).isValid() + "");
+                        Log.d("current", _iscorrect + "");
+
+//                        Revert UI
+                        view.findViewById(R.id.rlImage01_check).setVisibility(View.GONE);
+                        view.findViewById(R.id.rlImage02_check).setVisibility(View.GONE);
+                        view.findViewById(R.id.rlImage03_check).setVisibility(View.GONE);
+                        view.findViewById(R.id.rlImage04_check).setVisibility(View.GONE);
 
 //                        Hide inserted image
                         switch (_currentselection) {
@@ -236,13 +273,18 @@ public class SectionExercise extends Exercise {
                                 break;
                         }
 
-//                        Revert UI
-                        view.findViewById(R.id.rlImage01_check).setVisibility(View.GONE);
-                        view.findViewById(R.id.rlImage02_check).setVisibility(View.GONE);
-                        view.findViewById(R.id.rlImage03_check).setVisibility(View.GONE);
-                        view.findViewById(R.id.rlImage04_check).setVisibility(View.GONE);
+//                        Check if last
+                        if(view.findViewById(R.id.ivImage01).getVisibility() == View.INVISIBLE && view.findViewById(R.id.ivImage02).getVisibility() == View.INVISIBLE && view.findViewById(R.id.ivImage03).getVisibility() == View.INVISIBLE && view.findViewById(R.id.ivImage04).getVisibility() == View.INVISIBLE) {
+//                            Set score
+                            _exercise._haspassed = _iscorrect;
+                            _exercise._hasscore = true;
 
-                        _currentselection = -1;
+//                            Next exercise
+                            _activity.goNext();
+                        }else{
+//                            Revert selection
+                            _currentselection = -1;
+                        }
                     }
                 }
             };

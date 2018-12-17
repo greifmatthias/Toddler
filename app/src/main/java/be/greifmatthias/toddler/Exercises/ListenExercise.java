@@ -19,6 +19,7 @@ public class ListenExercise extends Exercise {
 
         this._type = "Listen";
     }
+
     @Override
     public int getIcon() {
         if(this._haspassed){

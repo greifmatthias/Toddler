@@ -202,13 +202,6 @@ public class ToddlerDetailActivity extends Activity {
             }
         }
 
-//        Check if test done
-        if(this._toddler.getExercises().get(0).isKnown()){
-            _ivTest.setImageResource(R.drawable.ic_round_assignment_turned_in);
-        }else{
-            _ivTest.setImageResource(R.drawable.ic_round_assignment);
-        }
-
 //        Check if already preteached words
         if(!this._toddler.getExercises().get(1).isPreteached()){
             this._llNotif.setVisibility(View.VISIBLE);
