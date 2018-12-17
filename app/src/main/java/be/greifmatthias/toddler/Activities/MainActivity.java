@@ -48,7 +48,7 @@ public class MainActivity extends Activity {
             }
         });
 
-//        Setup click for manager
+//        Setup click for manager (fab)
         findViewById(R.id.fabManager).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,7 +57,7 @@ public class MainActivity extends Activity {
             }
         });
 
-//        Setup click for list child clicks
+//        Setup click for toddler list item clicks
         this._elvStuds.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
 
             @Override
@@ -74,6 +74,7 @@ public class MainActivity extends Activity {
     protected void onResume() {
         super.onResume();
 
+//        Check for classes
         if (Class.get().size() > 0) {
 //        Load data
             HashMap<String, List<User>> data = new HashMap<>();
@@ -85,93 +86,115 @@ public class MainActivity extends Activity {
             this._adapter = new StudsAdapter(this, Class.get(), data);
             this._elvStuds.setAdapter(this._adapter);
 
+//            Setup UI
             this._elvStuds.setVisibility(View.VISIBLE);
             findViewById(R.id.llNotif).setVisibility(View.GONE);
         }else{
+//            Setup UI
             this._elvStuds.setVisibility(View.GONE);
             findViewById(R.id.llNotif).setVisibility(View.VISIBLE);
         }
     }
 
     private class StudsAdapter extends BaseExpandableListAdapter {
+
         private Context _context;
         private List<Class> _headers;
         private HashMap<String, List<User>> _data;
 
+//        Constructors
         public StudsAdapter(Context context, List<Class> classes, HashMap<String, List<User>> data) {
             this._context = context;
             this._headers = classes;
             this._data = data;
         }
 
+//        For getting Toddler
         @Override
         public User getChild(int groupPosition, int childPosititon) {
             return this._data.get(this._headers.get(groupPosition).getId() + "").get(childPosititon);
         }
 
+//        For gettings id of Toddler
         @Override
         public long getChildId(int groupPosition, int childPosition) {
             return childPosition;
         }
 
+//        For generating views for Toddlers
         @Override
-        public View getChildView(int groupPosition, final int childPosition,
-                                 boolean isLastChild, View convertView, ViewGroup parent) {
+        public View getChildView(int groupPosition, final int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
 
+//            Get Toddler
             User u = (User) getChild(groupPosition, childPosition);
 
+//            Build if no view
             if (convertView == null) {
                 LayoutInflater infalInflater = (LayoutInflater) this._context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 convertView = infalInflater.inflate(R.layout.studs_stud, null);
             }
 
+//            Get controls
             TextView txtListChild = (TextView) convertView.findViewById(R.id.tvName);
 
+//            Set content
             txtListChild.setText(u.getFamname() + " " + u.getName());
+
             return convertView;
         }
 
+//        Get count of Toddlers for Group
         @Override
         public int getChildrenCount(int groupPosition) {
             return this._data.get(this._headers.get(groupPosition).getId() + "").size();
         }
 
+//        Get Group
         @Override
         public Class getGroup(int groupPosition) {
             return this._headers.get(groupPosition);
         }
 
+//        Get total Groups
         @Override
         public int getGroupCount() {
             return this._headers.size();
         }
 
+//        Get id of Group
         @Override
         public long getGroupId(int groupPosition) {
             return groupPosition;
         }
 
+//        Generate view for Class
         @Override
         public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
+//            Get class
             Class c = (Class)getGroup(groupPosition);
 
+//            Build if no view
             if (convertView == null) {
-                LayoutInflater infalInflater = (LayoutInflater) this._context
-                        .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                LayoutInflater infalInflater = (LayoutInflater) this._context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 convertView = infalInflater.inflate(R.layout.studs_group, null);
             }
 
+//            Get controls
             TextView lblListHeader = (TextView) convertView.findViewById(R.id.tvName);
-            lblListHeader.setText(c.getName() + " (" + c.getGroup().getId() + ")");
+
+//            Set content
+            lblListHeader.setText(c.getYear() + ": " + c.getName() + " (Groep " + c.getGroup().getId() + ")");
 
             return convertView;
         }
 
+//        Override stable ids
         @Override
         public boolean hasStableIds() {
             return false;
         }
 
+//        Override child selection enable
         @Override
         public boolean isChildSelectable(int groupPosition, int childPosition) {
             return true;

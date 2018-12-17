@@ -178,11 +178,11 @@ public class Class implements Comparable<Class> {
 
     @Override
     public int compareTo(@NonNull Class aClass) {
-        if(this.getId() > aClass.getId()){
+        if(Integer.parseInt(this.getYear().substring(0, 4)) > Integer.parseInt(aClass.getYear().substring(0, 4))){
             return -1;
         }
 
-        if(this.getId() == aClass.getId()){
+        if(Integer.parseInt(this.getYear().substring(0, 4)) == Integer.parseInt(aClass.getYear().substring(0, 4))){
             return 0;
         }
 
