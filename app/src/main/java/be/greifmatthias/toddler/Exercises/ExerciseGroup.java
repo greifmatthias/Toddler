@@ -146,12 +146,14 @@ public class ExerciseGroup {
         SentenceExercise sentenceExercise = new SentenceExercise(this.getWord());
         SortingExercise sortingExercise = new SortingExercise(this.getWord());
         SectionExercise sectionExercise = new SectionExercise(this.getWord());
+        AdaptiveExercise adaptiveExercise = new AdaptiveExercise(this.getWord(), this.getCondition());
 
         _exercises.add(listenExercise);
         _exercises.add(speakingExercise);
         _exercises.add(sentenceExercise);
         _exercises.add(sortingExercise);
         _exercises.add(sectionExercise);
+        _exercises.add(adaptiveExercise);
     }
 
     public void clearExercises() {
