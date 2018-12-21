@@ -329,7 +329,7 @@ public class ToddlerDetailActivity extends Activity {
             }
 
             TextView lblListHeader = (TextView) convertView.findViewById(R.id.tvName);
-            lblListHeader.setText("Condition " + c);
+            lblListHeader.setText("Conditie " + c);
 
             return convertView;
         }
