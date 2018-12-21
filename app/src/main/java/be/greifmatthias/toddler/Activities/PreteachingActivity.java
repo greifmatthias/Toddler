@@ -1,6 +1,7 @@
 package be.greifmatthias.toddler.Activities;
 
 import android.app.Activity;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -25,6 +26,8 @@ public class PreteachingActivity extends Activity {
     private ImageView _ivImage02;
     private ImageView _ivImage03;
     private ImageView _ivImage04;
+
+    private MediaPlayer _player;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +59,10 @@ public class PreteachingActivity extends Activity {
     private void setContent(){
 //        Set header
         this._tvWord.setText(this._toddler.getExercises().get(_currentWord).getWord());
+
+//        Set voice
+        this._player = MediaPlayer.create(this, getVoice(this._toddler.getExercises().get(_currentWord).getWord()));
+        this._player.start();
 
 //        Set images
         List<ImageView> images = new ArrayList<>();
@@ -122,5 +129,32 @@ public class PreteachingActivity extends Activity {
                 this.setContent();
             }
         }
+    }
+
+    private int getVoice(String word){
+        switch (word){
+            case "De duikbril":
+                return R.raw.preteach_duikbril;
+            case "Het klimtouw":
+                return R.raw.preteach_klimtouw;
+            case "Het kroos":
+                return R.raw.preteach_kroos;
+            case "Het riet":
+                return R.raw.preteach_riet;
+            case "De val":
+                return R.raw.preteach_val;
+            case "Het kompas":
+                return R.raw.preteach_kompas;
+            case "Steil":
+                return R.raw.preteach_steil;
+            case "De zwaan":
+                return R.raw.preteach_zwaan;
+            case "Het kamp":
+                return R.raw.preteach_kamp;
+            case "De zaklamp":
+                return R.raw.preteach_zaklamp;
+        }
+
+        return 0;
     }
 }
