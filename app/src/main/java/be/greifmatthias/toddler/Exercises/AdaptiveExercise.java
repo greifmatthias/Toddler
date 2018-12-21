@@ -98,21 +98,20 @@ public class AdaptiveExercise extends Exercise {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             // Inflate the layout for this fragment
-            final View view =  inflater.inflate(getLayout(), container, false);
+            final View view = inflater.inflate(getLayout(), container, false);
 
             return view;
         }
 
-        private int getLayout(){
-            switch (this._exercise.condition){
+        private int getLayout() {
+            switch (this._exercise.condition) {
                 case B:
                     return R.layout.fragment_adaptive_exercise_b;
                 case C:
                     return R.layout.fragment_adaptive_exercise_c;
-                    default:
-                        return R.layout.fragment_adaptive_exercise_a;
+                default:
+                    return R.layout.fragment_adaptive_exercise_a;
             }
         }
     }
-
 }
