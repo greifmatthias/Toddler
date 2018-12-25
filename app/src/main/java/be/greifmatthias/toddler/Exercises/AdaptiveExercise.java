@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import java.util.Arrays;
 import java.util.List;
@@ -25,11 +26,20 @@ public class AdaptiveExercise extends Exercise {
     }
     @Override
     public int getIcon() {
-        if(this._haspassed){
-            return R.drawable.ic_round_sentiment_satisfied;
-        }
+        switch (this.condition){
+            case A:
+                if(this._haspassed){
+                    return R.drawable.ic_round_sentiment_satisfied;
+                }
 
-        return R.drawable.ic_round_sentiment_dissatisfied;
+                return R.drawable.ic_round_sentiment_dissatisfied;
+            default:
+                if(this._haspassed){
+                    return R.drawable.ic_round_done;
+                }
+
+                return R.drawable.ic_round_close;
+        }
     }
 
     @Override
@@ -91,14 +101,16 @@ public class AdaptiveExercise extends Exercise {
             this._activity = activity;
             this._exercise = exercise;
 
-            activity.setKaatje(exercise.getKaatje());
-            activity.setFullScreen(true);
+            this._activity.setKaatje(exercise.getKaatje());
+            this._activity.setFullScreen(true);
         }
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             // Inflate the layout for this fragment
             final View view = inflater.inflate(getLayout(), container, false);
+
+            setupLayout(view);
 
             return view;
         }
@@ -112,6 +124,44 @@ public class AdaptiveExercise extends Exercise {
                 default:
                     return R.layout.fragment_adaptive_exercise_a;
             }
+        }
+
+        private void setupLayout(View view){
+            switch (this._exercise.condition) {
+                case B:
+//                    B
+                case C:
+//                    C
+                    this._activity.setFullScreen(false);
+                default:
+//                    A
+                    ((ImageView)view.findViewById(R.id.ivImage)).setImageResource(ExerciseGroup.getHdImage(this._exercise._word));
+
+//                    Set onclick listeners
+                    view.findViewById(R.id.rlRate_yes).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            setresult(true);
+                        }
+                    });
+
+                    view.findViewById(R.id.rlRate_not).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            setresult(false);
+                        }
+                    });
+            }
+        }
+
+//        Set result for exercises
+        private void setresult(boolean passed){
+//            Update results
+            this._exercise._hasscore = true;
+            this._exercise._haspassed = passed;
+
+//            Continue flow
+            this._activity.goNext();
         }
     }
 }

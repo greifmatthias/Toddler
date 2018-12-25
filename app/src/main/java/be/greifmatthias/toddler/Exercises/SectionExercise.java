@@ -43,6 +43,10 @@ public class SectionExercise extends Exercise {
         return new SectionFragment(this, activity);
     }
 
+    public String getKaatje(){
+        return this._word + ". Hoe ziet " + this._word + " eruit? Weet jij op welke prentjes " + this._word + " staat? Zet deze in het groene vak.";
+    }
+
     public List<Tile> getTiles(){
         List<Tile> tiles = new ArrayList<>();
 
@@ -151,7 +155,7 @@ public class SectionExercise extends Exercise {
 
             this._activity.setFullScreen(true);
 
-            this._activity.setKaatje("Hallo ik ben Kaat. Ik ga vandaag samen met mijn vriendjes naar het bos, op groot avontuur. Klik maar op de bomen als je wilt starten.");
+            this._activity.setKaatje(this._exercise.getKaatje());
         }
 
         @Override

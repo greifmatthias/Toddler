@@ -27,8 +27,6 @@ public class PreteachingActivity extends Activity {
     private ImageView _ivImage03;
     private ImageView _ivImage04;
 
-    private MediaPlayer _player;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,8 +59,8 @@ public class PreteachingActivity extends Activity {
         this._tvWord.setText(this._toddler.getExercises().get(_currentWord).getWord());
 
 //        Set voice
-        this._player = MediaPlayer.create(this, getVoice(this._toddler.getExercises().get(_currentWord).getWord()));
-        this._player.start();
+        MediaPlayer player = MediaPlayer.create(this, getVoice(this._toddler.getExercises().get(_currentWord).getWord()));
+        player.start();
 
 //        Set images
         List<ImageView> images = new ArrayList<>();

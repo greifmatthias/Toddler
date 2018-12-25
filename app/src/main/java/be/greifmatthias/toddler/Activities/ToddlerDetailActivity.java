@@ -30,7 +30,6 @@ public class ToddlerDetailActivity extends Activity {
     private ImageView _ivMore;
     private LinearLayout _llNotif;
     private LinearLayout _llExercises;
-    private ImageView _ivTest;
     private ExpandableListView _lvExercisegroups;
     private GroupsAdapter _adapter;
     private View _llActions;
@@ -58,7 +57,6 @@ public class ToddlerDetailActivity extends Activity {
         this._ivMore = findViewById(R.id.ivMore);
         this._llNotif = findViewById(R.id.llNotif);
         this._llExercises = findViewById(R.id.llExercises);
-        this._ivTest = findViewById(R.id.ivTest);
         this._lvExercisegroups = findViewById(R.id.lvExercisegroups);
         this._llActions = findViewById(R.id.llActions);
         this._rlOverlay = findViewById(R.id.rlOverlay);
@@ -108,9 +106,6 @@ public class ToddlerDetailActivity extends Activity {
                 }
             }
         });
-
-        //        Load exercisedata
-        this._groups = this._toddler.getExercises();
 
 //        Listen to group changes
         this._lvExercisegroups.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
