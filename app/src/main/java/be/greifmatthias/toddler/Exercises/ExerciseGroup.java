@@ -138,6 +138,7 @@ public class ExerciseGroup {
 
     public void loadDefault(){
 
+//        Make sure initialization
         getExercises();
 
 //        Set default
@@ -146,14 +147,26 @@ public class ExerciseGroup {
         SentenceExercise sentenceExercise = new SentenceExercise(this.getWord());
         SortingExercise sortingExercise = new SortingExercise(this.getWord());
         SectionExercise sectionExercise = new SectionExercise(this.getWord());
-        AdaptiveExercise adaptiveExercise = new AdaptiveExercise(this.getWord(), this.getCondition());
 
         _exercises.add(listenExercise);
         _exercises.add(speakingExercise);
         _exercises.add(sentenceExercise);
         _exercises.add(sortingExercise);
         _exercises.add(sectionExercise);
-        _exercises.add(adaptiveExercise);
+
+        if(_condition == Group.Condition.TEST){
+            AdaptiveExercise adaptiveExerciseA = new AdaptiveExercise(this.getWord(), Group.Condition.A);
+            _exercises.add(adaptiveExerciseA);
+
+            AdaptiveExercise adaptiveExerciseB = new AdaptiveExercise(this.getWord(), Group.Condition.B);
+            _exercises.add(adaptiveExerciseB);
+
+            AdaptiveExercise adaptiveExerciseC = new AdaptiveExercise(this.getWord(), Group.Condition.C);
+            _exercises.add(adaptiveExerciseC);
+        }else{
+            AdaptiveExercise adaptiveExercise = new AdaptiveExercise(this.getWord(), this.getCondition());
+            _exercises.add(adaptiveExercise);
+        }
     }
 
     public void clearExercises() {

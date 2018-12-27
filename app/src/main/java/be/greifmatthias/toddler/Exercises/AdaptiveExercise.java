@@ -2,18 +2,27 @@ package be.greifmatthias.toddler.Exercises;
 
 import android.annotation.SuppressLint;
 import android.app.Fragment;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import be.greifmatthias.toddler.Activities.ExerciseActivity;
 import be.greifmatthias.toddler.Models.Group;
 import be.greifmatthias.toddler.R;
+import pl.droidsonroids.gif.GifDrawable;
+import pl.droidsonroids.gif.GifImageView;
 
 public class AdaptiveExercise extends Exercise {
     private Group.Condition condition;
@@ -83,6 +92,81 @@ public class AdaptiveExercise extends Exercise {
         return this._word;
     }
 
+    public WordPart getWordpart(){
+        List<String> parts = new ArrayList<>();
+        List<Integer> voices = new ArrayList<>();
+        switch (this._word){
+            case "De duikbril":
+                parts.add("Duik");
+                parts.add("bril");
+                voices.add(R.raw.adaptive_c_duikbril_1);
+                voices.add(R.raw.adaptive_c_duikbril_2);
+                return new WordPart(parts, voices);
+            case "Het klimtouw":
+                parts.add("Klim");
+                parts.add("touw");
+                voices.add(R.raw.adaptive_c_klimtouw_1);
+                voices.add(R.raw.adaptive_c_klimtouw_2);
+                return new WordPart(parts, voices);
+            case "Het kroos":
+                parts.add("Kroos");
+                voices.add(R.raw.adaptive_c_duikbril_1);
+                return new WordPart(parts, voices);
+            case "Het riet":
+                parts.add("Riet");
+                voices.add(R.raw.adaptive_c_duikbril_1);
+                return new WordPart(parts, voices);
+            case "De val":
+                parts.add("Val");
+                voices.add(R.raw.adaptive_c_duikbril_1);
+                return new WordPart(parts, voices);
+            case "Het kompas":
+                parts.add("Kom");
+                parts.add("pas");
+                voices.add(R.raw.adaptive_c_kompas_1);
+                voices.add(R.raw.adaptive_c_kompas_2);
+                return new WordPart(parts, voices);
+            case "Steil":
+                parts.add("Steil");
+                voices.add(R.raw.adaptive_c_duikbril_1);
+                return new WordPart(parts, voices);
+            case "De zwaan":
+                parts.add("Zwaan");
+                voices.add(R.raw.adaptive_c_duikbril_1);
+                return new WordPart(parts, voices);
+            case "Het kamp":
+                parts.add("Kamp");
+                voices.add(R.raw.adaptive_c_duikbril_1);
+                return new WordPart(parts, voices);
+            case "De zaklamp":
+                parts.add("Zak");
+                parts.add("lamp");
+                voices.add(R.raw.adaptive_c_zaklamp_1);
+                voices.add(R.raw.adaptive_c_zaklamp_2);
+                return new WordPart(parts, voices);
+        }
+
+        return null;
+    }
+
+    public class WordPart {
+        private List<Integer> _voices;
+        private List<String> _parts;
+
+        public WordPart(List<String> parts, List<Integer> voices){
+            this._voices = voices;
+            this._parts = parts;
+        }
+
+        public List<Integer> getVoices(){
+            return this._voices;
+        }
+
+        public List<String> getParts(){
+            return this._parts;
+        }
+    }
+
     @Override
     public Fragment getFragment(ExerciseActivity activity) {
         return new AdaptiveFragment(activity, this);
@@ -91,6 +175,11 @@ public class AdaptiveExercise extends Exercise {
     public static class AdaptiveFragment extends Fragment {
         private ExerciseActivity _activity;
         private AdaptiveExercise _exercise;
+
+//        C
+        private MediaPlayer player;
+        private int currentaudiopos = 0;
+        private GifDrawable gdRabbit;
 
         public AdaptiveFragment() {
             // Required empty public constructor
@@ -130,9 +219,67 @@ public class AdaptiveExercise extends Exercise {
             switch (this._exercise.condition) {
                 case B:
 //                    B
+                    break;
                 case C:
 //                    C
                     this._activity.setFullScreen(false);
+
+//                    Get word information
+                    final WordPart word = this._exercise.getWordpart();
+
+//                    Add parts
+                    LinearLayout llPartContainer = view.findViewById(R.id.llWords);
+                    for (int i = 0; i < word.getParts().size() - 1; i++) {
+                        TextView tvPartcontainer = new TextView(getContext());
+                        tvPartcontainer.setText(word.getParts().get(i) + " - ");
+
+                        llPartContainer.addView(tvPartcontainer);
+                    }
+//                    Add last part
+                    TextView tvPartcontainer = new TextView(getContext());
+                    tvPartcontainer.setText(word.getParts().get(word.getParts().size() - 1));
+                    llPartContainer.addView(tvPartcontainer);
+
+//                    Setup rabbit
+                    try {
+                        gdRabbit = new GifDrawable(getResources(), R.drawable.rabbit);
+                        final GifImageView givRabbit = view.findViewById(R.id.givRabbit);
+                        givRabbit.setImageDrawable(gdRabbit);
+                        givRabbit.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                if(gdRabbit.canPause()){
+                                    gdRabbit.pause();
+                                }else{
+                                    gdRabbit.start();
+                                }
+                            }
+                        });
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+//                    Play audio
+                    player = MediaPlayer.create(getContext(), word.getVoices().get(currentaudiopos));
+                    player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                        @Override
+                        public void onCompletion(MediaPlayer mp) {
+                            currentaudiopos++;
+                            if(currentaudiopos < word.getVoices().size()){
+                                new Timer().schedule(
+                                        new TimerTask() {
+                                            @Override
+                                            public void run() {
+                                                player = MediaPlayer.create(getContext(), word.getVoices().get(currentaudiopos));
+                                                player.start();
+                                            }
+                                        }, 500);
+                            }
+                        }
+                    });
+                    player.start();
+
+                    break;
                 default:
 //                    A
                     ((ImageView)view.findViewById(R.id.ivImage)).setImageResource(ExerciseGroup.getHdImage(this._exercise._word));
@@ -151,6 +298,7 @@ public class AdaptiveExercise extends Exercise {
                             setresult(false);
                         }
                     });
+                    break;
             }
         }
 

@@ -66,8 +66,8 @@ public class ExerciseActivity extends Activity {
 
 //        Setup exercises
         ExerciseGroup exercise = new ExerciseGroup("", Group.Condition.A);
-
         exercise.clearExercises();
+
 //        Add exercise_intro
         exercise.addExercise(new IntroExercise(""));
         this._exercises.add(exercise);
