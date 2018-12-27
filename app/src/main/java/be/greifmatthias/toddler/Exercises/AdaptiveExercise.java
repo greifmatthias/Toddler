@@ -219,65 +219,46 @@ public class AdaptiveExercise extends Exercise {
             switch (this._exercise.condition) {
                 case B:
 //                    B
+                    this._activity.goNext();
                     break;
                 case C:
 //                    C
-                    this._activity.setFullScreen(false);
-
 //                    Get word information
                     final WordPart word = this._exercise.getWordpart();
 
 //                    Add parts
-                    LinearLayout llPartContainer = view.findViewById(R.id.llWords);
+                    TextView tvWordparts = view.findViewById(R.id.tvWordparts);
                     for (int i = 0; i < word.getParts().size() - 1; i++) {
-                        TextView tvPartcontainer = new TextView(getContext());
-                        tvPartcontainer.setText(word.getParts().get(i) + " - ");
-
-                        llPartContainer.addView(tvPartcontainer);
+                        tvWordparts.setText(tvWordparts.getText().toString() + word.getParts().get(i) + " - ");
                     }
 //                    Add last part
-                    TextView tvPartcontainer = new TextView(getContext());
-                    tvPartcontainer.setText(word.getParts().get(word.getParts().size() - 1));
-                    llPartContainer.addView(tvPartcontainer);
+                    tvWordparts.setText(tvWordparts.getText().toString() + word.getParts().get(word.getParts().size() - 1));
 
 //                    Setup rabbit
                     try {
                         gdRabbit = new GifDrawable(getResources(), R.drawable.rabbit);
+                        gdRabbit.stop();
                         final GifImageView givRabbit = view.findViewById(R.id.givRabbit);
                         givRabbit.setImageDrawable(gdRabbit);
-                        givRabbit.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                if(gdRabbit.canPause()){
-                                    gdRabbit.pause();
-                                }else{
-                                    gdRabbit.start();
-                                }
-                            }
-                        });
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
 
-//                    Play audio
-                    player = MediaPlayer.create(getContext(), word.getVoices().get(currentaudiopos));
-                    player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+//                    Set play click
+                    view.findViewById(R.id.fabReplay).setOnClickListener(new View.OnClickListener() {
                         @Override
-                        public void onCompletion(MediaPlayer mp) {
-                            currentaudiopos++;
-                            if(currentaudiopos < word.getVoices().size()){
-                                new Timer().schedule(
-                                        new TimerTask() {
-                                            @Override
-                                            public void run() {
-                                                player = MediaPlayer.create(getContext(), word.getVoices().get(currentaudiopos));
-                                                player.start();
-                                            }
-                                        }, 500);
-                            }
+                        public void onClick(View v) {
+                            playC(word);
                         }
                     });
-                    player.start();
+
+//                    Set next click
+                    view.findViewById(R.id.fabNext).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            setresult(true);
+                        }
+                    });
 
                     break;
                 default:
@@ -310,6 +291,41 @@ public class AdaptiveExercise extends Exercise {
 
 //            Continue flow
             this._activity.goNext();
+        }
+
+        private void playC(final WordPart word){
+//            Play audio
+            currentaudiopos = 0;
+            gdRabbit.setLoopCount(1);
+
+            player = MediaPlayer.create(getContext(), word.getVoices().get(currentaudiopos));
+
+            final MediaPlayer.OnCompletionListener listener = new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mp) {
+                    currentaudiopos++;
+                    gdRabbit.stop();
+                    gdRabbit.seekToFrame(0);
+
+                    if(currentaudiopos < word.getVoices().size()) {
+                        player = MediaPlayer.create(getContext(), word.getVoices().get(currentaudiopos));
+                        player.setOnCompletionListener(this);
+
+                        new Timer().schedule(
+                                new TimerTask() {
+                                    @Override
+                                    public void run() {
+                                        player.start();
+                                        gdRabbit.start();
+                                    }
+                                }, 1000);
+                    }
+                }
+            };
+            player.setOnCompletionListener(listener);
+            player.start();
+            gdRabbit.seekToFrame(0);
+            gdRabbit.start();
         }
     }
 }

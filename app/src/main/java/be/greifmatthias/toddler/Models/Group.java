@@ -169,7 +169,6 @@ public class Group {
         List<ExerciseGroup> groups = new ArrayList<>();
 
         ExerciseGroup testExercise = new ExerciseGroup("De duikbril", Condition.TEST);
-        testExercise.setTest();
         groups.add(testExercise);
 
         for(WordSet set : this.getWordSet()){

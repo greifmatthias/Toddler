@@ -8,7 +8,6 @@ import be.greifmatthias.toddler.Models.User;
 import be.greifmatthias.toddler.R;
 
 public class ExerciseGroup {
-    private boolean _isTest;
     private String _word;
     private List<Exercise> _exercises;
 
@@ -18,8 +17,6 @@ public class ExerciseGroup {
     private Group.Condition _condition;
 
     public ExerciseGroup(String word, Group.Condition condition){
-        this._isTest = false;
-
         this._word = word;
         this._condition = condition;
 
@@ -62,10 +59,11 @@ public class ExerciseGroup {
         }
     }
 
+//    Returns image for word
     public int getImage(){
         return getImage(this.getWord());
     }
-
+//    Returns image for word in HD
     public static int getHdImage(String word){
         switch (word){
             case "De duikbril":
@@ -93,10 +91,6 @@ public class ExerciseGroup {
         }
     }
 
-    public int getHdImage(){
-        return getHdImage(this.getWord());
-    }
-
     public boolean isPreteached() {
         return this._preteached;
     }
@@ -113,16 +107,9 @@ public class ExerciseGroup {
         return this._known;
     }
 
-    public boolean isTest() {
-        return this._isTest;
-    }
-
-    public void setTest() {
-        this._isTest = true;
-    }
-
     //    Get exercises for this group
     public List<Exercise> getExercises(){
+//        Init exercises if not loaded yet
         if(_exercises == null){
             _exercises = new ArrayList<>();
         }
@@ -131,13 +118,14 @@ public class ExerciseGroup {
     }
 
     public void addExercise(Exercise e){
+//        Make sure initialization
         getExercises();
 
+//        Add exercise
         _exercises.add(e);
     }
 
     public void loadDefault(){
-
 //        Make sure initialization
         getExercises();
 
@@ -154,6 +142,7 @@ public class ExerciseGroup {
         _exercises.add(sortingExercise);
         _exercises.add(sectionExercise);
 
+//        Add exercise for each condition if test exercise, else only required condition
         if(_condition == Group.Condition.TEST){
             AdaptiveExercise adaptiveExerciseA = new AdaptiveExercise(this.getWord(), Group.Condition.A);
             _exercises.add(adaptiveExerciseA);
@@ -169,6 +158,7 @@ public class ExerciseGroup {
         }
     }
 
+//    Resets exercises
     public void clearExercises() {
         this._exercises = new ArrayList<>();
     }
