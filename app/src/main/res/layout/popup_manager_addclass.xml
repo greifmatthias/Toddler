@@ -8,39 +8,52 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/padNormal"
+        android:orientation="vertical"
         android:background="@color/colorLight"
-        android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Voeg een nieuwe Klas toe."
-                android:textColor="@color/colorDark"
-                android:textSize="@dimen/textNormal"
-                android:textStyle="bold"
-                android:layout_marginBottom="@dimen/padSmaller" />
-
-        <EditText
-            android:id="@+id/etClassName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Naam"
-            android:backgroundTint="@color/colorDark"
-            android:textColor="@color/colorDark" />
+        android:padding="@dimen/padNormal">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Schooljaar"
-            android:layout_marginTop="@dimen/padSmaller"
-            android:layout_marginBottom="@dimen/padSmall"
-            android:textSize="@dimen/textNormal"/>
+            android:text="Voeg een nieuwe Klas toe."
+            android:textColor="@color/colorDark"
+            android:textSize="@dimen/textNormal"
+            android:textStyle="bold"
+            android:layout_marginBottom="@dimen/padSmaller" />
 
-        <Spinner
-            android:id="@+id/spYear"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"></Spinner>
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_marginRight="@dimen/padExtrasmall">
+
+                <EditText
+                    android:id="@+id/etClassName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Naam"
+                    android:backgroundTint="@color/colorDark"
+                    android:textColor="@color/colorDark"
+                    android:inputType="text"
+                    android:maxLines="1"/>
+
+            </LinearLayout>
+
+            <Spinner
+                android:id="@+id/spYear"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/padExtrasmall"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -60,9 +73,9 @@
                 android:id="@+id/spGroups"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="gone"></Spinner>
-
+                android:visibility="gone" />
         </LinearLayout>
+
     </LinearLayout>
 
     <android.support.design.widget.FloatingActionButton

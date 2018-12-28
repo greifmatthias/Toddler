@@ -8,12 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import be.greifmatthias.toddler.Activities.ExerciseActivity;
-import be.greifmatthias.toddler.Models.User;
 import be.greifmatthias.toddler.R;
 
 public class SpeakingExercise extends Exercise {

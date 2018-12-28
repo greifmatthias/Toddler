@@ -78,9 +78,8 @@ public class DataHelper {
 
             is.close();
         } catch (FileNotFoundException e) { } catch (IOException e) { }
-        finally {
-            return output;
-        }
+
+        return output;
     }
 
     public static String getFromURL(String url) throws IOException, JSONException {
@@ -88,13 +87,13 @@ public class DataHelper {
         BufferedReader in = new BufferedReader(new InputStreamReader(targeturl.openStream()));
 
         String inputLine;
-        String output = "";
+        StringBuilder output = new StringBuilder();
 
         while ((inputLine = in.readLine()) != null) {
-            output += inputLine;
+            output.append(inputLine);
         }
         in.close();
 
-        return output;
+        return output.toString();
     }
 }

@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.io.IOException;
@@ -110,15 +109,15 @@ public class AdaptiveExercise extends Exercise {
                 return new WordPart(parts, voices);
             case "Het kroos":
                 parts.add("Kroos");
-                voices.add(R.raw.adaptive_c_duikbril_1);
+                voices.add(R.raw.adaptive_c_kroos);
                 return new WordPart(parts, voices);
             case "Het riet":
                 parts.add("Riet");
-                voices.add(R.raw.adaptive_c_duikbril_1);
+                voices.add(R.raw.adaptive_c_riet);
                 return new WordPart(parts, voices);
             case "De val":
                 parts.add("Val");
-                voices.add(R.raw.adaptive_c_duikbril_1);
+                voices.add(R.raw.adaptive_c_val);
                 return new WordPart(parts, voices);
             case "Het kompas":
                 parts.add("Kom");
@@ -128,15 +127,15 @@ public class AdaptiveExercise extends Exercise {
                 return new WordPart(parts, voices);
             case "Steil":
                 parts.add("Steil");
-                voices.add(R.raw.adaptive_c_duikbril_1);
+                voices.add(R.raw.adaptive_c_steil);
                 return new WordPart(parts, voices);
             case "De zwaan":
                 parts.add("Zwaan");
-                voices.add(R.raw.adaptive_c_duikbril_1);
+                voices.add(R.raw.adaptive_c_zwaan);
                 return new WordPart(parts, voices);
             case "Het kamp":
                 parts.add("Kamp");
-                voices.add(R.raw.adaptive_c_duikbril_1);
+                voices.add(R.raw.adaptive_c_kamp);
                 return new WordPart(parts, voices);
             case "De zaklamp":
                 parts.add("Zak");
@@ -219,6 +218,7 @@ public class AdaptiveExercise extends Exercise {
             switch (this._exercise.condition) {
                 case B:
 //                    B
+                    setresult(false);
                     this._activity.goNext();
                     break;
                 case C:

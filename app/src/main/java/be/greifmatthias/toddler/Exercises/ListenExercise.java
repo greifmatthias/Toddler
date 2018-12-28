@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import be.greifmatthias.toddler.Activities.ExerciseActivity;
-import be.greifmatthias.toddler.Models.User;
 import be.greifmatthias.toddler.R;
 
 public class ListenExercise extends Exercise {
@@ -92,6 +91,8 @@ public class ListenExercise extends Exercise {
             this._activity = activity;
             this._exercise = exercise;
 
+            _exercise.setScore(true);
+
             activity.setKaatje(exercise.getKaatje());
         }
 
@@ -108,8 +109,6 @@ public class ListenExercise extends Exercise {
                     _activity.goNext();
                 }
             });
-
-            this._exercise.setScore(true);
 
             return view;
         }

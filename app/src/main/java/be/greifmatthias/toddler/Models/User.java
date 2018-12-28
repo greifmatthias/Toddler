@@ -1,6 +1,7 @@
 package be.greifmatthias.toddler.Models;
 
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -24,19 +25,17 @@ public class User implements Comparable<User> {
     private int _id;
     private String _name;
     private String _famname;
-    private boolean _isboy;
 
     private List<ExerciseGroup> _exercises;
 
-    public User(int id, String name, String famname, boolean isboy){
+    public User(int id, String name, String famname){
         this._id = id;
         this._name = name;
         this._famname = famname;
-        this._isboy = isboy;
     }
 
-    public User(String name, String famname, boolean isboy){
-        this(Class.getNextToddlerId(), name, famname, isboy);
+    public User(String name, String famname){
+        this(Class.getNextToddlerId(), name, famname);
     }
 
     public int getId(){
@@ -49,10 +48,6 @@ public class User implements Comparable<User> {
 
     public String getFamname(){
         return this._famname;
-    }
-
-    public boolean isBoy(){
-        return this._isboy;
     }
 
     public static User get(int id){
@@ -200,6 +195,43 @@ public class User implements Comparable<User> {
         }
 
         DataHelper.getInstance().write(this.getDataname(), output);
+    }
+
+    public boolean isPreteached(){
+        for(ExerciseGroup exerciseGroup : this.getExercises()){
+            if(!exerciseGroup.isPreteached() && exerciseGroup.getCondition() != Group.Condition.TEST){
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public boolean isEndteached(){
+        for(ExerciseGroup exerciseGroup : this.getExercises()){
+            if(!exerciseGroup.isEndteached() && exerciseGroup.getCondition() != Group.Condition.TEST){
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public boolean allExercised(){
+        for(ExerciseGroup exerciseGroup : this.getExercises()){
+            if(exerciseGroup.getCondition() != Group.Condition.TEST) {
+                for (Exercise exercise : exerciseGroup.getExercises()) {
+                    if(!exercise.hasScore()){
+                        Log.d("deb", exercise.getType() + "not" + exerciseGroup.getWord());
+                        return false;
+                    }else{
+                        Log.d("deb", exercise.getType() + "yes" + exerciseGroup.getWord());
+                    }
+                }
+            }
+        }
+
+        return true;
     }
 
     @Override

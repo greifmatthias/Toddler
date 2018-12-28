@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import be.greifmatthias.toddler.Models.Group;
-import be.greifmatthias.toddler.Models.User;
 import be.greifmatthias.toddler.R;
 
 public class ExerciseGroup {
@@ -14,6 +13,9 @@ public class ExerciseGroup {
     private boolean _preteached;
     private boolean _known;
 
+    private boolean _endteached;
+    private boolean _endknown;
+
     private Group.Condition _condition;
 
     public ExerciseGroup(String word, Group.Condition condition){
@@ -22,6 +24,9 @@ public class ExerciseGroup {
 
         this._known = false;
         this._preteached = false;
+
+        this._endteached = false;
+        this._endknown = false;
     }
 
     public String getWord(){
@@ -95,16 +100,35 @@ public class ExerciseGroup {
         return this._preteached;
     }
 
-    public void setPreteached(){
+    public void setPreteached(boolean correct){
         this._preteached = true;
+        this._known = correct;
     }
 
-    public void setCorrect(){
-        this._known = true;
+    public void setEndteached(boolean correct) {
+        this._endteached = true;
+        this._endknown = correct;
     }
 
+    public boolean isEndteached(){
+        return this._endteached;
+    }
+
+    public boolean isEndknown(){
+        return this._endknown;
+    }
     public boolean isKnown() {
         return this._known;
+    }
+
+    public boolean isExercised(){
+        for(Exercise e : this.getExercises()){
+            if(!e.hasScore()){
+                return false;
+            }
+        }
+
+        return true;
     }
 
     //    Get exercises for this group

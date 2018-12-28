@@ -160,7 +160,7 @@ public class ManagerActivity extends Activity {
 
                 // Reset popup
                 ((Spinner)_classpopup.getContentView().findViewById(R.id.spGroups)).setSelection(0);
-                ((Spinner)_classpopup.getContentView().findViewById(R.id.spGroups)).setVisibility(View.GONE);
+                _classpopup.getContentView().findViewById(R.id.spGroups).setVisibility(View.GONE);
                 ((CheckBox)_classpopup.getContentView().findViewById(R.id.cbAllGroups)).setChecked(true);
 
                 _classpopup.showAtLocation(findViewById(R.id.rlRoot), Gravity.CENTER, 0, 0);
@@ -192,7 +192,7 @@ public class ManagerActivity extends Activity {
 
 //        Set Group spinner
         final Spinner spGroups = customView.findViewById(R.id.spGroups);
-        GroupsAdapter adapter = new GroupsAdapter(this, R.layout.classes_class_default, R.id.tvName, Group.getGroups());
+        GroupsAdapter adapter = new GroupsAdapter(this, R.layout.default_spinner, R.id.tvName, Group.getGroups());
         adapter.setDropDownViewResource(R.layout.classes_class);
         spGroups.setAdapter(adapter);
 
@@ -210,7 +210,7 @@ public class ManagerActivity extends Activity {
 
 //        Set Year spinner
         final Spinner spYear = customView.findViewById(R.id.spYear);
-        YearsAdapter yearsAdapter = new YearsAdapter(this, R.layout.classes_class_default, R.id.tvName);
+        YearsAdapter yearsAdapter = new YearsAdapter(this, R.layout.default_spinner, R.id.tvName);
         adapter.setDropDownViewResource(R.layout.classes_class);
         spYear.setAdapter(yearsAdapter);
 
@@ -308,7 +308,7 @@ public class ManagerActivity extends Activity {
             public void onClick(View view) {
 //                Save toddler
                 Class c = ((Class) _spClasses.getSelectedItem());
-                c.addStud(new User(Class.getNextToddlerId(), TypeHelper.convertName(etName.getText().toString()), TypeHelper.convertName(etFamname.getText().toString()), true));
+                c.addStud(new User(Class.getNextToddlerId(), TypeHelper.convertName(etName.getText().toString()), TypeHelper.convertName(etFamname.getText().toString())));
 
 //                Reset views
                 etName.setText("");

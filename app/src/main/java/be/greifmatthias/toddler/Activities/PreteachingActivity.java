@@ -21,6 +21,8 @@ public class PreteachingActivity extends Activity {
     private int _currentWord;
     private int _currentCorrect;
 
+    private boolean _end;
+
     private TextView _tvWord;
     private ImageView _ivImage01;
     private ImageView _ivImage02;
@@ -44,6 +46,7 @@ public class PreteachingActivity extends Activity {
 
 //        Load data
         this._toddler = User.get(this.getIntent().getIntExtra("toddlerId", 0));
+        this._end = this.getIntent().getBooleanExtra("end", false);
         this._currentWord = 1; // 0 = TestExercise so skip this one
     }
 
@@ -105,12 +108,11 @@ public class PreteachingActivity extends Activity {
 
     public void onImageClick(View view) {
         if(_currentWord < this._toddler.getExercises().size()) {
-//        Set preteached
-            this._toddler.getExercises().get(this._currentWord).setPreteached();
-
-//        Set if correct
-            if (view.getTag().equals(Integer.toString(this._currentCorrect))) {
-                this._toddler.getExercises().get(this._currentWord).setCorrect();
+//        Set result
+            if(this._end){
+                this._toddler.getExercises().get(this._currentWord).setEndteached(view.getTag().equals(Integer.toString(this._currentCorrect)));
+            }else {
+                this._toddler.getExercises().get(this._currentWord).setPreteached(view.getTag().equals(Integer.toString(this._currentCorrect)));
             }
 
 //        Next word

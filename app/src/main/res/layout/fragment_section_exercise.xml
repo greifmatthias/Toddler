@@ -19,7 +19,7 @@
             android:background="@color/colorNo"
             android:padding="@dimen/padInsane"
             android:layout_marginRight="@dimen/padSmall"
-            android:orientation="horizontal"></LinearLayout>
+            android:orientation="horizontal" />
 
         <LinearLayout
             android:id="@+id/llSectionYes"
@@ -28,7 +28,7 @@
             android:layout_weight="1"
             android:background="@color/colorYes"
             android:padding="@dimen/padInsane"
-            android:orientation="horizontal"></LinearLayout>
+            android:orientation="horizontal" />
 
     </LinearLayout>
 

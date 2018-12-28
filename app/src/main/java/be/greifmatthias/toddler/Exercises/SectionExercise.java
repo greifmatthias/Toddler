@@ -3,7 +3,6 @@ package be.greifmatthias.toddler.Exercises;
 import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -251,9 +250,6 @@ public class SectionExercise extends Exercise {
 
 //                        Update result
                         _iscorrect = _iscorrect && (_exercise.getTiles().get(_content[_currentselection]).isValid() == setcorrect);
-
-                        Log.d("select", _exercise.getTiles().get(_content[_currentselection]).isValid() + "");
-                        Log.d("current", _iscorrect + "");
 
 //                        Revert UI
                         view.findViewById(R.id.rlImage01_check).setVisibility(View.GONE);

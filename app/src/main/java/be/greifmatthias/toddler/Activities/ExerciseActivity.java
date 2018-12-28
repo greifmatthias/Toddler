@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
@@ -30,7 +29,6 @@ public class ExerciseActivity extends Activity {
     private int _curGroup;
 
     private TextView _tvWord;
-    private FrameLayout _content;
 
     private RelativeLayout _rlOverlayKaatje;
     private RelativeLayout _rlKaatje;
@@ -55,7 +53,6 @@ public class ExerciseActivity extends Activity {
 
 //        Get controls
         this._tvWord = findViewById(R.id.tvWord);
-        this._content = findViewById(R.id.flContent);
         this._rlOverlayKaatje = findViewById(R.id.rlKaatje_Overlay);
         this._rlKaatje = findViewById(R.id.rlKaatje);
         this._tvKaatje = findViewById(R.id.tvKaatje);

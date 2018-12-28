@@ -1,7 +1,6 @@
 package be.greifmatthias.toddler.Models;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import be.greifmatthias.toddler.Exercises.ExerciseGroup;
@@ -11,7 +10,7 @@ public class Group {
         A,
         B,
         C
-    };
+    }
 
     public enum Condition {
         TEST,

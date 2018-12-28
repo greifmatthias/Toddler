@@ -3,7 +3,6 @@ package be.greifmatthias.toddler.Exercises;
 import android.app.Fragment;
 
 import be.greifmatthias.toddler.Activities.ExerciseActivity;
-import be.greifmatthias.toddler.Models.User;
 import be.greifmatthias.toddler.R;
 
 public class Exercise {

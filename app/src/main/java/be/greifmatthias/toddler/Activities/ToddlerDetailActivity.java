@@ -79,6 +79,15 @@ public class ToddlerDetailActivity extends Activity {
             }
         });
 
+//        On overlay click
+        findViewById(R.id.rlOverlay).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toggleActions(true);
+            }
+        });
+
+//        Starting test exercise
         findViewById(R.id.llStartTest).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -96,13 +105,22 @@ public class ToddlerDetailActivity extends Activity {
 //                    Start preteaching
                     Intent preteachIntent = new Intent(getApplicationContext(), PreteachingActivity.class);
                     preteachIntent.putExtra("toddlerId", _toddler.getId());
+                    preteachIntent.putExtra("end", false);
                     startActivity(preteachIntent);
                 }else{
+                    if(findViewById(R.id.llNotifEND).getVisibility() == View.VISIBLE){
+//                        Start endteaching
+                        Intent preteachIntent = new Intent(getApplicationContext(), PreteachingActivity.class);
+                        preteachIntent.putExtra("toddlerId", _toddler.getId());
+                        preteachIntent.putExtra("end", true);
+                        startActivity(preteachIntent);
+                    }else {
 //                    Start expanded exercise
-                    Intent exerciseActivity = new Intent(getApplicationContext(), ExerciseActivity.class);
-                    exerciseActivity.putExtra("toddlerId", _toddler.getId());
-                    exerciseActivity.putExtra("condition", openedgroup);
-                    startActivity(exerciseActivity);
+                        Intent exerciseActivity = new Intent(getApplicationContext(), ExerciseActivity.class);
+                        exerciseActivity.putExtra("toddlerId", _toddler.getId());
+                        exerciseActivity.putExtra("condition", openedgroup);
+                        startActivity(exerciseActivity);
+                    }
                 }
             }
         });
@@ -191,14 +209,21 @@ public class ToddlerDetailActivity extends Activity {
             for(int j = 0; j < this._adapter.getChildrenCount(i); j++){
                 ExerciseGroup e = this._adapter.getChild(i, j);
 
-                if(e.getExercises().get(0).hasScore()){
+                if(e.isExercised()){
                     this._lvExercisegroups.expandGroup(i + 1);
                 }
             }
         }
 
+//        Check if all exercises made
+        if(this._toddler.allExercised() && !this._toddler.isEndteached()){
+            findViewById(R.id.llNotifEND).setVisibility(View.VISIBLE);
+        }else if(this._toddler.isEndteached()) {
+            _fabLaunch.setVisibility(View.GONE);
+        }
+
 //        Check if already preteached words
-        if(!this._toddler.getExercises().get(1).isPreteached()){
+        if(!this._toddler.isPreteached()){
             this._llNotif.setVisibility(View.VISIBLE);
             this._llExercises.setVisibility(View.GONE);
         }else{
@@ -243,7 +268,7 @@ public class ToddlerDetailActivity extends Activity {
         @Override
         public View getChildView(int groupPosition, final int childPosition, boolean isLastChild, View view, ViewGroup parent) {
 
-            ExerciseGroup u = (ExerciseGroup) getChild(groupPosition, childPosition);
+            ExerciseGroup u = getChild(groupPosition, childPosition);
 
             if (view == null) {
                 view = LayoutInflater.from(this._context).inflate(R.layout.row_exercisegroups, parent, false);
@@ -323,7 +348,7 @@ public class ToddlerDetailActivity extends Activity {
                 convertView = infalInflater.inflate(R.layout.studs_group, null);
             }
 
-            TextView lblListHeader = (TextView) convertView.findViewById(R.id.tvName);
+            TextView lblListHeader = convertView.findViewById(R.id.tvName);
             lblListHeader.setText("Conditie " + c);
 
             return convertView;

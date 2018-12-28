@@ -2,9 +2,7 @@ package be.greifmatthias.toddler.Exercises;
 
 import android.annotation.SuppressLint;
 import android.app.Fragment;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +15,6 @@ import java.util.List;
 
 import be.greifmatthias.toddler.Activities.ExerciseActivity;
 import be.greifmatthias.toddler.Helpers.TypeHelper;
-import be.greifmatthias.toddler.Models.User;
 import be.greifmatthias.toddler.R;
 
 public class SortingExercise extends Exercise {

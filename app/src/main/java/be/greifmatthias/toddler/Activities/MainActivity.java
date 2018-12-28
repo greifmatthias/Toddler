@@ -126,7 +126,7 @@ public class MainActivity extends Activity {
         public View getChildView(int groupPosition, final int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
 
 //            Get Toddler
-            User u = (User) getChild(groupPosition, childPosition);
+            User u = getChild(groupPosition, childPosition);
 
 //            Build if no view
             if (convertView == null) {
@@ -135,7 +135,7 @@ public class MainActivity extends Activity {
             }
 
 //            Get controls
-            TextView txtListChild = (TextView) convertView.findViewById(R.id.tvName);
+            TextView txtListChild = convertView.findViewById(R.id.tvName);
 
 //            Set content
             txtListChild.setText(u.getFamname() + " " + u.getName());
@@ -171,7 +171,7 @@ public class MainActivity extends Activity {
         @Override
         public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
 //            Get class
-            Class c = (Class)getGroup(groupPosition);
+            Class c = getGroup(groupPosition);
 
 //            Build if no view
             if (convertView == null) {
@@ -180,7 +180,7 @@ public class MainActivity extends Activity {
             }
 
 //            Get controls
-            TextView lblListHeader = (TextView) convertView.findViewById(R.id.tvName);
+            TextView lblListHeader = convertView.findViewById(R.id.tvName);
 
 //            Set content
             lblListHeader.setText(c.getYear() + ": " + c.getName() + " (Groep " + c.getGroup().getId() + ")");
