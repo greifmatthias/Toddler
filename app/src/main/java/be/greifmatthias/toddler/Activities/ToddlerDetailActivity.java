@@ -137,6 +137,10 @@ public class ToddlerDetailActivity extends Activity {
                         _lvExercisegroups.collapseGroup(i);
                     }
                 }
+
+                if(_toddler.isEndteached()) {
+                    _fabLaunch.setVisibility(View.GONE);
+                }
             }
         });
 
