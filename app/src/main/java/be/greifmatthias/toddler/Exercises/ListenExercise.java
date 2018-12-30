@@ -100,6 +100,33 @@ public class ListenExercise extends Exercise {
         return 0;
     }
 
+    public int getVoices_pre(){
+        switch (this._word){
+            case "De duikbril":
+                return R.raw.listen_duikbril_aanbieden;
+            case "Het klimtouw":
+                return R.raw.listen_klimtouw_aanbieden;
+            case "Het kroos":
+                return R.raw.listen_kroos_aanbieden;
+            case "Het riet":
+                return R.raw.listen_riet_aanbieden;
+            case "De val":
+                return R.raw.listen_val_aanbieden;
+            case "Het kompas":
+                return R.raw.listen_kompas_aanbieden;
+            case "Steil":
+                return R.raw.listen_steil_aanbieden;
+            case "De zwaan":
+                return R.raw.listen_zwaan_aanbieden;
+            case "Het kamp":
+                return R.raw.listen_kamp_aanbieden;
+            case "De zaklamp":
+                return R.raw.listen_zaklamp_aanbieden;
+        }
+
+        return 0;
+    }
+
     @Override
     public Fragment getFragment(ExerciseActivity activity) {
         return new ListenFragment(activity, this);
@@ -121,7 +148,12 @@ public class ListenExercise extends Exercise {
             this._exercise.setScore(true);
 
             this._activity.setKaatje(this._exercise.getKaatje());
-            this._activity.setKaatje_voice(this._exercise.getVoices());
+            this._activity.setKaatje_voice(this._exercise.getVoices_pre(), new ExerciseActivity.setKaatjeVoiceCallback() {
+                @Override
+                public void onCompete() {
+                    _activity.setKaatje_voice(_exercise.getVoices());
+                }
+            });
         }
 
         @Override

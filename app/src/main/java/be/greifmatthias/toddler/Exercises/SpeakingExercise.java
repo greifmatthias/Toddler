@@ -65,12 +65,13 @@ public class SpeakingExercise extends Exercise {
         }
 
         @SuppressLint("ValidFragment")
-        public SpeakingFragment(ExerciseActivity activity, SpeakingExercise exercise) {
+        public SpeakingFragment(final ExerciseActivity activity, SpeakingExercise exercise) {
             this._activity = activity;
             this._exercise = exercise;
 
 //            Set Kaatjes text
-            activity.setKaatje(exercise.getKaatje());
+            this._activity.setKaatje_voice(R.raw.exercise_speaking);
+            this._activity.setKaatje(exercise.getKaatje());
         }
 
         @Override

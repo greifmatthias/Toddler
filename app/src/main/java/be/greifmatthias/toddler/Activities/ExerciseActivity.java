@@ -222,4 +222,38 @@ public class ExerciseActivity extends Activity {
             });
         }
     }
+
+    public void setKaatje_voice(int resource, final setKaatjeVoiceCallback callback) {
+        if(resource == 0){
+            this._hasvoice = false;
+        }else{
+            this._hasvoice = true;
+
+            this._rlVoiceKaatje.setVisibility(View.GONE);
+
+            if(this.__player != null) {
+                this.__player.release();
+            }
+
+            this.__player = MediaPlayer.create(this, resource);
+
+            this.__player.start();
+
+            this.__player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mp) {
+                    _rlVoiceKaatje.setVisibility(View.VISIBLE);
+
+                    _rlOverlayKaatje.setVisibility(View.GONE);
+                    _tvKaatje.setVisibility(View.GONE);
+
+                    callback.onCompete();
+                }
+            });
+        }
+    }
+
+    public interface setKaatjeVoiceCallback{
+        public void onCompete();
+    }
 }
