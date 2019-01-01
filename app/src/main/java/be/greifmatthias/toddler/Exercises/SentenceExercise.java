@@ -60,6 +60,33 @@ public class SentenceExercise extends Exercise {
         return "Ik zou " + this._word + " graag in een zinnetje gebruiken, maar ik weet niet of ik het goed zeg. Help jij mij? Ik zeg een zinnetje en jij moet aanduiden of het zinnetje juist of fout is.";
     }
 
+    public int getVoice(){
+        switch (this._word){
+            case "De duikbril":
+                return R.raw.sentence_duikbril;
+            case "Het klimtouw":
+                return R.raw.sentence_klimtouw;
+            case "Het kroos":
+                return R.raw.sentence_kroos;
+            case "Het riet":
+                return R.raw.sentence_riet;
+            case "De val":
+                return R.raw.sentence_val;
+            case "Het kompas":
+                return R.raw.sentence_kompas;
+            case "Steil":
+                return R.raw.sentence_steil;
+            case "De zwaan":
+                return R.raw.sentence_zwaan;
+            case "Het kamp":
+                return R.raw.sentence_kamp;
+            case "De zaklamp":
+                return R.raw.sentence_zaklamp;
+        }
+
+        return 0;
+    }
+
     public Sentence getSentence(int part){
         switch (this._word){
             case "De duikbril":
@@ -149,6 +176,18 @@ public class SentenceExercise extends Exercise {
             this._exercise = exercise;
 
             activity.setKaatje(exercise.getKaatje());
+            this._activity.setKaatje_voice(this._exercise.getVoice(), new ExerciseActivity.setKaatjeVoiceCallback() {
+                @Override
+                public void onCompete() {
+                    _activity.setKaatje(_exercise.getKaatje());
+                    _activity.setKaatje_voice(R.raw.sentence_end, new ExerciseActivity.setKaatjeVoiceCallback() {
+                        @Override
+                        public void onCompete() {
+                            _activity.setKaatje_voice(_exercise.getSentence(_current).getVoice());
+                        }
+                    });
+                }
+            });
             activity.setFullScreen(true);
         }
 
@@ -159,7 +198,6 @@ public class SentenceExercise extends Exercise {
 
             this._current = TypeHelper.getRandom(0, 1);
             ((TextView)view.findViewById(R.id.tvSentence)).setText(_exercise.getSentence(this._current).getSentence());
-            this._activity.setKaatje_voice(_exercise.getSentence(this._current).getVoice());
 
             view.findViewById(R.id.rlRate_yes).setOnClickListener(new View.OnClickListener() {
                 @Override
