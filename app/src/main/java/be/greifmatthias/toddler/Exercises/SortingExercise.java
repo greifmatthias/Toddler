@@ -128,6 +128,14 @@ public class SortingExercise extends Exercise {
         return tiles;
     }
 
+    public int getVoice(boolean result){
+        if(result){
+            return R.raw.exercise_sorting_true;
+        }
+
+        return R.raw.exercise_sorting_false;
+    }
+
     public class Tile{
         private String _subject;
         private int _image;
@@ -159,6 +167,8 @@ public class SortingExercise extends Exercise {
         private int[] _content;
         private int[] _selected;
 
+        private boolean isvalid;
+
         public SortingFragment() {
             // Required empty public constructor
         }
@@ -170,7 +180,8 @@ public class SortingExercise extends Exercise {
 
             this._selected = new int[] {};
 
-            activity.setKaatje(exercise.getKaatje());
+            this._activity.setKaatje(this._exercise.getKaatje());
+            this._activity.setKaatje_voice(R.raw.exercise_sorting);
         }
 
         @Override
@@ -275,7 +286,7 @@ public class SortingExercise extends Exercise {
                 @Override
                 public void onClick(View view) {
 //                    Check score
-                    boolean isvalid = true;
+                    isvalid = true;
                     for(int i = 0; i < _selected.length; i++){
                         if(!_exercise.getTiles().get(_content[_selected[i]])._valid){
                             isvalid = false;
@@ -283,10 +294,19 @@ public class SortingExercise extends Exercise {
                         }
                     }
 
-                    _exercise._haspassed = isvalid;
-                    _exercise._hasscore = true;
+                    _activity.setKaatje_voice(_exercise.getVoice(isvalid), new ExerciseActivity.setKaatjeVoiceCallback() {
+                        @Override
+                        public void onCompete() {
+                            if(isvalid) {
+                                _activity.goNext();
+                            }
+                        }
+                    });
 
-                    _activity.goNext();
+                    if(!_exercise.hasScore()) {
+                        _exercise._haspassed = isvalid;
+                        _exercise._hasscore = true;
+                    }
                 }
             });
 
