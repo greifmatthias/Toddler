@@ -295,10 +295,12 @@ public class ToddlerDetailActivity extends Activity {
                 ivState.setImageResource(R.drawable.ic_round_close);
             }
 
-            if(u.isEndteached() && u.isEndknown()) {
-                ivState_after.setImageResource(R.drawable.ic_round_done);
-            }else{
-                ivState_after.setImageResource(R.drawable.ic_round_close);
+            if(u.isEndteached()) {
+                if (u.isEndteached() && u.isEndknown()) {
+                    ivState_after.setImageResource(R.drawable.ic_round_done);
+                } else {
+                    ivState_after.setImageResource(R.drawable.ic_round_close);
+                }
             }
 
             for(Exercise exercise : u.getExercises()){

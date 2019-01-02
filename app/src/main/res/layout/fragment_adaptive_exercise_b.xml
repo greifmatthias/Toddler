@@ -3,8 +3,38 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+    <ImageView
+        android:id="@+id/ivImage"
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="DIT WORD 6.B"/>
+        android:layout_marginLeft="@dimen/padBig"
+        android:background="@drawable/rounded_corners_bottom"
+        android:backgroundTint="@color/colorLight"
+        android:orientation="horizontal">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fabReplay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_round_replay"
+            android:tint="@color/colorDark"
+            android:backgroundTint="@color/colorAccent_light"
+            android:layout_margin="@dimen/padSmaller"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fabNext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_round_arrow_right_alt"
+            android:tint="@color/colorLight"
+            android:backgroundTint="@color/colorAccent"
+            android:layout_margin="@dimen/padSmaller"/>
+
+    </LinearLayout>
 </RelativeLayout>

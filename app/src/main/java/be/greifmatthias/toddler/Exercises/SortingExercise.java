@@ -130,10 +130,10 @@ public class SortingExercise extends Exercise {
 
     public int getVoice(boolean result){
         if(result){
-            return R.raw.exercise_sorting_true;
+            return R.raw.sorting_true;
         }
 
-        return R.raw.exercise_sorting_false;
+        return R.raw.sorting_false;
     }
 
     public class Tile{

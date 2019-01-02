@@ -218,7 +218,7 @@ public class SentenceExercise extends Exercise {
 
         private void checkResult(final boolean input, final View view){
 
-            this._activity.setKaatje_voice(getVoice(this._exercise.getSentence(this._current).getValid()), new ExerciseActivity.setKaatjeVoiceCallback() {
+            this._activity.setKaatje_voice(getVoice(this._exercise.getSentence(this._current).getValid() == input), new ExerciseActivity.setKaatjeVoiceCallback() {
                 @Override
                 public void onCompete() {
                     if(_islast){

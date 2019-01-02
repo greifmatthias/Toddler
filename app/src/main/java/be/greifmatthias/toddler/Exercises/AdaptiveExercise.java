@@ -245,8 +245,7 @@ public class AdaptiveExercise extends Exercise {
             switch (this._exercise.condition) {
                 case B:
 //                    B
-                    setresult(false);
-                    this._activity.goNext();
+                    this._activity.setFullScreen(false);
                     break;
                 case C:
 //                    C
@@ -348,7 +347,7 @@ public class AdaptiveExercise extends Exercise {
                                         player.start();
                                         gdRabbit.start();
                                     }
-                                }, 1000);
+                                }, 500);
                     }
                 }
             };

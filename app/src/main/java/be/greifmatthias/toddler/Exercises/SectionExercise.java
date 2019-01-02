@@ -46,6 +46,33 @@ public class SectionExercise extends Exercise {
         return this._word + ". Hoe ziet " + this._word + " eruit? Weet jij op welke prentjes " + this._word + " staat? Zet deze in het groene vak.";
     }
 
+    public int getKaatjeVoice(){
+        switch (this._word){
+            case "De duikbril":
+                return R.raw.section_duikbril;
+            case "Het klimtouw":
+                return R.raw.section_klimtouw;
+            case "Het kroos":
+                return R.raw.section_kroos;
+            case "Het riet":
+                return R.raw.section_riet;
+            case "De val":
+                return R.raw.section_val;
+            case "Het kompas":
+                return R.raw.section_kompas;
+            case "Steil":
+                return R.raw.section_steil;
+            case "De zwaan":
+                return R.raw.section_zwaan;
+            case "Het kamp":
+                return R.raw.section_kamp;
+            case "De zaklamp":
+                return R.raw.section_zaklamp;
+        }
+
+        return 0;
+    }
+
     public List<Tile> getTiles(){
         List<Tile> tiles = new ArrayList<>();
 
@@ -155,6 +182,7 @@ public class SectionExercise extends Exercise {
             this._activity.setFullScreen(true);
 
             this._activity.setKaatje(this._exercise.getKaatje());
+            this._activity.setKaatje_voice(this._exercise.getKaatjeVoice());
         }
 
         @Override
@@ -276,11 +304,29 @@ public class SectionExercise extends Exercise {
 //                        Check if last
                         if(view.findViewById(R.id.ivImage01).getVisibility() == View.INVISIBLE && view.findViewById(R.id.ivImage02).getVisibility() == View.INVISIBLE && view.findViewById(R.id.ivImage03).getVisibility() == View.INVISIBLE && view.findViewById(R.id.ivImage04).getVisibility() == View.INVISIBLE) {
 //                            Set score
-                            _exercise._haspassed = _iscorrect;
-                            _exercise._hasscore = true;
+                            if(!_exercise._hasscore){
+                                _exercise._hasscore = true;
+                                _exercise._haspassed = _iscorrect;
+                            }
 
 //                            Next exercise
-                            _activity.goNext();
+                            _activity.setKaatje_voice(getVoice(_iscorrect), new ExerciseActivity.setKaatjeVoiceCallback() {
+                                @Override
+                                public void onCompete() {
+                                    if(_iscorrect){
+                                        _activity.goNext();
+                                    }else{
+                                        view.findViewById(R.id.ivImage01).setVisibility(View.VISIBLE);
+                                        view.findViewById(R.id.ivImage02).setVisibility(View.VISIBLE);
+                                        view.findViewById(R.id.ivImage03).setVisibility(View.VISIBLE);
+                                        view.findViewById(R.id.ivImage04).setVisibility(View.VISIBLE);
+
+                                        _currentselection = -1;
+                                        _iscorrect = true;
+
+                                    }
+                                }
+                            });
                         }else{
 //                            Revert selection
                             _currentselection = -1;
@@ -293,6 +339,14 @@ public class SectionExercise extends Exercise {
             view.findViewById(R.id.llSectionNo).setOnClickListener(sectionclicklistener);
 
             return view;
+        }
+
+        private int getVoice(boolean correct){
+            if(correct){
+                return R.raw.section_true;
+            }
+
+            return R.raw.section_false;
         }
     }
 }
