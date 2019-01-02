@@ -295,6 +295,7 @@ public class AdaptiveExercise extends Exercise {
             }
         }
 
+        private MediaPlayer beeplayer;
         private void setupLayout(final View view){
             switch (this._exercise.condition) {
                 case B:
@@ -310,20 +311,26 @@ public class AdaptiveExercise extends Exercise {
 
                     ((ImageView)view.findViewById(R.id.ivImage)).setImageResource(ExerciseGroup.getHdImage(_exercise._word));
 
-                    final MediaPlayer beeplayer = MediaPlayer.create(getContext(), R.raw.bzz);
+                    if(beeplayer != null){
+                        beeplayer.release();
+                    }
+                    beeplayer = MediaPlayer.create(getContext(), R.raw.bzz);
 
                     view.findViewById(R.id.fabReplay).setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            MediaPlayer wordplayer = MediaPlayer.create(getContext(), _exercise.getVoice_B());
-                            wordplayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                            if(player != null){
+                                player.release();
+                            }
+                            player = MediaPlayer.create(getContext(), _exercise.getVoice_B());
+                            player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                                 @Override
                                 public void onCompletion(MediaPlayer mp) {
                                     beeplayer.pause();
                                     beeplayer.seekTo(0);
                                 }
                             });
-                            wordplayer.start();
+                            player.start();
                             beeplayer.start();
                         }
                     });
