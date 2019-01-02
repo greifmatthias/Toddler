@@ -118,6 +118,33 @@ public class AdaptiveExercise extends Exercise {
         return 0;
     }
 
+    public int getVoice_C(){
+        switch (this._word){
+            case "De duikbril":
+                return R.raw.adaptive_c_duikbril_intro;
+            case "Het klimtouw":
+                return R.raw.adaptive_c_klimtouw_intro;
+            case "Het kroos":
+                return R.raw.adaptive_c_kroos_intro;
+            case "Het riet":
+                return R.raw.adaptive_c_riet_intro;
+            case "De val":
+                return R.raw.adaptive_c_val_intro;
+            case "Het kompas":
+                return R.raw.adaptive_c_kompas_intro;
+            case "Steil":
+                return R.raw.adaptive_c_steil_intro;
+            case "De zwaan":
+                return R.raw.adaptive_c_zwaan_intro;
+            case "Het kamp":
+                return R.raw.adaptive_c_kamp_intro;
+            case "De zaklamp":
+                return R.raw.adaptive_c_zaklamp_intro;
+        }
+
+        return 0;
+    }
+
     public WordPart getWordpart(){
         List<String> parts = new ArrayList<>();
         List<Integer> voices = new ArrayList<>();
@@ -269,6 +296,14 @@ public class AdaptiveExercise extends Exercise {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
+
+//                    Set kaatjes voice
+                    this._activity.setKaatje_voice(this._exercise.getVoice_C(), new ExerciseActivity.setKaatjeVoiceCallback() {
+                        @Override
+                        public void onCompete() {
+                            playC(word);
+                        }
+                    });
 
 //                    Set play click
                     view.findViewById(R.id.fabReplay).setOnClickListener(new View.OnClickListener() {
