@@ -91,6 +91,33 @@ public class AdaptiveExercise extends Exercise {
         return this._word;
     }
 
+    public int getVoice_A(){
+        switch (this._word){
+            case "De duikbril":
+                return R.raw.adaptive_a_duikbril;
+            case "Het klimtouw":
+                return R.raw.adaptive_a_klimtouw;
+            case "Het kroos":
+                return R.raw.adaptive_a_kroos;
+            case "Het riet":
+                return R.raw.adaptive_a_riet;
+            case "De val":
+                return R.raw.adaptive_a_val;
+            case "Het kompas":
+                return R.raw.adaptive_a_kompas;
+            case "Steil":
+                return R.raw.adaptive_a_steil;
+            case "De zwaan":
+                return R.raw.adaptive_a_zwaan;
+            case "Het kamp":
+                return R.raw.adaptive_a_kamp;
+            case "De zaklamp":
+                return R.raw.adaptive_a_zaklamp;
+        }
+
+        return 0;
+    }
+
     public WordPart getWordpart(){
         List<String> parts = new ArrayList<>();
         List<Integer> voices = new ArrayList<>();
@@ -264,6 +291,9 @@ public class AdaptiveExercise extends Exercise {
                 default:
 //                    A
                     ((ImageView)view.findViewById(R.id.ivImage)).setImageResource(ExerciseGroup.getHdImage(this._exercise._word));
+
+//                    Set Kaatje
+                    this._activity.setKaatje_voice(this._exercise.getVoice_A());
 
 //                    Set onclick listeners
                     view.findViewById(R.id.rlRate_yes).setOnClickListener(new View.OnClickListener() {
