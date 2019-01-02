@@ -118,6 +118,33 @@ public class AdaptiveExercise extends Exercise {
         return 0;
     }
 
+    public int getVoice_B(){
+        switch (this._word){
+            case "De duikbril":
+                return R.raw.preteach_duikbril;
+            case "Het klimtouw":
+                return R.raw.preteach_klimtouw;
+            case "Het kroos":
+                return R.raw.preteach_kroos;
+            case "Het riet":
+                return R.raw.preteach_riet;
+            case "De val":
+                return R.raw.preteach_val;
+            case "Het kompas":
+                return R.raw.preteach_kompas;
+            case "Steil":
+                return R.raw.preteach_steil;
+            case "De zwaan":
+                return R.raw.preteach_zwaan;
+            case "Het kamp":
+                return R.raw.preteach_kamp;
+            case "De zaklamp":
+                return R.raw.preteach_zaklamp;
+        }
+
+        return 0;
+    }
+
     public int getVoice_C(){
         switch (this._word){
             case "De duikbril":
@@ -268,11 +295,63 @@ public class AdaptiveExercise extends Exercise {
             }
         }
 
-        private void setupLayout(View view){
+        private void setupLayout(final View view){
             switch (this._exercise.condition) {
                 case B:
 //                    B
                     this._activity.setFullScreen(false);
+
+                    this._activity.setKaatje_voice(this._exercise.getVoice_B(), new ExerciseActivity.setKaatjeVoiceCallback() {
+                        @Override
+                        public void onCompete() {
+                            _activity.setKaatje_voice(R.raw.adaptive_b_end);
+                        }
+                    });
+
+                    ((ImageView)view.findViewById(R.id.ivImage)).setImageResource(ExerciseGroup.getHdImage(_exercise._word));
+
+                    final MediaPlayer beeplayer = MediaPlayer.create(getContext(), R.raw.bzz);
+
+                    view.findViewById(R.id.fabReplay).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            MediaPlayer wordplayer = MediaPlayer.create(getContext(), _exercise.getVoice_B());
+                            wordplayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                                @Override
+                                public void onCompletion(MediaPlayer mp) {
+                                    beeplayer.pause();
+                                    beeplayer.seekTo(0);
+                                }
+                            });
+                            wordplayer.start();
+                            beeplayer.start();
+                        }
+                    });
+
+//                    Unlock fab
+                    view.findViewById(R.id.fabUnlock).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            view.findViewById(R.id.rlFeedback).setVisibility(View.VISIBLE);
+                            view.findViewById(R.id.llActions).setVisibility(View.GONE);
+                        }
+                    });
+
+//                    Raters
+                    view.findViewById(R.id.ivNo).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            setresult(false);
+                        }
+                    });
+
+                    view.findViewById(R.id.ivYes).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            setresult(true);
+                        }
+                    });
+
                     break;
                 case C:
 //                    C
@@ -313,10 +392,26 @@ public class AdaptiveExercise extends Exercise {
                         }
                     });
 
-//                    Set next click
-                    view.findViewById(R.id.fabNext).setOnClickListener(new View.OnClickListener() {
+//                    Unlock fab
+                    view.findViewById(R.id.fabUnlock).setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
+                            view.findViewById(R.id.rlFeedback).setVisibility(View.VISIBLE);
+                            view.findViewById(R.id.llActions).setVisibility(View.GONE);
+                        }
+                    });
+
+//                    Raters
+                    view.findViewById(R.id.ivNo).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            setresult(false);
+                        }
+                    });
+
+                    view.findViewById(R.id.ivYes).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
                             setresult(true);
                         }
                     });
@@ -382,7 +477,7 @@ public class AdaptiveExercise extends Exercise {
                                         player.start();
                                         gdRabbit.start();
                                     }
-                                }, 500);
+                                }, 300);
                     }
                 }
             };

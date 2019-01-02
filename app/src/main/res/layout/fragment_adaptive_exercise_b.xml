@@ -10,11 +10,75 @@
         android:scaleType="centerCrop"
         android:adjustViewBounds="true" />
 
+    <RelativeLayout
+        android:id="@+id/rlFeedback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorLight"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerVertical="true"
+            android:paddingLeft="@dimen/padNormal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Feedback"
+                android:textStyle="bold"
+                android:textSize="@dimen/textNormal"
+                android:textColor="@color/colorDark"
+                android:layout_marginBottom="@dimen/padExtrasmall"/>
+
+            <TextView
+                android:textColor="@color/colorDark_semitrans"
+                android:textSize="@dimen/textNormal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Heeft deze kleuter het woord goed kunnen uitspreken?"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentRight="true"
+            android:padding="@dimen/padNormal">
+
+            <ImageView
+                android:id="@+id/ivNo"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:padding="@dimen/padSmaller"
+                android:src="@drawable/ic_round_thumb_down"
+                android:tint="@color/colorNo"/>
+
+            <ImageView
+                android:id="@+id/ivYes"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:padding="@dimen/padSmaller"
+                android:src="@drawable/ic_round_thumb_up"
+                android:tint="@color/colorYes"
+                android:layout_marginLeft="@dimen/padNormal"/>
+
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
     <LinearLayout
+        android:id="@+id/llActions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/padBig"
-        android:background="@drawable/rounded_corners_bottom"
+        android:background="@drawable/roundcorners_bottom"
         android:backgroundTint="@color/colorLight"
         android:orientation="horizontal">
 
@@ -28,10 +92,10 @@
             android:layout_margin="@dimen/padSmaller"/>
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fabNext"
+            android:id="@+id/fabUnlock"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_round_arrow_right_alt"
+            android:src="@drawable/ic_round_lock_open"
             android:tint="@color/colorLight"
             android:backgroundTint="@color/colorAccent"
             android:layout_margin="@dimen/padSmaller"/>

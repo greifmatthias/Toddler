@@ -75,28 +75,6 @@
 
     </RelativeLayout>
 
-
-
-    <RelativeLayout
-        android:id="@+id/rlRate_yes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rounded_corners_left"
-        android:padding="@dimen/padNormal"
-        android:backgroundTint="@color/colorYes"
-        android:layout_alignParentRight="true"
-        android:layout_centerInParent="true"
-        android:visibility="gone">
-
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/ic_round_thumb_up"
-            android:tint="@color/colorLight"
-            android:layout_marginRight="@dimen/padNormal"/>
-
-    </RelativeLayout>
-
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
