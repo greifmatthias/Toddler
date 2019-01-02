@@ -457,6 +457,10 @@ public class AdaptiveExercise extends Exercise {
             currentaudiopos = 0;
             gdRabbit.setLoopCount(1);
 
+            if(player != null){
+                player.release();
+            }
+
             player = MediaPlayer.create(getContext(), word.getVoices().get(currentaudiopos));
 
             final MediaPlayer.OnCompletionListener listener = new MediaPlayer.OnCompletionListener() {
@@ -467,6 +471,10 @@ public class AdaptiveExercise extends Exercise {
                     gdRabbit.seekToFrame(0);
 
                     if(currentaudiopos < word.getVoices().size()) {
+                        if(player != null){
+                            player.release();
+                        }
+
                         player = MediaPlayer.create(getContext(), word.getVoices().get(currentaudiopos));
                         player.setOnCompletionListener(this);
 
