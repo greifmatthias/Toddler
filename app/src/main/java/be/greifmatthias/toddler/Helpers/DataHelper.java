@@ -81,19 +81,4 @@ public class DataHelper {
 
         return output;
     }
-
-    public static String getFromURL(String url) throws IOException, JSONException {
-        URL targeturl = new URL(url);
-        BufferedReader in = new BufferedReader(new InputStreamReader(targeturl.openStream()));
-
-        String inputLine;
-        StringBuilder output = new StringBuilder();
-
-        while ((inputLine = in.readLine()) != null) {
-            output.append(inputLine);
-        }
-        in.close();
-
-        return output.toString();
-    }
 }
