@@ -216,19 +216,33 @@ public class SentenceExercise extends Exercise {
             return view;
         }
 
-        private void checkResult(boolean input, View view){
-            if(_islast){
-                _exercise._hasscore = true;
-                _exercise._haspassed = input == this._exercise.getSentence(this._current).getValid() && this._firstresult;
-                _activity.goNext();
-            }else{
-                this._islast = true;
-                this._firstresult = input == this._exercise.getSentence(this._current).getValid();
+        private void checkResult(final boolean input, final View view){
 
-                this._current = 1 - this._current;
-                ((TextView)view.findViewById(R.id.tvSentence)).setText(_exercise.getSentence(this._current).getSentence());
-                this._activity.setKaatje_voice(_exercise.getSentence(this._current).getVoice());
+            this._activity.setKaatje_voice(getVoice(this._exercise.getSentence(this._current).getValid()), new ExerciseActivity.setKaatjeVoiceCallback() {
+                @Override
+                public void onCompete() {
+                    if(_islast){
+                        _exercise._hasscore = true;
+                        _exercise._haspassed = input == _exercise.getSentence(_current).getValid() && _firstresult;
+                        _activity.goNext();
+                    }else{
+                        _islast = true;
+                        _firstresult = input == _exercise.getSentence(_current).getValid();
+
+                        _current = 1 - _current;
+                        ((TextView)view.findViewById(R.id.tvSentence)).setText(_exercise.getSentence(_current).getSentence());
+                        _activity.setKaatje_voice(_exercise.getSentence(_current).getVoice());
+                    }
+                }
+            });
+        }
+
+        private int getVoice(boolean correct){
+            if(correct){
+                return R.raw.sentence_true;
             }
+
+            return R.raw.sentence_false;
         }
     }
 }
