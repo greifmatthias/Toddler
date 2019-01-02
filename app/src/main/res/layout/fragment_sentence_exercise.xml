@@ -1,66 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Exercises.ListenExercise">
+    tools:context=".Exercises.ListenExercise"
+    android:weightSum="2"
+    android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="600dp"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_centerInParent="true"
-        android:gravity="center_horizontal">
+        android:layout_weight="1">
 
         <TextView
             android:id="@+id/tvSentence"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/textIncredible"
-            android:padding="@dimen/padSmall"
-            android:textColor="@color/colorDark"/>
+            android:textSize="@dimen/textExtrabig"
+            android:textColor="@color/colorDark"
+            android:textAlignment="center"
+            android:layout_centerInParent="true"/>
 
-        <LinearLayout
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_weight="1">
+
+        <RelativeLayout
+            android:id="@+id/rlRate_not"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2"
-            android:layout_marginTop="@dimen/padInsane">
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
-            <RelativeLayout
-                android:id="@+id/rlRate_not"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/ic_round_thumb_down"
+                android:layout_centerInParent="true"
+                android:tint="@color/colorNo"/>
 
-                <ImageView
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:src="@drawable/ic_round_thumb_down"
-                    android:layout_centerInParent="true"
-                    android:tint="@color/colorNo"/>
+        </RelativeLayout>
 
-            </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/rlRate_yes"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
-            <RelativeLayout
-                android:id="@+id/rlRate_yes"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/ic_round_thumb_up"
+                android:layout_centerInParent="true"
+                android:tint="@color/colorYes"/>
 
-                <ImageView
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:src="@drawable/ic_round_thumb_up"
-                    android:layout_centerInParent="true"
-                    android:tint="@color/colorYes"/>
-
-            </RelativeLayout>
-
-
-        </LinearLayout>
-
+        </RelativeLayout>
     </LinearLayout>
-
-
-</RelativeLayout>
+</LinearLayout>

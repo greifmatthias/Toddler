@@ -79,7 +79,7 @@ public class SortingExercise extends Exercise {
                 tiles.add(new Tile("Groen", R.drawable.groen, true));
                 tiles.add(new Tile("In de vijver", R.drawable.vijver, true));
                 tiles.add(new Tile("De lamp", R.drawable.lamp, false));
-                tiles.add(new Tile("De eend", R.drawable.eend, false));
+                tiles.add(new Tile("De eend", R.drawable.eend, true));
                 break;
             case "Het riet":
                 tiles.add(new Tile("De vijver", R.drawable.vijver, true));

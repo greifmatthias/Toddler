@@ -92,7 +92,7 @@ public class SectionExercise extends Exercise {
             case "Het kroos":
                 tiles.add(new Tile(R.drawable.kroos_01, true));
                 tiles.add(new Tile(R.drawable.kroos_02, true));
-                tiles.add(new Tile(R.drawable.kroos_03, false));
+                tiles.add(new Tile(R.drawable.kroos_03, true));
                 tiles.add(new Tile(R.drawable.kroos_false, false));
                 break;
             case "Het riet":
