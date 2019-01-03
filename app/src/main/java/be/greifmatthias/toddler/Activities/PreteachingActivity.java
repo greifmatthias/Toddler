@@ -47,7 +47,7 @@ public class PreteachingActivity extends Activity {
 //        Load data
         this._toddler = User.get(this.getIntent().getIntExtra("toddlerId", 0));
         this._end = this.getIntent().getBooleanExtra("end", false);
-        this._currentWord = 1; // 0 = TestExercise so skip this one
+        this._currentWord = 1; // 0 = Word for testexercising so skip
     }
 
     @Override
@@ -57,13 +57,17 @@ public class PreteachingActivity extends Activity {
         this.setContent();
     }
 
+    private MediaPlayer _player;
     private void setContent(){
 //        Set header
         this._tvWord.setText(this._toddler.getExercises().get(_currentWord).getWord());
 
 //        Set voice
-        MediaPlayer player = MediaPlayer.create(this, getVoice(this._toddler.getExercises().get(_currentWord).getWord()));
-        player.start();
+        if(this._player != null){
+            this._player.release();
+        }
+        this._player = MediaPlayer.create(this, getVoice(this._toddler.getExercises().get(_currentWord).getWord()));
+        this._player.start();
 
 //        Set images
         List<ImageView> images = new ArrayList<>();
